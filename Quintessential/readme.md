@@ -24,3 +24,13 @@ The Eclipse internal UML 2.5 ( URL: http://www.eclipse.org/uml2/5.0.0/UML ) is u
 
 The OWL2.ecore metamodel comes from the w3c ( https://www.w3.org/2007/OWL/wiki/MOF-Based_Metamodel ). It is not entirely sure whether this conforms to the latest specification, but it seems to work. 
 
+
+The input package Quintessential-SC1-Eclipse.uml is an export of a submodel of IEC57 CIM from Sparx Enterprise Architect
+The submodel is created by the Schema Composer component of Sparx EA. It is created as a Generic Transform. Appropriate artefacts from CIM are drawn into the subpackage, after which the submodel is copied into another view in Sparx EA. This view is then exported as uml2.5/xmi2.5.1 Not exporting diagrams en excluding EA extensions.
+
+The output cannot be read by Eclipse UML2 directly. to accommodate we use a Stylesheet ( xslt ) to transform a few minor things.
+Mainly the namespaces must be altered. 
+Because the EA internal xslt engine is not up to this namespace task, we use the Saxon processor ( http://saxon.sourceforge.net/ ).
+See ../xslt for this.
+
+We the import the .uml file into the ATL project and check whether it can be opened by the UML editor. This is prerequisite for an ATL transform to succeed.
