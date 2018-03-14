@@ -1,0 +1,43 @@
+<project name="QS2OWL" default="transfo">
+	<!-- Change this value if you want to use another base dir in the workspace -->
+	<property name="mybasedir" value="Quintessential"/>
+	<!-- Change this value if you want to use another input model -->
+	<property name="model" value="Quintessential-SC1-Eclipse"/>
+	
+	<target name="transfo" depends="loadModels">
+		
+		<atl.loadModel modelhandler="UML2" name="umlModel" metamodel="UML" path="${mybasedir}/${model}.uml"/>
+		
+		<atl.launch path="${mybasedir}/LinkED.asm">
+			<inModel name="IN" model="umlModel"/>
+			<inModel name="UML" model="UML"/>
+			<inModel name="OWL" model="OWL"/>
+			<outModel name="OUT" model="owlModel" metamodel="OWL"/>
+		</atl.launch>
+
+		<atl.saveModel model="owlModel" path="${mybasedir}/${model}.mmowl"/> 
+
+		<atl.launch path="${mybasedir}/LinkED-XML.asm">
+			<inModel name="IN" model="owlModel"/>
+			<inModel name="owl" model="OWL"/>
+			<inModel name="XML" model="XML"/>
+			<outModel name="OUT" model="xmlModel" metamodel="XML"/>
+		</atl.launch>
+
+		<atl.saveModel model="xmlModel" path="${mybasedir}/${model}.mmxml"/>
+		
+		<atl.saveModel model="xmlModel" path="${mybasedir}/${model}.owl">
+			<extractor name="XML"/>
+		</atl.saveModel>
+
+	</target>
+	
+	<target name="loadModels">
+		<!-- Load XML metamodel-->
+		<atl.loadModel modelHandler="EMF" name="XML" metamodel="MOF" path="${mybasedir}/XML.ecore"/>
+		<!-- Load UML 2.0 metamodel-->
+		<atl.loadModel modelHandler="UML2" name="UML" metamodel="MOF" nsuri="http://www.eclipse.org/uml2/5.0.0/UML"/>
+		<!-- Load OWL metamodel-->
+		<atl.loadModel modelHandler="EMF" name="OWL" metamodel="MOF" path="${mybasedir}/OWL2.ecore"/>
+	</target>
+</project>
