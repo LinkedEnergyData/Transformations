@@ -8,3 +8,6 @@ As already predicted the venom of this method is in the Primitives.
 To accomodate a uniform solution in ATL we transform all Primitives to one pattern in the stylesheet.
 
 Purpose of this model is ontology alignment with IEC57 CIM
+
+
+The project uses the OWL2.ecore and XML.Ecore from the Quintessential project. If this is unwanted, import these and change the run configurations and ant build
