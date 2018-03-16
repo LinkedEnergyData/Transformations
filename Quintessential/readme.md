@@ -36,3 +36,8 @@ See ../xslt for this.
 We import the .uml file into the ATL project and check whether it can be opened by the UML editor. This is prerequisite for an ATL transform to succeed. 
 
 The end result of the Ant Build is Quintessential-SC1-Eclipse.owl. This file can be read by Protege 5.1 without error.
+
+
+PS. The Ant Build doesn't work. right click on the buildfile, <run as>, <ant build....> on the <Main> tab, put
+  ${workspace_loc:/}
+in the <Base Directory> field and check <Run in the same JRE as the workbench> on the <JRE> tab.
