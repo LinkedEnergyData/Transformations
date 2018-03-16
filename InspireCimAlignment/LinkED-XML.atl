@@ -1,0 +1,473 @@
+
+module LinkEDXML;
+create OUT : XML from IN : OWL;
+
+
+helper def: namespaces: Map(String, String) =
+	Map {
+		('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'),
+	 	('rdfs', 'http://www.w3.org/2000/01/rdf-schema#'),
+	 	('owl', 'http://www.w3.org/2002/07/owl#'),
+		('xsd', 'http://www.w3.org/2001/XMLSchema#')
+	};
+
+helper def: getDefaultNamespace: String = OWL!Ontology.allInstancesFrom('IN')->first().ontologyURI.getURI();
+	
+helper def: defaultNamespace: String = '';	
+		
+helper context OWL!URI def: getURI() : String = self.value;
+
+lazy rule addAttribute {
+	from 
+		aai : TupleType(name : String, value : String)
+	to 
+		aao : XML!Attribute (
+			name <- aai.name,
+			value <- aai.value
+		)
+}
+
+lazy rule addText {
+	from 
+		ati : String
+	to 
+		ato : XML!Text (
+			name <- '#text',
+			value <- ati
+		)
+}
+
+lazy rule addNamespaces {
+	from
+		ani : String
+	to
+		ano : 
+			XML!Attribute (
+			name <- 'xmlns:' + ani,
+			value <- thisModule.namespaces.get(ani)
+		)
+}
+
+lazy rule addDefaultNamespace {
+	from
+		adni : OWL!Ontology
+	to
+		adno : XML!Attribute (
+			name <- 'xmlns',
+			value <- adni.ontologyURI.getURI()
+		)
+}
+
+helper context OWL!EquivalentClasses def: equivalentClassesIsEnum() : Boolean = self.equivalentClassExpressions->exists(e| e.oclIsTypeOf(OWL!ObjectOneOf));
+
+
+rule ontology2root {
+	from 
+		ori : OWL!Ontology
+	using {
+		ns : String = thisModule.defaultNamespace = thisModule.getDefaultNamespace;
+	}
+	to  
+		oro : XML!Root (
+ 			name <- 'rdf:RDF',
+			children <- Sequence { 
+				thisModule.namespaces.getKeys()->collect(e | thisModule.addNamespaces(e)),
+				thisModule.addDefaultNamespace(ori),
+				thisModule.ontology2element(ori),
+				OWL!Class.allInstancesFrom('IN')->collect( e | thisModule.class2element(e) ),
+				OWL!EquivalentClasses.allInstancesFrom('IN')->select(e|e.equivalentClassesIsEnum())->collect( e | thisModule.EquivalentClasses2enumeration(e) ),
+				OWL!ObjectProperty.allInstancesFrom('IN')->collect( e | thisModule.ObjectProperty2ObjectProperty(e) ),
+				OWL!DataProperty.allInstancesFrom('IN')->collect( e | thisModule.DataProperty2DataProperty(e) )--,
+				--thisModule.EndpointRule()
+				}
+			)
+ }
+
+lazy rule ObjectProperty2ObjectProperty {
+	from
+		opopi : OWL!ObjectProperty
+	to
+		opopo : XML!Element (
+ 			name <- 'owl:ObjectProperty',
+			children <-  Sequence { 
+ 				thisModule.addAttribute(Tuple{name='rdf:about', value=opopi.entityURI.getURI()}),
+				OWL!ObjectPropertyRange.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=opopi)->collect(e|thisModule.ObjectPropertyRange2RDFSRange(e)),
+				OWL!ObjectPropertyDomain.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=opopi)->collect(e|thisModule.ObjectPropertyDomain2RDFSDomain(e))
+ 				}
+			)	
+}
+
+lazy rule ObjectPropertyRange2RDFSRange {
+	from
+		oprri : OWL!ObjectPropertyRange
+	to
+		oprro : XML!Element (
+ 			name <- 'rdfs:range',
+			children <- thisModule.addAttribute( Tuple{name='rdf:resource', value=oprri.range.entityURI.getURI()})
+			)
+}
+
+lazy rule ObjectPropertyDomain2RDFSDomain {
+	from
+		oprdi : OWL!ObjectPropertyDomain
+	to
+		oprdo : XML!Element (
+ 			name <- 'rdfs:domain',
+			children <-  thisModule.addAttribute( Tuple{name='rdf:resource', value=oprdi.domain.entityURI.getURI()}) 
+			)
+}
+
+lazy rule DataProperty2DataProperty {
+	from
+		dpopi : OWL!DataProperty
+	to
+		dpopo : XML!Element (
+ 			name <- 'owl:DatatypeProperty',
+			children <-  Sequence { 
+ 				thisModule.addAttribute(Tuple{name='rdf:about', value=dpopi.entityURI.getURI()}),
+					OWL!DataPropertyRange.allInstancesFrom('IN')->select(e|e.dataPropertyExpression=dpopi)->collect(e|thisModule.DataPropertyRange2RDFSRange(e)),
+					OWL!DataPropertyDomain.allInstancesFrom('IN')->select(e|e.dataPropertyExpression=dpopi)->collect(e|thisModule.DataPropertyDomain2RDFSDomain(e))
+ 				}
+			)	
+}
+
+
+lazy rule DataPropertyRange2RDFSRange {
+	from
+		dprri : OWL!DataPropertyRange
+	to
+		dprro : XML!Element (
+ 			name <- 'rdfs:range',
+			children <- thisModule.addAttribute( Tuple{name='rdf:resource', value=dprri.range.entityURI.getURI()})
+			)
+}
+
+lazy rule DataPropertyDomain2RDFSDomain {
+	from
+		dprdi : OWL!DataPropertyDomain
+	to
+		dprdo : XML!Element (
+ 			name <- 'rdfs:domain',
+			children <-  thisModule.addAttribute( Tuple{name='rdf:resource', value=dprdi.domain.entityURI.getURI()}) 
+			)
+}
+
+lazy rule ontology2element {
+	from 
+ 		oei : OWL!Ontology
+ 	to
+ 		oeo : XML!Element (
+ 			name <- 'owl:Ontology',
+			children <-  thisModule.addAttribute( Tuple{name='rdf:about', value=thisModule.defaultNamespace}) 
+			)
+}
+
+
+helper context OWL!EquivalentClasses def: equivalentClassesIsCardinality() : Boolean = self.equivalentClassExpressions->includes(OWL!DataExactCardinality) or 
+			self.equivalentClassExpressions->includes(OWL!DataMaxCardinality) or 
+			self.equivalentClassExpressions->includes(OWL!DataMinCardinality) or 
+			self.equivalentClassExpressions->includes(OWL!ObjectExactCardinality) or 
+			self.equivalentClassExpressions->includes(OWL!ObjectMaxCardinality) or 
+			self.equivalentClassExpressions->includes(OWL!ObjectMinCardinality);
+
+helper context OWL!EquivalentClasses def: equivalentClassesIsObjectExactCardinality() : Boolean = self.equivalentClassExpressions->exists(e| e.oclIsTypeOf(OWL!ObjectExactCardinality));
+helper context OWL!EquivalentClasses def: equivalentClassesIsObjectMaxCardinality() : Boolean = self.equivalentClassExpressions->exists(e| e.oclIsTypeOf(OWL!ObjectMaxCardinality));
+helper context OWL!EquivalentClasses def: equivalentClassesIsObjectMinCardinality() : Boolean = self.equivalentClassExpressions->exists(e| e.oclIsTypeOf(OWL!ObjectMinCardinality));
+helper context OWL!EquivalentClasses def: equivalentClassesIsDataExactCardinality() : Boolean = self.equivalentClassExpressions->exists(e| e.oclIsTypeOf(OWL!DataExactCardinality));
+helper context OWL!EquivalentClasses def: equivalentClassesIsDataMaxCardinality() : Boolean = self.equivalentClassExpressions->exists(e| e.oclIsTypeOf(OWL!DataMaxCardinality));
+helper context OWL!EquivalentClasses def: equivalentClassesIsDataMinCardinality() : Boolean = self.equivalentClassExpressions->exists(e| e.oclIsTypeOf(OWL!DataMinCardinality));
+
+helper context OWL!EquivalentClasses def: equivalentClassesIsClass(cl : OWL!Class) : Boolean = self.equivalentClassExpressions->select(e | e.oclType()=OWL!Class)->first() = cl;
+
+lazy rule class2element {
+	from 
+		cei : OWL!Class
+	using {
+			eqclss : Sequence(OWL!EquivalentClasses) = OWL!EquivalentClasses.allInstancesFrom('IN')->select(e| e.equivalentClassesIsClass(cei) );
+			eqclss_oec : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassesIsObjectExactCardinality(e));
+			eqclss_omaxc : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassesIsObjectMaxCardinality(e));
+			eqclss_ominc : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassesIsObjectMinCardinality(e));
+			eqclss_dec : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassesIsDataExactCardinality(e));
+			eqclss_dmaxc : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassesIsDataMaxCardinality(e));
+			eqclss_dminc : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassesIsDataMinCardinality(e));
+	}
+	to
+		ceo :   XML!Element (
+ 			name <- 'owl:Class',
+			children <- Sequence { 
+ 				thisModule.addAttribute( Tuple{name='rdf:about', value=cei.entityURI.getURI()}),
+				OWL!SubClassOf.allInstancesFrom('IN')->select( e | e.subClassExpression =  cei )->collect(d | thisModule.SubClassOf2element(d)),
+				eqclss_oec->collect(e|thisModule.EquivalentClasses2ObjectExactCardinality(e)),
+				eqclss_omaxc->collect(e|thisModule.EquivalentClasses2ObjectMaxCardinality(e)),
+				eqclss_ominc->collect(e|thisModule.EquivalentClasses2ObjectMinCardinality(e)),
+				eqclss_dec->collect(e|thisModule.EquivalentClasses2DataExactCardinality(e)),
+				eqclss_dmaxc->collect(e|thisModule.EquivalentClasses2DataMaxCardinality(e)),
+				eqclss_dminc->collect(e|thisModule.EquivalentClasses2DataMinCardinality(e))
+				}
+ 		)
+}
+
+lazy rule EquivalentClasses2ObjectExactCardinality{
+	from 
+	 	ecoeci : OWL!EquivalentClasses
+	using {
+	 	ecoeci_cd : OWL!ObjectExactCardinality = ecoeci.equivalentClassExpressions->select(e | e.oclType()=OWL!ObjectExactCardinality)->first();
+	}
+	to
+		ecoeco : XML!Element (
+		 	name <- 'owl:equivalentClass',
+			children <- ecoeco1
+		 	),
+		 ecoeco1 : XML!Element (
+		 	name <- 'owl:Restriction',
+			children <- Sequence{ecoeco2, ecoeco3, ecoeco4}	 	
+		 	),
+		 ecoeco2 : XML!Element (
+		 	name <- 'owl:onProperty',
+			children <- thisModule.addAttribute( Tuple{name='rdf:resource',  value=ecoeci_cd.objectPropertyExpression.entityURI.getURI()})	
+		 	),
+		 ecoeco3 : XML!Element (
+ 			name <- 'owl:qualifiedCardinality',
+			children <- Sequence { 
+				thisModule.addAttribute( Tuple{name='rdf:datatype',  value='http://www.w3.org/2001/XMLSchema#nonNegativeInteger'}),
+ 				thisModule.addText(ecoeci_cd.cardinality.toString())
+				}
+		 	),
+		 ecoeco4 : XML!Element (
+ 			name <- 'owl:onClass',
+			children <- thisModule.addAttribute( Tuple{name='rdf:resource',  value=ecoeci.equivalentClassExpressions->first().entityURI.getURI()})
+		 	)
+}
+
+lazy rule EquivalentClasses2ObjectMaxCardinality{
+	from 
+		ecomaxci : OWL!EquivalentClasses
+	using {
+	 	ecomaxci_cd : OWL!ObjectMaxCardinality = ecomaxci.equivalentClassExpressions->select(e | e.oclType()=OWL!ObjectMaxCardinality)->first();
+	}
+	 to
+		 ecomaxco : XML!Element (
+		 	name <- 'owl:equivalentClass',
+			children <- ecomaxco1
+		 	),
+		 ecomaxco1 : XML!Element (
+		 	name <- 'owl:Restriction',
+			children <- Sequence{ecomaxco2, ecomaxco3, ecomaxco4}	 	
+		 	),
+		 ecomaxco2 : XML!Element (
+		 	name <- 'owl:onProperty',
+			children <- thisModule.addAttribute( Tuple{name='rdf:resource',  value=ecomaxci_cd.objectPropertyExpression.entityURI.getURI()})	
+		 	),
+		 ecomaxco3 : XML!Element (
+ 			name <- 'owl:maxQualifiedCardinality',
+			children <- Sequence { 
+				thisModule.addAttribute( Tuple{name='rdf:datatype',  value='http://www.w3.org/2001/XMLSchema#nonNegativeInteger'}),
+ 				thisModule.addText(ecomaxci_cd.cardinality.toString() )
+				}
+		 	),
+		 ecomaxco4 : XML!Element (
+ 			name <- 'owl:onClass',
+			children <- thisModule.addAttribute( Tuple{name='rdf:resource',  value=ecomaxci.equivalentClassExpressions->first().entityURI.getURI()})
+		 	)
+}
+
+lazy rule EquivalentClasses2ObjectMinCardinality{
+	from 
+	 ecominci : OWL!EquivalentClasses
+	 using {
+	 	ecominci_cd : OWL!ObjectExactCardinality = ecominci.equivalentClassExpressions->select(e | e.oclType()=OWL!ObjectMinCardinality)->first();
+	 }
+	 to
+		 ecominco : XML!Element (
+		 	name <- 'owl:equivalentClass',
+			children <- ecominco1
+		 	),
+		 ecominco1 : XML!Element (
+		 	name <- 'owl:Restriction',
+			children <- Sequence{ecominco2, ecominco3, ecominco4}	 	
+		 	),
+		 ecominco2 : XML!Element (
+		 	name <- 'owl:onProperty',
+			children <- thisModule.addAttribute( Tuple{name='rdf:resource',  value=ecominci_cd.objectPropertyExpression.entityURI.getURI()})	
+		 	),
+		 ecominco3 : XML!Element (
+ 			name <- 'owl:minQualifiedCardinality',
+			children <- Sequence { 
+				thisModule.addAttribute( Tuple{name='rdf:datatype',  value='http://www.w3.org/2001/XMLSchema#nonNegativeInteger'}),
+ 				thisModule.addText(ecominci_cd.cardinality.toString())
+				}
+		 	),
+		 ecominco4 : XML!Element (
+ 			name <- 'owl:onClass',
+			children <- thisModule.addAttribute( Tuple{name='rdf:resource',  value=ecominci_cd.classExpression.entityURI.getURI()})
+		 	)
+}
+
+lazy rule EquivalentClasses2DataExactCardinality{
+	from 
+	 ecdeci : OWL!EquivalentClasses
+	 using {
+	 	ecdeci_cd : OWL!DataExactCardinality = ecdeci.equivalentClassExpressions->select(e | e.oclType()=OWL!DataExactCardinality)->first();
+	 }
+	 to
+		 ecdeco : XML!Element (
+		 	name <- 'owl:equivalentClass',
+			children <- ecdeco1
+		 	),
+		 ecdeco1 : XML!Element (
+		 	name <- 'owl:Restriction',
+			children <- Sequence{ecdeco2, ecdeco3, ecdeco4}	 	
+		 	),
+		 ecdeco2 : XML!Element (
+		 	name <- 'owl:onProperty',
+			children <- thisModule.addAttribute( Tuple{name='rdf:resource',  value=ecdeci_cd.dataPropertyExpression.entityURI.getURI()})	
+		 	),
+		 ecdeco3 : XML!Element (
+ 			name <- 'owl:qualifiedCardinality',
+			children <- Sequence { 
+				thisModule.addAttribute( Tuple{name='rdf:datatype',  value='http://www.w3.org/2001/XMLSchema#nonNegativeInteger'}),
+ 				thisModule.addText(ecdeci_cd.cardinality.toString())
+				}
+		 	),
+		 ecdeco4 : XML!Element (
+ 			name <- 'owl:onDataRange',
+			children <- thisModule.addAttribute( Tuple{name='rdf:resource',  value=ecdeci_cd.dataRange.entityURI.getURI()})
+		 	)
+}
+
+lazy rule EquivalentClasses2DataMaxCardinality{
+	from 
+	 ecdmaxci : OWL!EquivalentClasses
+	 using {
+	 	ecdmaxci_cd : OWL!DataMaxCardinality = ecdmaxci.equivalentClassExpressions->select(e | e.oclType()=OWL!DataMaxCardinality)->first();
+	 }
+	 to
+		 ecdmaxco : XML!Element (
+		 	name <- 'owl:equivalentClass',
+			children <- ecdmaxco1
+		 	),
+		 ecdmaxco1 : XML!Element (
+		 	name <- 'owl:Restriction',
+			children <- Sequence{ecdmaxco2, ecdmaxco3, ecdmaxco4}	 	
+		 	),
+		 ecdmaxco2 : XML!Element (
+		 	name <- 'owl:onProperty',
+			children <- thisModule.addAttribute( Tuple{name='rdf:resource',  value=ecdmaxci_cd.dataPropertyExpression.entityURI.getURI()})	
+		 	),
+		 ecdmaxco3 : XML!Element (
+ 			name <- 'owl:maxQualifiedCardinality',
+			children <- Sequence { 
+				thisModule.addAttribute( Tuple{name='rdf:datatype',  value='http://www.w3.org/2001/XMLSchema#nonNegativeInteger'}),
+ 				thisModule.addText(ecdmaxci_cd.cardinality.toString())
+				}
+		 	),
+		 ecdmaxco4 : XML!Element (
+ 			name <- 'owl:onDataRange',
+			children <- thisModule.addAttribute( Tuple{name='rdf:resource',  value=ecdmaxci_cd.dataRange.entityURI.getURI()})
+		 	)
+}
+
+lazy rule EquivalentClasses2DataMinCardinality{
+	from 
+	 ecdminci : OWL!EquivalentClasses
+	 using {
+	 	ecdminci_cd : OWL!DataMinCardinality = ecdminci.equivalentClassExpressions->select(e | e.oclType()=OWL!DataMinCardinality)->first();
+	 }
+	 to
+		 ecdminco : XML!Element (
+		 	name <- 'owl:equivalentClass',
+			children <- ecdminco1
+		 	),
+		 ecdminco1 : XML!Element (
+		 	name <- 'owl:Restriction',
+			children <- Sequence{ecdminco2, ecdminco3, ecdminco4}	 	
+		 	),
+		 ecdminco2 : XML!Element (
+		 	name <- 'owl:onProperty',
+			children <- thisModule.addAttribute( Tuple{name='rdf:resource',  value=ecdminci_cd.dataPropertyExpression.entityURI.getURI()})	
+		 	),
+		 ecdminco3 : XML!Element (
+ 			name <- 'owl:minQualifiedCardinality',
+			children <- Sequence { 
+				thisModule.addAttribute( Tuple{name='rdf:datatype',  value='http://www.w3.org/2001/XMLSchema#nonNegativeInteger'}),
+ 				thisModule.addText(ecdminci_cd.cardinality.toString())
+				}
+		 	),
+		 ecdminco4 : XML!Element (
+ 			name <- 'owl:onDataRange',
+			children <- thisModule.addAttribute( Tuple{name='rdf:resource',  value=ecdminci_cd.dataRange.entityURI.getURI()})
+		 	)
+}
+
+lazy rule SubClassOf2element {
+	from 
+		fes : OWL!SubClassOf
+
+	to
+		feo : XML!Element (
+			name <- 'rdfs:subClassOf',
+			children <- thisModule.addAttribute( Tuple{name='rdf:resource', value=fes.superClassExpression.entityURI.getURI()})
+			)
+}
+
+lazy rule EquivalentClasses2enumeration {
+	from 
+		ecei : OWL!EquivalentClasses
+
+	to
+		eceo : XML!Element (
+			name <- 'owl:Class',
+			children <- Sequence { 
+				thisModule.addAttribute( Tuple{name='rdf:about', value=ecei.equivalentClassExpressions->first().entityURI.getURI()}),
+				thisModule.EquivalentClasses2EquivalentClass(ecei)
+				}
+			)
+}
+
+
+lazy rule EquivalentClasses2EquivalentClass {
+	from 
+		ececi : OWL!EquivalentClasses
+	to
+		ececo : XML!Element (
+			name <- 'owl:equivalentClass',
+			children <- thisModule.EquivalentClasses2Class(ececi)
+			)
+}
+
+lazy rule EquivalentClasses2Class {
+	from 
+		ecci : OWL!EquivalentClasses
+	to
+		ecco : XML!Element (
+			name <- 'owl:Class',
+			children <- Sequence { 
+				thisModule.ObjectOneOf2OneOf(ecci.equivalentClassExpressions->at(2))
+				}
+			)
+}
+
+lazy rule ObjectOneOf2OneOf {
+	from 
+		oooi : OWL!ObjectOneOf
+	to
+		oooo : XML!Element (
+			name <- 'owl:oneOf',
+			children <- Sequence { 
+				thisModule.addAttribute( Tuple{name='rdf:parseType', value='Collection'}),
+				oooi.individuals->collect(e | thisModule.NamedIndividual2rdfabout(e) )
+				}
+			)
+}
+
+lazy rule NamedIndividual2rdfabout {
+	from 
+		niri : OWL!NamedIndividual
+	to
+		niro : XML!Element (
+			name <- 'rdf:Description',
+			children <- thisModule.addAttribute(Tuple{name='rdf:about', value=niri.entityURI.getURI()})
+			)
+}
+
+

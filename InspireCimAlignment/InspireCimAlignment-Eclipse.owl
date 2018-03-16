@@ -1,0 +1,1841 @@
+<?xml version = '1.0' encoding = 'ISO-8859-1' ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns="http://www.enexis.nl/EA_Model">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#ActivityComplex">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex.inspireId"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex.geometry"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex.function"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#Function"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex.validFrom"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex.beginLifespanVersion"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex.name"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex.validTo"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex.endLifespanVersion"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Appurtenance">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#UtilityNode"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Appurtenance.appurtenanceType"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#Appurtenance"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Appurtenance.specificAppurtenanceType"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#Appurtenance"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#AppurtenanceTypeValue"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#CI_Citation">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#CI_Citation.title"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#CI_Citation.edition"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#CI_Citation.editionDate"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#CI_Citation.otherCitationDetails"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#CI_Citation.collectiveTitle"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#CI_Citation.ISBN"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#CI_Citation.ISSN"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Cabinet">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#UtilityNodeContainer"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Cable">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#UtilityLinkSet"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#ClockTime">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#ClockTime.hour"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#ClockTime.minute"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#ClockTime.second"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#ClockTime.timeZone"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#DQ_Element">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#DQ_Element.measureIdentification"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#DQ_Element"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#DQ_Element.evaluationMethodType"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#DQ_Element"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#DQ_Element.result"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#DQ_Element"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#DQ_Element.result"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#DQ_Result"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#DQ_Element.measureDescription"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#DQ_Element.evaluationMethodDescription"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#DQ_PositionalAccuracy">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#DQ_Element"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#DQ_Result"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#DirectPosition">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#DirectPosition.CRS"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#DirectPosition"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#DirectPosition.coordinate"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#DirectPosition.dimension"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#DirectedLink">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#DirectedLink.direction"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#DirectedLink"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#DirectedLink.link"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#DirectedLink"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Duct">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#UtilityLinkSet"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#EX_Extent">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#EX_Extent.description"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#EconomicActivityValue"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#ElectricityCable">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#Cable"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#ElectricityCable.operatingVoltage"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#ElectricityCable"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#ElectricityCable.nominalVoltage"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#ElectricityCable"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Function">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Function.activity"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#EconomicActivityValue"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Function.description"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GM_Complex">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#GM_Object"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GM_Composite">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#GM_Complex"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GM_Composite.generator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#GM_Primitive"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GM_CompositeCurve">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#GM_Composite"/>
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#GM_OrientableCurve"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GM_CompositeCurve.generator"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#GM_OrientableCurve"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GM_CompositePoint">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#GM_Composite"/>
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#GM_Point"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GM_CompositePoint.generator"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#GM_CompositePoint"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GM_Curve">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#GM_OrientableCurve"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GM_Curve.segment"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#GM_CurveSegment"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GM_CurveSegment">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GM_CurveSegment.interpolation"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#GM_CurveSegment"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GM_CurveSegment.numDerivativesAtStart"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GM_CurveSegment.numDerivativesAtEnd"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GM_CurveSegment.numDerivativeInterior"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GM_Object">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GM_Object.CRS"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#GM_Object"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GM_OrientableCurve">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#GM_OrientablePrimitive"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GM_OrientablePrimitive">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#GM_Primitive"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GM_OrientablePrimitive.orientation"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#GM_OrientablePrimitive"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GM_Point">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#GM_Primitive"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GM_Point.position"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#GM_Point"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GM_Primitive">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#GM_Object"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GeneralisedLink">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#NetworkElement"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GenericName"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GeographicalName">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName.nativeness"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName.nameStatus"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName.pronunciation"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName.grammaticalGender"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName.grammaticalNumber"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName.spelling"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#SpellingOfName"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName.language"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName.sourceOfName"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GovernmentalService">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GovernmentalService.inspireId"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#GovernmentalService"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#GovernmentalService.areaOfResponsibility"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#GovernmentalService"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#IO_IdentifiedObject">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#IO_IdentifiedObjectBase"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#IO_IdentifiedObject.name"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#IO_IdentifiedObject"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#IO_IdentifiedObjectBase">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#IO_IdentifiedObjectBase.remarks"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Identifier">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Identifier.localId"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Identifier.namespace"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Identifier.versionId"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#InputOutputValue"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Length">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#Measure"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Length.uom"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#Length"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Link">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#GeneralisedLink"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Link.centrelineGeometry"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#Link"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Link.startNode"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#Link"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Link.endNode"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#Link"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Link.fictitious"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#LinkSequence">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#GeneralisedLink"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#LinkSequence.link"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#DirectedLink"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#LinkSet">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#NetworkElement"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#LinkSet.link"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#GeneralisedLink"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#LocalName">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#GenericName"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#LocationReference">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#LocationReference.networkReference"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#LocationReference"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#MD_Identifier">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#MD_Identifier.code"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Manhole">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#UtilityNodeContainer"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Measure">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Measure.value"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#Measure"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Measure.uom"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#Measure"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#NameSpace">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#NameSpace.isGlobal"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Network"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#NetworkElement">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#NetworkElement.inspireId"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#NetworkElement"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#NetworkElement.inNetwork"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#Network"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#NetworkElement.beginLifespanVersion"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#NetworkElement.endLifespanVersion"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Node">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#NetworkElement"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Node.geometry"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#Node"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#NodeLocationReference">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#PointLocationReference"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Number"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Pipe">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#UtilityLinkSet"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Pipe.pipeDiameter"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#Pipe"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Pipe.pressure"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#Pipe"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#PointLocationReference">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#LocationReference"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Pole">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#UtilityNodeContainer"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Pole.poleHeight"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#Pole"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#PronunciationOfName">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#PronunciationOfName.pronunciationSoundLink"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#PronunciationOfName"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#PronunciationOfName.pronunciationIPA"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#RS_Identifier">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#MD_Identifier"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#RS_Identifier.codeSpace"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#RS_Identifier.version"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#RS_ReferenceSystem">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#RS_ReferenceSystem.name"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#RS_ReferenceSystem"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#RS_ReferenceSystem.domainOfValidity"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#RS_ReferenceSystem"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Real">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#Number"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#SC_CRS">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#IO_IdentifiedObjectBase"/>
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#RS_ReferenceSystem"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#SC_CRS.scope"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Sequence&lt;Character&gt;"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#SpecificAppurtenanceTypeValue"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#SpellingOfName">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#SpellingOfName.text"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#SpellingOfName.script"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#SpellingOfName.transliterationScheme"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#ThematicIdentifier">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#ThematicIdentifier.identifier"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#ThematicIdentifier.identifierScheme"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Tower">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#UtilityNodeContainer"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#Tower.towerHeight"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#Tower"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#TypeName">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#LocalName"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#TypeName.aName"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#URI"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#UnitOfMeasure">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure.measureType"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure.scaleToStandardUnit"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure.offsetToStandardUnit"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure.subunit"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure.uomName"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure.uomSymbol"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure.nameStandardUnit"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure.formula"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#UomLength">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#UtilityLinkSequence">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement"/>
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#LinkSequence"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#UtilityLinkSet">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement"/>
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#LinkSet"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UtilityLinkSet.warningType"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#UtilityLinkSet"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UtilityLinkSet.utilityDeliveryType"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#UtilityLinkSet"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#UtilityNetworkElement">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement.currentStatus"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement.verticalPosition"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement.utilityFacilityReference"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement.governmentalServiceReference"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement.validFrom"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement.validTo"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#UtilityNode">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement"/>
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#Node"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#UtilityNodeContainer">
+    <rdfs:subClassOf rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UtilityNodeContainer.geometry"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#UtilityNodeContainer"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.enexis.nl/EA_Model#UtilityNodeContainer.inspireId"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.enexis.nl/EA_Model#UtilityNodeContainer"/>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#AreaOfResponsibilityType"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#DQ_EvaluationMethodTypeCode"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#ElectricityAppurtenanceTypeValue"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GM_CurveInterpolation"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GrammaticalGenderValue"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GrammaticalNumberValue"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#MeasureType"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#NameStatusValue"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#NativenessValue"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#UtilityDeliveryTypeValue"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#UtilityNetworkTypeValue"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#WarningTypeValue"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#ConditionOfFacilityValue"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Sign"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#VerticalPositionValue"/>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#DQ_EvaluationMethodTypeCode">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#directInternal"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#directExternal"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#indirect"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#ElectricityAppurtenanceTypeValue">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#capacitorControl"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#connectionBox"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#correctingEquipment"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#deliveryPoint"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#dynamicProtectiveDevice"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#fuse"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#generator"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#loadTapChanger"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#mainStation"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#netStation"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#networkProtector"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#openPoint"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#primaryMeter"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#recloserElectronicControl"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#recloserHydraulicControl"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#regulatorControl"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#relayControl"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#sectionalizerElectronicControl"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#sectionalizerHydraulicControl"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#streetLight"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#subStation"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#switch"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#transformer"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#voltageRegulator"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#detectionEquipment"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#pointSettingMachine"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#monitoringAndControlEquipment"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#anode"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GM_CurveInterpolation">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#linear"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#geodesic"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#circularArc3Points"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#circularArc2PointWithBulge"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#elliptical"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#clothoid"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#conic"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#polynomialSpline"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#cubicSpline"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#rationalSpline"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GrammaticalGenderValue">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#masculine"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#feminine"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#neuter"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#common"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#GrammaticalNumberValue">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#singular"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#plural"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#dual"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#MeasureType">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#area"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#length"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#angle"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#time"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#velocity"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#volume"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#scale"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#weight"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#NameStatusValue">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#official"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#standardised"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#historical"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#other"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#NativenessValue">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#endonym"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#exonym"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#UtilityDeliveryTypeValue">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#collection"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#distribution"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#private"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#transport"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#UtilityNetworkTypeValue">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#electricity"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#oilGasChemicals"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#sewer"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#water"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#thermal"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#telecommunications"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#WarningTypeValue">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#net"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#tape"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#concretePaving"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#ConditionOfFacilityValue">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#disused"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#functional"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#projected"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#underConstruction"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#decommissioned"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Sign">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#Positve"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#Negative"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.enexis.nl/EA_Model#VerticalPositionValue">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#onGroundSurface"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#suspendedOrElevated"/>
+          <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#underground"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Pipe_cables">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Pipe"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Cable"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Duct_cables">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Duct"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Cable"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Coordinate Reference System">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#SC_CRS"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#DirectPosition"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#link_DirectedLink">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Link"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#DirectedLink"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Duct_ducts">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Duct"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Duct"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Duct_pipes">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Duct"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Pipe"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Complex">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_Primitive"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_Complex"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Contains">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_Complex"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_Complex"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Composition">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_Composite"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_Primitive"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Composition">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_OrientableCurve"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_CompositeCurve"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Composition">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_CompositePoint"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_Point"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Segmentation">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_Curve"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_CurveSegment"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Coordinate Reference System">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#SC_CRS"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_Object"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Oriented">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_OrientablePrimitive"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_Primitive"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Interior to">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_Primitive"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_Primitive"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#LinkSet_link">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#LinkSet"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GeneralisedLink"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Scope">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#NameSpace"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GenericName"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#startNode_spokeStart">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Node"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Link"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#endNode_spokeEnd">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Node"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Link"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#UnitOfMeasure">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Measure"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#elements_inNetwork">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#NetworkElement"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Network"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#node_NodeLocationReference">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Node"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#NodeLocationReference"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Pipe_pipes">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Pipe"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Pipe"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#UtilityNodeContainer_nodes">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#UtilityNodeContainer"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UtilityNode"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#ActivityComplex.inspireId">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Identifier"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#ActivityComplex.thematicId">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#ThematicIdentifier"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#ActivityComplex.geometry">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_Object"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#ActivityComplex.function">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Function"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Appurtenance.appurtenanceType">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#AppurtenanceTypeValue"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Appurtenance"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Appurtenance.specificAppurtenanceType">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#SpecificAppurtenanceTypeValue"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Appurtenance"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#CI_Citation.identifier">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#MD_Identifier"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#CI_Citation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#DQ_Element.measureIdentification">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#MD_Identifier"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#DQ_Element"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#DQ_Element.evaluationMethodType">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#DQ_EvaluationMethodTypeCode"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#DQ_Element"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#DQ_Element.result">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#DQ_Result"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#DQ_Element"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#DirectPosition.CRS">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#SC_CRS"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#DirectPosition"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#DirectedLink.direction">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Sign"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#DirectedLink"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#DirectedLink.link">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Link"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#DirectedLink"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Duct.pipes">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Pipe"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Duct"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Duct.ducts">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Duct"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Duct"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Duct.cables">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Cable"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Duct"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#ElectricityCable.operatingVoltage">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Measure"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#ElectricityCable"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#ElectricityCable.nominalVoltage">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Measure"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#ElectricityCable"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Function.activity">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#EconomicActivityValue"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Function"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Function.input">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#InputOutputValue"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Function"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Function.output">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#InputOutputValue"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Function"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GM_Complex.subComplex">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_Complex"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_Complex"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GM_Complex.superComplex">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_Complex"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_Complex"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GM_Composite.generator">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_Primitive"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_Composite"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GM_CompositeCurve.generator">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_OrientableCurve"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_CompositeCurve"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GM_CompositePoint.generator">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_Point"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_CompositePoint"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GM_Curve.segment">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_CurveSegment"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_Curve"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GM_CurveSegment.interpolation">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_CurveInterpolation"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_CurveSegment"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GM_Object.CRS">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#SC_CRS"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_Object"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GM_OrientablePrimitive.orientation">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Sign"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_OrientablePrimitive"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GM_Point.position">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#DirectPosition"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_Point"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GeographicalName.nativeness">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#NativenessValue"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GeographicalName.nameStatus">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#NameStatusValue"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GeographicalName.pronunciation">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#PronunciationOfName"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GeographicalName.spelling">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#SpellingOfName"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GeographicalName.grammaticalGender">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GrammaticalGenderValue"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GeographicalName.grammaticalNumber">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GrammaticalNumberValue"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GovernmentalService.areaOfResponsibility">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#AreaOfResponsibilityType"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GovernmentalService"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#GovernmentalService.inspireId">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Identifier"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GovernmentalService"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#IO_IdentifiedObject.name">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#RS_Identifier"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#IO_IdentifiedObject"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#IO_IdentifiedObjectBase.identifier">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#RS_Identifier"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#IO_IdentifiedObjectBase"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#IO_IdentifiedObjectBase.alias">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GenericName"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#IO_IdentifiedObjectBase"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Length.uom">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#UomLength"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Length"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Link.centrelineGeometry">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_Curve"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Link"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Link.startNode">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Node"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Link"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Link.endNode">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Node"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Link"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#LinkSequence.link">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#DirectedLink"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#LinkSequence"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#LinkSet.link">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GeneralisedLink"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#LinkSet"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#LocationReference.networkReference">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#CI_Citation"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#LocationReference"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Measure.value">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Number"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Measure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Measure.uom">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Measure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#NameSpace.acceptableClassList">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#TypeName"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#NameSpace"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Network.geographicalName">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Network"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Network.elements">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#NetworkElement"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Network"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#NetworkElement.inspireId">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Identifier"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#NetworkElement"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#NetworkElement.inNetwork">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Network"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#NetworkElement"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Node.geometry">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_Point"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Node"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Node.spokeStart">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Link"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Node"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Node.spokeEnd">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Link"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Node"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Pipe.pipeDiameter">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Measure"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Pipe"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Pipe.pressure">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Measure"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Pipe"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Pipe.pipes">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Pipe"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Pipe"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Pipe.cables">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Cable"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Pipe"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Pole.poleHeight">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Length"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Pole"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#PronunciationOfName.pronunciationSoundLink">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#URI"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#PronunciationOfName"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#RS_ReferenceSystem.name">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#RS_Identifier"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#RS_ReferenceSystem"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#RS_ReferenceSystem.domainOfValidity">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#EX_Extent"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#RS_ReferenceSystem"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#Tower.towerHeight">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Length"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Tower"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#UnitOfMeasure.measureType">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#MeasureType"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#UnitOfMeasure.scaleToStandardUnit">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Real"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#UnitOfMeasure.offsetToStandardUnit">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Real"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#UnitOfMeasure.subunit">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#UtilityLinkSet.utilityDeliveryType">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#UtilityDeliveryTypeValue"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UtilityLinkSet"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#UtilityLinkSet.warningType">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#WarningTypeValue"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UtilityLinkSet"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#UtilityNetworkElement.currentStatus">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#ConditionOfFacilityValue"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#UtilityNetworkElement.verticalPosition">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#VerticalPositionValue"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#UtilityNetworkElement.utilityFacilityReference">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#UtilityNetworkElement.governmentalServiceReference">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GovernmentalService"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#UtilityNodeContainer.geometry">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#GM_Point"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UtilityNodeContainer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#UtilityNodeContainer.inspireId">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#Identifier"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UtilityNodeContainer"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.enexis.nl/EA_Model#UtilityNodeContainer.nodes">
+    <rdfs:range rdf:resource="http://www.enexis.nl/EA_Model#UtilityNode"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UtilityNodeContainer"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#ActivityComplex.name">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#ActivityComplex.validFrom">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#ActivityComplex.validTo">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#ActivityComplex.beginLifespanVersion">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#ActivityComplex.endLifespanVersion">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#ActivityComplex"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#CI_Citation.title">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#CI_Citation"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#CI_Citation.alternateTitle">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#CI_Citation"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#CI_Citation.edition">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#CI_Citation"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#CI_Citation.editionDate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#CI_Citation"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#CI_Citation.otherCitationDetails">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#CI_Citation"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#CI_Citation.collectiveTitle">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#CI_Citation"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#CI_Citation.ISBN">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#CI_Citation"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#CI_Citation.ISSN">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#CI_Citation"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#ClockTime.hour">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#ClockTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#ClockTime.minute">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#ClockTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#ClockTime.second">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#ClockTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#ClockTime.timeZone">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#ClockTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#DQ_Element.nameOfMeasure">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#DQ_Element"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#DQ_Element.measureDescription">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#DQ_Element"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#DQ_Element.evaluationMethodDescription">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#DQ_Element"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#DQ_Element.dateTime">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#DQ_Element"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#DirectPosition.coordinate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#DirectPosition"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#DirectPosition.dimension">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#DirectPosition"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#EX_Extent.description">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#EX_Extent"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#Function.description">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Function"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#GM_CurveSegment.numDerivativesAtStart">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_CurveSegment"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#GM_CurveSegment.numDerivativesAtEnd">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_CurveSegment"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#GM_CurveSegment.numDerivativeInterior">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GM_CurveSegment"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#GeographicalName.language">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#GeographicalName.sourceOfName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#GeographicalName"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#IO_IdentifiedObjectBase.remarks">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#IO_IdentifiedObjectBase"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#Identifier.localId">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Identifier"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#Identifier.namespace">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Identifier"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#Identifier.versionId">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Identifier"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#Link.fictitious">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#Link"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#MD_Identifier.code">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#MD_Identifier"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#NameSpace.isGlobal">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#NameSpace"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#NetworkElement.beginLifespanVersion">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#NetworkElement"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#NetworkElement.endLifespanVersion">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#NetworkElement"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#PronunciationOfName.pronunciationIPA">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#PronunciationOfName"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#RS_Identifier.codeSpace">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#RS_Identifier"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#RS_Identifier.version">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#RS_Identifier"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#SC_CRS.scope">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#SC_CRS"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#SpellingOfName.text">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#SpellingOfName"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#SpellingOfName.script">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#SpellingOfName"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#SpellingOfName.transliterationScheme">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#SpellingOfName"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#ThematicIdentifier.identifier">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#ThematicIdentifier"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#ThematicIdentifier.identifierScheme">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#ThematicIdentifier"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#TypeName.aName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#TypeName"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#UnitOfMeasure.uomName">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#UnitOfMeasure.uomSymbol">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#UnitOfMeasure.nameStandardUnit">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#UnitOfMeasure.formula">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UnitOfMeasure"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#UtilityNetworkElement.validFrom">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.enexis.nl/EA_Model#UtilityNetworkElement.validTo">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="http://www.enexis.nl/EA_Model#UtilityNetworkElement"/>
+  </owl:DatatypeProperty>
+</rdf:RDF>
