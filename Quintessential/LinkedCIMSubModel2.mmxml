@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="XML" name="rdf:RDF">
+  <children xsi:type="Attribute" name="xmlns:rdf" value="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+  <children xsi:type="Attribute" name="xmlns:owl" value="http://www.w3.org/2002/07/owl#"/>
+  <children xsi:type="Attribute" name="xmlns:xsd" value="http://www.w3.org/2001/XMLSchema#"/>
+  <children xsi:type="Attribute" name="xmlns:rdfs" value="http://www.w3.org/2000/01/rdf-schema#"/>
+  <children xsi:type="Attribute" name="xmlns" value="http://www.enexis.nl/EA_Model"/>
+  <children xsi:type="Element" name="owl:Ontology">
+    <children xsi:type="Attribute" name="rdf:about" value=""/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Bay"/>
+    <children xsi:type="Element" name="rdfs:subClassOf">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#EquipmentContainer"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ConnectivityNodeContainer"/>
+    <children xsi:type="Element" name="rdfs:subClassOf">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#PowerSystemResource"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#EquipmentContainer"/>
+    <children xsi:type="Element" name="rdfs:subClassOf">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#ConnectivityNodeContainer"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#IdentifiedObject"/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#PowerSystemResource"/>
+    <children xsi:type="Element" name="rdfs:subClassOf">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#IdentifiedObject"/>
+    </children>
+  </children>
+</Root>

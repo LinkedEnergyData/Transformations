@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:umldi="http://www.omg.org/spec/UML/20131001/UMLDI" xmlns:dc="http://www.omg.org/spec/UML/20131001/UMLDC">
+	<xmi:Documentation exporter="Enterprise Architect" exporterVersion="6.5"/>
+	<uml:Model xmi:type="uml:Model" name="EA_Model">
+		<packagedElement xmi:type="uml:Package" xmi:id="EAPK_3467055C_1336_41bf_997A_36C097E26D40" name="LinkEDSubModel2">
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_24A9FFF3_502D_465f_A518_2ECBB2F57D79" name="Bay">
+				<generalization xmi:type="uml:Generalization" xmi:id="EAID_3F12AB25_DF6D_4074_9EF8_E206D3440710" general="EAID_3304A783_C5F7_442f_A15C_78B3EF45DCCD"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_F0F8E2FD_20D3_41b6_BE76_285C0491435A" name="ConnectivityNodeContainer">
+				<generalization xmi:type="uml:Generalization" xmi:id="EAID_ED2FE034_1971_4f35_BDF1_D12382F8B119" general="EAID_3F2AF163_D739_4dc7_BFAC_0FB927CF1D2F"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_3304A783_C5F7_442f_A15C_78B3EF45DCCD" name="EquipmentContainer">
+				<generalization xmi:type="uml:Generalization" xmi:id="EAID_5C58F2F1_A192_4d2a_985E_E197ECD9C23B" general="EAID_F0F8E2FD_20D3_41b6_BE76_285C0491435A"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_057ABB79_753E_4187_8818_5C2646FC468E" name="IdentifiedObject"/>
+			<packagedElement xmi:type="uml:Class" xmi:id="EAID_3F2AF163_D739_4dc7_BFAC_0FB927CF1D2F" name="PowerSystemResource">
+				<generalization xmi:type="uml:Generalization" xmi:id="EAID_52D0D6EE_84A2_497c_85C7_71C078C3398F" general="EAID_057ABB79_753E_4187_8818_5C2646FC468E"/>
+			</packagedElement>
+			<packagedElement xmi:type="uml:Artifact" xmi:id="EAID_19D613E3_E804_4f14_8FC9_6B3C1346F965" name="LinkEDSubModel2"/>
+		</packagedElement>
+	</uml:Model>
+</xmi:XMI>

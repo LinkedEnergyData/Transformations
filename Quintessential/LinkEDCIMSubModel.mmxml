@@ -1,0 +1,1432 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="XML" name="rdf:RDF">
+  <children xsi:type="Attribute" name="xmlns:rdf" value="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+  <children xsi:type="Attribute" name="xmlns:owl" value="http://www.w3.org/2002/07/owl#"/>
+  <children xsi:type="Attribute" name="xmlns:xsd" value="http://www.w3.org/2001/XMLSchema#"/>
+  <children xsi:type="Attribute" name="xmlns:rdfs" value="http://www.w3.org/2000/01/rdf-schema#"/>
+  <children xsi:type="Attribute" name="xmlns" value="http://www.enexis.nl/EA_Model"/>
+  <children xsi:type="Element" name="owl:Ontology">
+    <children xsi:type="Attribute" name="rdf:about" value=""/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ActivityRecord"/>
+    <children xsi:type="Element" name="rdfs:subClassOf">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#IdentifiedObject"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Asset"/>
+    <children xsi:type="Element" name="rdfs:subClassOf">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#IdentifiedObject"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Fault"/>
+    <children xsi:type="Element" name="rdfs:subClassOf">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#IdentifiedObject"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#FaultImpedance"/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ConfigurationEvent"/>
+    <children xsi:type="Element" name="rdfs:subClassOf">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#ActivityRecord"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Incident"/>
+    <children xsi:type="Element" name="rdfs:subClassOf">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Document"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Document"/>
+    <children xsi:type="Element" name="rdfs:subClassOf">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#IdentifiedObject"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Equipment"/>
+    <children xsi:type="Element" name="rdfs:subClassOf">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#PowerSystemResource"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Outage"/>
+    <children xsi:type="Element" name="rdfs:subClassOf">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Document"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#TroubleTicket"/>
+    <children xsi:type="Element" name="rdfs:subClassOf">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Document"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Location"/>
+    <children xsi:type="Element" name="rdfs:subClassOf">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#IdentifiedObject"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#PSREvent"/>
+    <children xsi:type="Element" name="rdfs:subClassOf">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#ActivityRecord"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#IdentifiedObject"/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ServicePointOutageSummary"/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Name"/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#NameType"/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#NameTypeAuthority"/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#DateTimeInterval"/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#PSRType"/>
+    <children xsi:type="Element" name="rdfs:subClassOf">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#IdentifiedObject"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#PowerSystemResource"/>
+    <children xsi:type="Element" name="rdfs:subClassOf">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#IdentifiedObject"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Status"/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Reactance"/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Resistance"/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#PhaseConnectedFaultKind"/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#PSREventKind"/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#PhaseCode"/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#UnitMultiplier"/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#UnitSymbol"/>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#PhaseConnectedFaultKind"/>
+    <children xsi:type="Element" name="owl:equivalentClass">
+      <children xsi:type="Element" name="owl:Class">
+        <children xsi:type="Element" name="owl:oneOf">
+          <children xsi:type="Attribute" name="rdf:parseType" value="Collection"/>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#lineToGround"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#lineToLine"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#lineToLineToGround"/>
+          </children>
+        </children>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#PSREventKind"/>
+    <children xsi:type="Element" name="owl:equivalentClass">
+      <children xsi:type="Element" name="owl:Class">
+        <children xsi:type="Element" name="owl:oneOf">
+          <children xsi:type="Attribute" name="rdf:parseType" value="Collection"/>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#inService"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#outOfService"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#pendingAdd"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#pendingRemove"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#pendingReplace"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#other"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#unknown"/>
+          </children>
+        </children>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#PhaseCode"/>
+    <children xsi:type="Element" name="owl:equivalentClass">
+      <children xsi:type="Element" name="owl:Class">
+        <children xsi:type="Element" name="owl:oneOf">
+          <children xsi:type="Attribute" name="rdf:parseType" value="Collection"/>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ABCN"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ABC"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ABN"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ACN"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#BCN"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#AB"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#AC"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#BC"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#AN"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#BN"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#CN"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#A"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#B"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#C"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#N"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#s1N"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#s2N"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#s12N"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#s1"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#s2"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#s12"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#none"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#X"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#XY"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#XN"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#XYN"/>
+          </children>
+        </children>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#UnitMultiplier"/>
+    <children xsi:type="Element" name="owl:equivalentClass">
+      <children xsi:type="Element" name="owl:Class">
+        <children xsi:type="Element" name="owl:oneOf">
+          <children xsi:type="Attribute" name="rdf:parseType" value="Collection"/>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#y"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#z"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#a"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#f"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#p"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#n"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#micro"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#m"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#c"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#d"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#none"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#da"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#h"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#k"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#G"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#T"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#E"/>
+          </children>
+        </children>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:Class">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#UnitSymbol"/>
+    <children xsi:type="Element" name="owl:equivalentClass">
+      <children xsi:type="Element" name="owl:Class">
+        <children xsi:type="Element" name="owl:oneOf">
+          <children xsi:type="Attribute" name="rdf:parseType" value="Collection"/>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#none"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#m"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#kg"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#s"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#A"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#K"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#mol"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#cd"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#deg"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#rad"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#sr"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Gy"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Bq"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#degC"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Sv"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#F"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#C"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#V"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ohm"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#J"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#N"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Hz"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#lx"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#lm"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Wb"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#T"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#W"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Pa"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#m2"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#m3"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#mPers"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#mPers2"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#m3Pers"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#mPerm3"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#kgm"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#kgPerm3"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#WPermK"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#JPerK"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ppm"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#rotPers"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#radPers"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#VA"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#VAr"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#cosPhi"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Vs"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#V2"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#As"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#A2"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#A2s"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#VAh"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Wh"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#VArh"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#VPerHz"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#HzPers"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#character"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#charPers"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#kgm2"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#dB"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#WPers"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#lPers"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#dBm"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#h"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#min"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Q"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Qh"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ohmm"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#APerm"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#V2h"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#A2h"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Ah"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#count"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ft3"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#m3Perh"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#gal"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Btu"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#l"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#lPerh"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#lPerl"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#gPerg"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#molPerm3"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#molPermol"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#molPerkg"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#sPers"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#HzPerHz"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#VPerV"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#APerA"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#VPerVA"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#rev"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#kat"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#JPerkg"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#m3Uncompensated"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#m3Compensated"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#WPerW"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#therm"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#onePerm"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#m3Perkg"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Pas"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Nm"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#NPerm"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#radPers2"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#WPerm2"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#JPerkgK"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#JPerm3"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#VPerm"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#CPerm3"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#CPerm2"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#FPerm"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#HPerm"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#JPermol"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#JPermolK"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#CPerkg"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#GyPers"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#WPersr"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#WPerm2sr"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#katPerm3"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#d"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#anglemin"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#anglesec"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ha"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#tonne"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#bar"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#mmHg"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#kn"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Vh"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Mx"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#G"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Oe"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#WPerA"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#SPerm"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#onePerHz"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#VPerVAr"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ohmPerm"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#kgPerJ"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#JPers"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#m2Pers"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#JPerm2"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#KPers"/>
+          </children>
+          <children xsi:type="Element" name="rdf:Description">
+            <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#PaPers"/>
+          </children>
+        </children>
+      </children>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#PowerSystemResources_Assets"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#PowerSystemResource"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Asset"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Location_Assets"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Location"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Asset"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#FaultyEquipment_Faults"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Equipment"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Fault"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Outage_Faults"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Fault"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Outage"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ChangedDocument_ConfigurationEvents"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#ConfigurationEvent"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Document"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Outage_Incident"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Outage"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Incident"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Location_Incident"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Location"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Incident"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#TroubleTickets_Incident"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Incident"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#TroubleTicket"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Outages_Equipments"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Equipment"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Outage"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#PowerSystemResources_Location"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#PowerSystemResource"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Location"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#PowerSystemResource_PSREvents"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#PowerSystemResource"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#PSREvent"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Names_IdentifiedObject"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#IdentifiedObject"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Name"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#NameType_Names"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#NameType"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Name"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#NameTypeAuthority_NameTypes"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#NameTypeAuthority"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#NameType"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#PowerSystemResources_PSRType"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#PSRType"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#PowerSystemResource"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Fault.impedance"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#FaultImpedance"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Fault"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Fault.kind"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#PhaseConnectedFaultKind"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Fault"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Fault.phases"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#PhaseCode"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Fault"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#FaultImpedance.rGround"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Resistance"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#FaultImpedance"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#FaultImpedance.rLineToLine"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Resistance"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#FaultImpedance"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#FaultImpedance.xGround"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Reactance"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#FaultImpedance"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#FaultImpedance.xLineToLine"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Reactance"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#FaultImpedance"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Document.docStatus"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Status"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Document"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Document.status"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Status"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Document"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Outage.actualPeriod"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#DateTimeInterval"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Outage"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Outage.estimatedPeriod"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#DateTimeInterval"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Outage"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Outage.summary"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#ServicePointOutageSummary"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Outage"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Location.status"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Status"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Location"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#PSREvent.kind"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#PSREventKind"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#PSREvent"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Reactance.multiplier"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#UnitMultiplier"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Reactance"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Reactance.unit"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#UnitSymbol"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Reactance"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Resistance.multiplier"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#UnitMultiplier"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Resistance"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:ObjectProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Resistance.unit"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#UnitSymbol"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Resistance"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ActivityRecord.createdDateTime"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#ActivityRecord"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ActivityRecord.reason"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#ActivityRecord"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ActivityRecord.type"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#ActivityRecord"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ConfigurationEvent.effectiveDateTime"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#ConfigurationEvent"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ConfigurationEvent.modifiedBy"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#ConfigurationEvent"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Incident.cause"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Incident"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Document.authorName"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Document"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Document.comment"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Document"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Document.createdDateTime"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Document"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Document.lastModifiedDateTime"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Document"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Document.revisionNumber"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Document"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Document.subject"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Document"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Document.type"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Document"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Equipment.aggregate"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Equipment"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Equipment.inService"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Equipment"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Equipment.normallyInService"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Equipment"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Outage.cancelledDateTime"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Outage"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Outage.cause"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Outage"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Outage.isPlanned"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Outage"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#TroubleTicket.dateTimeOfReport"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#TroubleTicket"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#TroubleTicket.resolvedDateTime"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#TroubleTicket"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#TroubleTicket.troubleCode"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#TroubleTicket"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Location.geoInfoReference"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Location"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Location.type"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Location"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#IdentifiedObject.description"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#IdentifiedObject"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#IdentifiedObject.mRID"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#IdentifiedObject"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#IdentifiedObject.name"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#IdentifiedObject"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ServicePointOutageSummary.criticalCount"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#ServicePointOutageSummary"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#ServicePointOutageSummary.totalCount"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#ServicePointOutageSummary"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Name.name"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Name"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#NameType.description"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#NameType"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#NameType.name"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#NameType"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#NameTypeAuthority.description"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#NameTypeAuthority"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#NameTypeAuthority.name"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#NameTypeAuthority"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#DateTimeInterval.end"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#DateTimeInterval"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#DateTimeInterval.start"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#DateTimeInterval"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Status.dateTime"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Status"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Status.reason"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Status"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Status.remark"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Status"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Status.value"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#string"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Status"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Reactance.value"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#float"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Reactance"/>
+    </children>
+  </children>
+  <children xsi:type="Element" name="owl:DatatypeProperty">
+    <children xsi:type="Attribute" name="rdf:about" value="http://www.enexis.nl/EA_Model#Resistance.value"/>
+    <children xsi:type="Element" name="rdfs:range">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.w3.org/2001/XMLSchema#float"/>
+    </children>
+    <children xsi:type="Element" name="rdfs:domain">
+      <children xsi:type="Attribute" name="rdf:resource" value="http://www.enexis.nl/EA_Model#Resistance"/>
+    </children>
+  </children>
+</Root>

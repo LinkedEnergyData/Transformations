@@ -1,8 +1,8 @@
 <project name="QS2OWL" default="transfo">
 	<!-- Change this value if you want to use another base dir in the workspace -->
-	<property name="mybasedir" value="Quintessential"/>
+	<property name="mybasedir" value="Transformations/Quintessential"/>
 	<!-- Change this value if you want to use another input model -->
-	<property name="model" value="Quintessential-SC1-Eclipse"/>
+	<property name="model" value="LinkedCIMSubModel2"/>
 	
 	<target name="transfo" depends="loadModels">
 		

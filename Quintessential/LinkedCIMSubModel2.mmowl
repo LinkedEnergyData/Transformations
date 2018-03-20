@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:owl="http:///owl.ecore">
+  <owl:Ontology ontologyURI="/6"/>
+  <owl:Class entityURI="/7"/>
+  <owl:Class entityURI="/9"/>
+  <owl:Class entityURI="/11"/>
+  <owl:Class entityURI="/13"/>
+  <owl:Class entityURI="/14"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Bay"/>
+  <owl:SubClassOf subClassExpression="/1" superClassExpression="/3"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ConnectivityNodeContainer"/>
+  <owl:SubClassOf subClassExpression="/2" superClassExpression="/5"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#EquipmentContainer"/>
+  <owl:SubClassOf subClassExpression="/3" superClassExpression="/2"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#IdentifiedObject"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#PowerSystemResource"/>
+  <owl:SubClassOf subClassExpression="/5" superClassExpression="/4"/>
+</xmi:XMI>
