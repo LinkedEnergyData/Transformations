@@ -10,3 +10,4 @@ I didn't succeed in importing, defining and using the EA ODM profile, so I re-cr
 
 Binding the profile to a model is Eclipse specific too. It is done in the stylesheet. With every change in the profile the binding has to be updated too, but eventually the profile will be complete.
 
+( EA-ODM-PROFILE should be a project in your workspace )
