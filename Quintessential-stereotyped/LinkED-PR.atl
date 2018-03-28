@@ -1,0 +1,582 @@
+-- @path MM=/UML2OWL/UML.ecore
+-- @path MM1=/UML2OWL/owl2.ecore
+
+module LinkED;
+create OUT : OWL from IN : UML, PRO : UML;
+
+helper def: datatypes : Map(String, String) =
+	Map {
+		('String', 'http://www.w3.org/2001/XMLSchema#string'),
+		('Integer', 'http://www.w3.org/2001/XMLSchema#nonNegativeInteger'),
+		('Boolean', 'http://www.w3.org/2001/XMLSchema#boolean'),
+		('DateTime', 'http://www.w3.org/2001/XMLSchema#dateTime'),
+		('UnlimitedNatural', 'http://www.w3.org/2001/XMLSchema#integer'),
+		('Byte', 'http://www.w3.org/2001/XMLSchema#byte'),
+		('Currency', 'http://www.w3.org/2001/XMLSchema#decimal'),
+		('Date', 'http://www.w3.org/2001/XMLSchema#date'),
+		('Double', 'http://www.w3.org/2001/XMLSchema#double'),
+		('Float', 'http://www.w3.org/2001/XMLSchema#float'),
+		('Long', 'http://www.w3.org/2001/XMLSchema#long'),
+		('Single', 'http://www.w3.org/2001/XMLSchema#short'),
+		('Variant', 'http://www.w3.org/2001/XMLSchema#string')
+	};
+	
+helper context UML!Class def : isCimPrimitive() : Boolean = if (thisModule.datatypes.get(self.name).oclIsUndefined()) 
+					then false
+					else true
+					endif;	
+	
+helper context UML!Enumeration def : isCimPrimitive() : Boolean = false;
+
+helper context UML!Class def : CimPrimitive() : String = if (thisModule.datatypes.get(self.name).oclIsUndefined()) 
+					then 'http://www.w3.org/2001/XMLSchema#string'
+					else thisModule.datatypes.get(self.name)
+					endif;
+	
+	
+helper context UML!Class def : reftype(ptype : UML!Classifier) : OWL!Type = thisModule.resolveTemp(ptype, 'cco');
+helper context UML!Enumeration def : reftype(ptype : UML!Classifier) : OWL!Type = thisModule.resolveTemp(ptype, 'eoo');
+
+helper context UML!Class def : commentowner() : OWL!Class = thisModule.resolveTemp(self, 'cco');
+helper context UML!Association def : commentowner() : OWL!Association = thisModule.resolveTemp(self, 'asopo');
+helper context UML!Property def : commentowner() : OWL!Property = if (not self.class.oclIsUndefined() and not self.type.isCimPrimitive())
+	then thisModule.resolveTemp(self, 'a2opo')
+	else thisModule.resolveTemp(self, 'a2dpo')
+		endif;
+
+helper def: modelURI : String = '';
+helper context UML!Model def: getModelURI() : String = if ( self.URI.oclIsUndefined() ) then 'http://www.enexis.nl/' + self.name else self.URI endif;
+
+
+
+helper context UML!Association def : AssocGetName() : String = if ( not self.name.oclIsUndefined() and self.name <> '' )
+	then self.name
+	else self.AssocGetMemberNames()
+	endif;
+
+helper context UML!Association def : AssocGetMemberNames() : String = 
+	let
+		assFirstEndName : String = if ( self.ownedEnd->size() > 0 ) 
+							then if ( self.ownedEnd->at(1).name.oclIsUndefined())
+								then if ( not self.ownedEnd->at(1).type.oclIsUndefined() )
+								then if ( not self.ownedEnd->at(1).type.name.oclIsUndefined() )
+									then self.ownedEnd->at(1).type.name
+									else ''
+									endif
+									else ''
+									endif
+									else self.ownedEnd->at(1).name
+									endif
+									else ''
+									endif
+in
+	let
+		assFirstEndTypeName : String = if ( self.ownedEnd->size() > 0 ) 
+							then if ( not self.ownedEnd->at(1).type.oclIsUndefined() )
+								then if ( not self.ownedEnd->at(1).type.name.oclIsUndefined() )
+									then self.ownedEnd->at(1).type.name
+									else 'TypeNameUndefined'
+									endif
+									else 'TypeUndefined'
+									endif
+									else 'noMember'
+									endif
+in
+let
+assSecondEndName : String = if ( self.ownedEnd->size() > 1 ) 
+								then if ( self.ownedEnd->at(2).name.oclIsUndefined())
+								then if ( not self.ownedEnd->at(2).type.oclIsUndefined() )
+								then if ( not self.ownedEnd->at(2).type.name.oclIsUndefined() )
+									then self.ownedEnd->at(2).type.name
+									else ''
+									endif
+									else ''
+									endif
+									else self.ownedEnd->at(2).name
+									endif
+									else ''
+									endif
+in
+	let
+		assSecondEndTypeName : String = if ( self.ownedEnd->size() > 1 ) 
+							then if ( not self.ownedEnd->at(2).type.oclIsUndefined() )
+								then if ( not self.ownedEnd->at(2).type.name.oclIsUndefined() )
+									then self.ownedEnd->at(2).type.name
+									else 'TypeNameUndefined'
+									endif
+									else 'TypeUndefined'
+									endif
+									else 'noMember'
+									endif
+in
+let
+assfirst : String = if ( assFirstEndName <> '' )
+	then assFirstEndName
+	else assFirstEndTypeName
+	endif
+in
+let 
+asssecond : String = if ( assSecondEndName <> '' )
+	then assSecondEndName
+	else assSecondEndTypeName
+	endif
+in
+assfirst + '_' + asssecond;
+	
+
+helper context UML!Association def : hasObjectPropertyAxiom(Axiom : String) : Boolean = if ( self.getAppliedStereotype('EAODM::OWL::objectProperty').oclIsUndefined() )
+	then false
+	else self.hasObjectPropertyAxiomSet(Axiom)
+	endif;
+helper context UML!Association def : hasObjectPropertyAxiomSet(Axiom : String) : Boolean = ( self.getValue(self.getAppliedStereotype('EAODM::OWL::objectProperty'), Axiom) = true);
+
+helper context UML!Property def : hasObjectPropertyAxiom(Axiom : String) : Boolean = if ( self.getAppliedStereotype('EAODM::OWL::objectProperty').oclIsUndefined() )
+	then false
+	else self.hasObjectPropertyAxiomSet(Axiom)
+	endif;
+helper context UML!Property def : hasObjectPropertyAxiomSet(Axiom : String) : Boolean = ( self.getValue(self.getAppliedStereotype('EAODM::OWL::objectProperty'), Axiom) = true);
+
+helper context UML!Property def : hasDatatypePropertyAxiom(Axiom : String) : Boolean = if ( self.getAppliedStereotype('EAODM::OWL::datatypeProperty').oclIsUndefined() )
+	then false
+	else self.hasDatatypePropertyAxiomSet(Axiom)
+	endif;
+helper context UML!Property def : hasDatatypePropertyAxiomSet(Axiom : String) : Boolean = ( self.getValue(self.getAppliedStereotype('EAODM::OWL::datatypeProperty'), Axiom) = true);
+
+rule Model2Ontology {
+	from
+		moi : UML!Model in IN (moi.oclIsTypeOf(UML!Model))		
+	to
+		moo : OWL!Ontology (
+			 ontologyURI <- thisModule.CreateURI(moi.getModelURI()),
+				-- Classes are no children of Ontology
+				axioms <- Sequence {
+					-- all annotations
+					 UML!Comment.allInstancesFrom('IN')->collect( e | thisModule.comment2annotation(e) ),
+					 -- lets get all typed assocs
+					UML!Association.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isFunctional') )->collect( e | thisModule.functionalAss(e) ),
+					UML!Association.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isInverseFunctional') )->collect( e | thisModule.inverseFunctionalAss(e) ),
+					UML!Association.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isTransitive') )->collect( e | thisModule.transitiveAss(e) ),
+					UML!Association.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isSymmetric') )->collect( e | thisModule.symmetricAss(e) ),
+					-- not in EA UML!Association.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isAsymmetric') )->collect( e | thisModule.asymmetricAss(e) )
+					-- not in EA UML!Association.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isReflexive') )->collect( e | thisModule.reflexiveAss(e) )
+					-- not in EA UML!Association.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isIrreflexive') )->collect( e | thisModule.irreflexiveAss(e) )
+					-- get all typed objectproperties
+					UML!Property.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isFunctional') )->collect( e | thisModule.functionalProp(e) ),
+					UML!Property.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isInverseFunctional') )->collect( e | thisModule.inverseFunctionalProp(e) ),
+					UML!Property.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isTransitive') )->collect( e | thisModule.transitiveProp(e) ),
+					UML!Property.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isSymmetric') )->collect( e | thisModule.symmetricProp(e) ),
+					-- get all typed dataproperties
+										-- get all typed objectproperties
+					UML!Property.allInstancesFrom('IN')->select( e|e.hasDatatypePropertyAxiom('isFunctional') )->collect( e | thisModule.functionalDataProp(e) )
+
+				}
+		)	
+		do {
+				thisModule.modelURI <- moi.getModelURI();
+				
+				for (p in moi.getAllProfileApplications()) {
+				 	p.appliedProfile.debug('Applied Profile');
+			 		for (p2 in p.appliedProfile.nestedPackage) {
+				 		p2.debug('     Nested package');
+					}
+			 		--for (p3 in p.appliedProfile.ownedMember) {
+				 	--	p3.debug('  Owned Member');
+					--}
+				}
+				
+		}
+}
+
+lazy rule transitiveAss {
+	from trassi : UML!Association
+	to trasso : OWL!TransitiveObjectProperty (
+		objectPropertyExpression <- thisModule.resolveTemp(trassi, 'asopo')
+		)
+}
+lazy rule functionalAss {
+	from trassi : UML!Association
+	to trasso : OWL!FunctionalObjectProperty (
+		objectPropertyExpression <- thisModule.resolveTemp(trassi, 'asopo')
+		)
+}
+lazy rule inverseFunctionalAss {
+	from trassi : UML!Association
+	to trasso : OWL!InverseFunctionalObjectProperty (
+		objectPropertyExpression <- thisModule.resolveTemp(trassi, 'asopo')
+		)
+}
+lazy rule symmetricAss {
+	from trassi : UML!Association
+	to trasso : OWL!SymmetricObjectProperty (
+		objectsymmetricAssPropertyExpression <- thisModule.resolveTemp(trassi, 'asopo')
+		)
+}
+lazy rule transitiveProp {
+	from trassi : UML!Property
+	to trasso : OWL!TransitiveObjectProperty (
+		objectPropertyExpression <- thisModule.resolveTemp(trassi, 'a2opo')
+		)
+}
+lazy rule functionalProp {
+	from trassi : UML!Property
+	to trasso : OWL!FunctionalObjectProperty (
+		objectPropertyExpression <- thisModule.resolveTemp(trassi, 'a2opo')
+		)
+}
+lazy rule inverseFunctionalProp {
+	from trassi : UML!Property
+	to trasso : OWL!InverseFunctionalObjectProperty (
+		objectPropertyExpression <- thisModule.resolveTemp(trassi, 'a2opo')
+		)
+}
+lazy rule symmetricProp {
+	from trassi : UML!Property
+	to trasso : OWL!SymmetricObjectProperty (
+		objectPropertyExpression <- thisModule.resolveTemp(trassi, 'a2opo')
+		)
+}
+lazy rule functionalDataProp {
+	from trassi : UML!Property
+	to trasso : OWL!FunctionalDataProperty (
+		dataPropertyExpression <- thisModule.resolveTemp(trassi, 'a2dpo')
+		)
+}
+
+lazy rule comment2annotation {
+	from
+		cai : UML!Comment
+	to
+		cao : OWL!EntityAnnotation (
+				entity <- cai.owner.commentowner(),
+				entityAnnotations <- Sequence { cao3
+				}
+			),
+		cao2 : OWL!Constant (
+				lexicalValue <- cai.body
+			),
+		cao3 : OWL!AnnotationByConstant (
+				annotationValue <- cao2
+			)
+}
+
+rule Class2Class {
+	from
+		cci : UML!Class  in IN (cci.oclIsTypeOf(UML!Class) and not cci.isCimPrimitive())		
+	to
+		cco : OWL!Class (
+			entityURI <- thisModule.ModelURI2URI(cci.name)
+		)		
+	do {
+		for ( p in cci.generalization ) {
+			thisModule.General2SubClassOf(cco, thisModule.resolveTemp(p.general, 'cco') );
+		}
+
+
+		--if ( not cci.getAppliedStereotypes()->first().oclIsUndefined() ) {
+			 --cci.getAppliedStereotypes()->first().profile.nestingPackage.name.debug(cci.name);
+			 --cci.getAppliedStereotype('EAODM::OWL::owlClass').debug(cci.name);
+		--}
+		--cci.getAppliedStereotypes()->first().oclType().debug(cci.name);
+		
+		
+	}
+}
+
+lazy rule Class2Datatype {
+	from
+		cdi : UML!Class
+		to
+		cdo : OWL!Datatype (
+			entityURI <- thisModule.CreateURI(cdi.CimPrimitive())
+			)
+			do {
+				--cdi.name.debug('');
+				--thisModule.datatypes.get(cdi.name).debug('');
+			}
+}
+
+
+rule Attribute2ObjectProperty {
+	from
+	a2opi : UML!Property in IN (not a2opi.class.oclIsUndefined() and not a2opi.type.isCimPrimitive())
+	to 
+	a2opo : OWL!ObjectProperty (
+		entityURI <- thisModule.ModelURI2URI(a2opi.class.name + '.' + a2opi.name)
+		),
+			a2opo1 : OWL!ObjectPropertyRange (
+				range <- a2opi.type.reftype(a2opi.type),
+				objectPropertyExpression <- a2opo
+				),
+		a2opo2 :	OWL!ObjectPropertyDomain (
+				domain <- thisModule.resolveTemp(a2opi.class, 'cco'),
+				objectPropertyExpression <- a2opo
+			)
+	do {
+								--aoi.name.debug('');	
+			--aoi.lower.debug('');	
+			--aoi.upper.debug('');
+				if (a2opi.isCardinality() ) {
+					thisModule.ObjectProperty2ObjectExactCardinality(a2opi, a2opo);
+				}
+				if (a2opi.isMinCardinality() ) {
+					thisModule.ObjectProperty2ObjectMinCardinality(a2opi, a2opo);
+				}
+				if (a2opi.isMaxCardinality() ) {
+					thisModule.ObjectProperty2ObjectMaxCardinality(a2opi, a2opo);
+				}
+			}
+}
+
+-- Do we need assoc properties transformed??
+--rule AssociationProperty2ObjectProperty {
+--	from
+--	ass2opi : UML!Property in IN (not ass2opi.association.oclIsUndefined() and true.debug(ass2opi))
+--	to 
+--	ass2opo : OWL!ObjectProperty (
+--		entityURI <- thisModule.ModelURI2URI( ass2opi.association.AssocGetName() )
+--		),
+--			ass2opo1 : OWL!ObjectPropertyRange (
+--				range <- ass2opi.type.reftype(ass2opi.type),
+--				objectPropertyExpression <- ass2opo
+--				),
+--		ass2opo2 :	OWL!ObjectPropertyDomain (
+--				domain <- thisModule.resolveTemp(ass2opi.class, 'cco'),
+--				objectPropertyExpression <- ass2opo
+--			)
+--}
+
+helper context UML!Property def: isMaxCardinality() : Boolean = (not self.isCardinality()) and (self.upper >= 0);
+
+helper context UML!Property def: isMinCardinality() : Boolean = (not self.isCardinality()) and  (self.lower >= 0);
+
+helper context UML!Property def: isCardinality() : Boolean = (self.upper = self.lower);
+
+
+lazy rule ObjectProperty2ObjectExactCardinality {
+	from
+        opexci3 : UML!Property,
+		opexci2 : OWL!ObjectProperty
+	to
+		opexcio : OWL!EquivalentClasses (
+			equivalentClassExpressions <- Sequence {
+				opexci3.class.reftype(opexci3.class),
+				opexcio1
+				}
+			),
+		opexcio1 : OWL!ObjectExactCardinality (
+			cardinality <- opexci3.upper,
+			classExpression <- opexci3.type.reftype(opexci3.type),
+			objectPropertyExpression <- opexci2
+			)
+}
+
+lazy rule ObjectProperty2ObjectMaxCardinality {
+	from
+			opexci3 : UML!Property,
+		opexci2 : OWL!ObjectProperty
+
+	to
+	opexcio : OWL!EquivalentClasses (
+			equivalentClassExpressions <- Sequence {
+				opexci3.class.reftype(opexci3.class),
+				opexcio1
+			}
+			),
+		opexcio1 : OWL!ObjectMaxCardinality (
+			cardinality <- opexci3.upper,
+			classExpression <- opexci3.type.reftype(opexci3.type),
+			objectPropertyExpression <- opexci2
+			)
+}
+
+lazy rule ObjectProperty2ObjectMinCardinality {
+	from
+opexci3 : UML!Property,
+		opexci2 : OWL!ObjectProperty
+		
+	to
+	opexcio : OWL!EquivalentClasses (
+			equivalentClassExpressions <- Sequence {
+				opexci3.class.reftype(opexci3.class),
+				opexcio1
+			}
+			),
+		opexcio1 : OWL!ObjectMinCardinality (
+			cardinality <- opexci3.lower,
+			classExpression <- opexci3.type.reftype(opexci3.type),
+			objectPropertyExpression <- opexci2
+			)
+}
+--		then thisModule.Attribute2DataProperty(p, cco, thisModule.Class2Datatype(p.type), cci)
+rule Attribute2DataProperty {
+	from 
+		a2dpi : UML!Property in IN (not a2dpi.class.oclIsUndefined() and a2dpi.type.isCimPrimitive())
+	to
+		a2dpo : OWL!DataProperty (
+				entityURI <- thisModule.ModelURI2URI(a2dpi.class.name + '.' + a2dpi.name)
+			),
+			a2dpo1 : OWL!DataPropertyRange (
+				range <- thisModule.Class2Datatype(a2dpi.type),
+				dataPropertyExpression <- a2dpo
+				),
+		a2dpo2 :	OWL!DataPropertyDomain (
+				domain <- thisModule.resolveTemp(a2dpi.class, 'cco'),
+				dataPropertyExpression <- a2dpo
+			)
+	do {
+								--aoi.name.debug('');	
+			--aoi.lower.debug('');	
+			--aoi.upper.debug('');
+				if (a2dpi.isCardinality() ) {
+					thisModule.DataProperty2DataExactCardinality(a2dpi, a2dpo);
+				}
+				if (a2dpi.isMinCardinality() ) {
+					thisModule.DataProperty2DataMinCardinality(a2dpi, a2dpo);
+				}
+				if (a2dpi.isMaxCardinality() ) {
+					thisModule.DataProperty2DataMaxCardinality(a2dpi, a2dpo);
+				}
+			}
+}
+
+lazy rule DataProperty2DataExactCardinality {
+	from
+		opexci3 : UML!Property,
+		opexci2 : OWL!ObjectProperty
+
+	to
+	opexcio : OWL!EquivalentClasses (
+			equivalentClassExpressions <- Sequence {
+				opexci3.class.reftype(opexci3.class),
+				opexcio1
+			}
+			),
+		opexcio1 : OWL!DataExactCardinality (
+			cardinality <- opexci3.upper,
+			dataRange <- thisModule.Class2Datatype(opexci3.type),
+			dataPropertyExpression <- opexci2
+			)
+}
+
+lazy rule DataProperty2DataMaxCardinality {
+	from
+		opexci3 : UML!Property,
+		opexci2 : OWL!ObjectProperty
+
+	to
+	opexcio : OWL!EquivalentClasses (
+			equivalentClassExpressions <- Sequence {
+				opexci3.class.reftype(opexci3.class),
+				opexcio1
+			}
+			),
+		opexcio1 : OWL!DataMaxCardinality (
+			cardinality <- opexci3.upper,
+			dataRange <- thisModule.Class2Datatype(opexci3.type),
+			dataPropertyExpression <- opexci2
+			)
+}
+
+lazy rule DataProperty2DataMinCardinality {
+	from
+		opexci3 : UML!Property,
+		opexci2 : OWL!ObjectProperty
+
+	to
+		opexcio : OWL!EquivalentClasses (
+			equivalentClassExpressions <- Sequence {
+				opexci3.class.reftype(opexci3.class),
+				opexcio1
+			}
+			),
+		opexcio1 : OWL!DataMinCardinality (
+			cardinality <- opexci3.lower,
+			
+			dataRange <- thisModule.Class2Datatype(opexci3.type),
+			dataPropertyExpression <- opexci2
+			)
+}
+lazy rule General2SubClassOf {
+	from 
+		gsi0 : OWL!Class,
+		gsi1 : OWL!Class
+	to
+		gso : OWL!SubClassOf (
+			superClassExpression <- gsi1,
+			subClassExpression <- gsi0			
+		)
+}
+
+rule Enumeration2DataOneOf {
+	from 
+		eoi : UML!Enumeration in IN
+	to
+		eoo : OWL!Class (
+			entityURI <- thisModule.ModelURI2URI(eoi.name)
+		)	,
+	    eoo1 : OWL!ObjectOneOf (
+	    	individuals <- eoi.ownedLiteral->collect(e | thisModule.literal2individual(e) )
+	    ),
+		eoo2 : OWL!EquivalentClasses (
+			equivalentClassExpressions <- Sequence { eoo, eoo1 }
+			)
+		
+}
+
+lazy rule literal2individual {
+	from 
+		lii : UML!EnumerationLiteral
+	to
+		lio : OWL!NamedIndividual (
+			entityURI <- thisModule.ModelURI2URI(lii.name)
+		)
+}
+
+
+lazy rule CreateURI {
+	from
+		u : String
+	to
+		o : OWL!URI (
+			value <- u
+		)
+}
+
+lazy rule ModelURI2URI {
+	from
+		u : String
+	to
+		o : OWL!URI (
+			value <- thisModule.modelURI + '#' + u
+			)
+}
+
+
+
+rule Association2ObjectProperty {
+	from
+	asopi : UML!Association in IN
+using {
+		--local0 : String = asopi.debug('');
+	--local : String = asopi.memberEnd.debug('');
+--local1 : String = asopi.memberEnd.at(1).debug('');
+--local2 : String = asopi.memberEnd.at(1).name.debug('');
+--local3 : String = asopi.memberEnd.at(2).debug('');
+--local4 : String = asopi.memberEnd.at(2).name.debug('');
+}
+	to
+	asopo : OWL!ObjectProperty (
+				entityURI <- thisModule.ModelURI2URI(asopi.AssocGetName())
+				--entityURI <- thisModule.ModelURI2URI(asopi.DebugAssociation5().debug(''))
+				
+			),
+			asopo1 : OWL!ObjectPropertyRange (
+				range <- thisModule.resolveTemp(asopi.memberEnd.at(1).type, 'cco'),
+				objectPropertyExpression <- asopo
+				),
+		asopo2 :	OWL!ObjectPropertyDomain (
+				domain <- thisModule.resolveTemp(asopi.memberEnd.at(2).type, 'cco'),
+				objectPropertyExpression <- asopo
+			)
+}
+
