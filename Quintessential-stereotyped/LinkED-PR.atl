@@ -39,10 +39,22 @@ helper context UML!Enumeration def : reftype(ptype : UML!Classifier) : OWL!Type 
 
 helper context UML!Class def : commentowner() : OWL!Class = thisModule.resolveTemp(self, 'cco');
 helper context UML!Association def : commentowner() : OWL!Association = thisModule.resolveTemp(self, 'asopo');
-helper context UML!Property def : commentowner() : OWL!Property = if (not self.class.oclIsUndefined() and not self.type.isCimPrimitive())
-	then thisModule.resolveTemp(self, 'a2opo')
-	else thisModule.resolveTemp(self, 'a2dpo')
+--helper context UML!Property def : commentowner() : OWL!Property = if (not self.type.oclIsUndefined() and not self.type.isCimPrimitive())
+--	then thisModule.resolveTemp(self, 'a2opo')
+--	else thisModule.resolveTemp(self, 'a2dpo')
+--		endif;
+
+helper context UML!Property def : commentowner() : OWL!Property = if ( not self.class.oclIsUndefined() )
+	then if ( not self.type.oclIsUndefined() )
+		then if ( not self.type.isCimPrimitive() )
+			then thisModule.resolveTemp(self, 'a2opo')
+			else thisModule.resolveTemp(self, 'a2dpo')
+			endif
+			else thisModule.resolveTemp(self, 'a2dpo')
+		endif
+		else thisModule.resolveTemp(self, 'a2dpo')
 		endif;
+
 
 helper def: modelURI : String = '';
 helper context UML!Model def: getModelURI() : String = if ( self.URI.oclIsUndefined() ) then 'http://www.enexis.nl/' + self.name else self.URI endif;
@@ -151,7 +163,7 @@ rule Model2Ontology {
 				-- Classes are no children of Ontology
 				axioms <- Sequence {
 					-- all annotations
-					 UML!Comment.allInstancesFrom('IN')->collect( e | thisModule.comment2annotation(e) ),
+					 UML!Comment.allInstancesFrom('IN')->select(e| not e.owner.oclIsTypeOf(UML!Package) )->collect( e | thisModule.comment2annotation(e) ),
 					 -- lets get all typed assocs
 					UML!Association.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isFunctional') )->collect( e | thisModule.functionalAss(e) ),
 					UML!Association.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isInverseFunctional') )->collect( e | thisModule.inverseFunctionalAss(e) ),
@@ -244,7 +256,7 @@ lazy rule functionalDataProp {
 
 lazy rule comment2annotation {
 	from
-		cai : UML!Comment
+		cai : UML!Comment in IN 
 	to
 		cao : OWL!EntityAnnotation (
 				entity <- cai.owner.commentowner(),
@@ -295,10 +307,18 @@ lazy rule Class2Datatype {
 			}
 }
 
+-- ObjectProperties fom assocs are not included !!
+helper context UML!Property def : isObjectProperty() : Boolean = if ( self.class.oclIsUndefined() )
+	then false
+	else if ( self.type.oclIsUndefined() )
+		then false
+		else not self.type.isCimPrimitive()
+		endif
+		endif;
 
 rule Attribute2ObjectProperty {
 	from
-	a2opi : UML!Property in IN (not a2opi.class.oclIsUndefined() and not a2opi.type.isCimPrimitive())
+	a2opi : UML!Property in IN  ( a2opi.isObjectProperty() and a2opi.association.oclIsUndefined() and a2opi.datatype.oclIsUndefined())
 	to 
 	a2opo : OWL!ObjectProperty (
 		entityURI <- thisModule.ModelURI2URI(a2opi.class.name + '.' + a2opi.name)
@@ -410,7 +430,8 @@ opexci3 : UML!Property,
 --		then thisModule.Attribute2DataProperty(p, cco, thisModule.Class2Datatype(p.type), cci)
 rule Attribute2DataProperty {
 	from 
-		a2dpi : UML!Property in IN (not a2dpi.class.oclIsUndefined() and a2dpi.type.isCimPrimitive())
+		a2dpi : UML!Property in IN ( not a2dpi.isObjectProperty() and a2dpi.association.oclIsUndefined() and a2dpi.datatype.oclIsUndefined() )
+
 	to
 		a2dpo : OWL!DataProperty (
 				entityURI <- thisModule.ModelURI2URI(a2dpi.class.name + '.' + a2dpi.name)

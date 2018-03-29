@@ -3,13 +3,13 @@ module LinkEDXML;
 create OUT : XML from IN : OWL;
 
 
-helper def: namespaces: Map(String, String) =
-	Map {
+helper def: namespaces: Map(String, String) = Map {
 		('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'),
 	 	('rdfs', 'http://www.w3.org/2000/01/rdf-schema#'),
 	 	('owl', 'http://www.w3.org/2002/07/owl#'),
 		('xsd', 'http://www.w3.org/2001/XMLSchema#')
 	};
+	
 
 helper def: getDefaultNamespace: String = OWL!Ontology.allInstancesFrom('IN')->first().ontologyURI.getURI();
 	
@@ -17,16 +17,16 @@ helper def: defaultNamespace: String = '';
 		
 helper context OWL!URI def: getURI() : String = self.value;
 
-
-helper  def: EndpointRule() : Sequence(XML!Element) = Sequence{}.debug('EndpointRule');
-
---entrypoint rule Root() {
---	do {
---		thisModule.defaultNamespace <- thisModule.getDefaultNamespace;
---		thisModule.ontology2root(thisModule.defaultNamespace);
---		thisModule.defaultNamespace.debug('Root');
---	}
---}	
+entrypoint rule EntryPoint() {
+	do {
+		--true.debug('entrypoint');
+	}
+}	
+endpoint rule EndPoint() {
+	do {
+		--true.debug('endpoint');
+	}
+}	
 	
 lazy rule addAttribute {
 	from 
@@ -82,132 +82,79 @@ lazy rule annotations {
  		)
 }
 
---helper context OWL!EquivalentClasses def: equivalentClassesIsEnum() : Boolean = self.equivalentClassExpressions->includes(OWL!ObjectOneOf);
+-- init with oclAny !?!
+helper def : root : XML!Root = Sequence{}->first();
+
 helper context OWL!EquivalentClasses def: equivalentClassesIsEnum() : Boolean = self.equivalentClassExpressions->exists(e| e.oclIsTypeOf(OWL!ObjectOneOf));
 
 rule ontology2root {
 	from 
-	ori : OWL!Ontology
+		ori : OWL!Ontology
 	using {
 		ns : String = thisModule.defaultNamespace = thisModule.getDefaultNamespace;
 	}
 	to  
-	oro : XML!Root (
+		oro : XML!Root (
  			name <- 'rdf:RDF',
 			children <- Sequence { 
 				thisModule.namespaces.getKeys()->collect(e | thisModule.addNamespaces(e)),
 				thisModule.addDefaultNamespace(ori),
-				thisModule.ontology2element(ori),
-				OWL!Class.allInstancesFrom('IN')->collect( e | thisModule.class2element(e) ),
-				OWL!EquivalentClasses.allInstancesFrom('IN')->select(e|e.equivalentClassesIsEnum())->collect( e | thisModule.EquivalentClasses2enumeration(e) ),
-				OWL!ObjectProperty.allInstancesFrom('IN')->collect( e | thisModule.ObjectProperty2ObjectProperty(e) ),
-				OWL!DataProperty.allInstancesFrom('IN')->collect( e | thisModule.DataProperty2DataProperty(e) )--,
-				--thisModule.EndpointRule()
+				oeo
 				}
+			),
+ 		oeo : XML!Element (
+ 			name <- 'owl:Ontology',
+			children <-  thisModule.addAttribute( Tuple{name='rdf:about', value=thisModule.defaultNamespace}) 
 			)
-						do {
-
-			--ori.debug('ontology2root');
-			
+	do {
+			thisModule.root <- oro;
+			--ori.debug('ontology2root');			
 		}
  }
 
-helper context OWL!ObjectProperty def : ObjectPropertyTransitive() : Sequence(XML!Element) = OWL!TransitiveObjectProperty.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=self)->collect(e|thisModule.ObjectPropertyTypeTransient(e));
-helper context OWL!ObjectProperty def : ObjectPropertyFunctional() : Sequence(XML!Element) = OWL!FunctionalObjectProperty.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=self)->collect(e|thisModule.ObjectPropertyTypeFunctional(e));
-helper context OWL!ObjectProperty def : ObjectPropertyInverseFunctional() : Sequence(XML!Element) = OWL!InverseFunctionalObjectProperty.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=self)->collect(e|thisModule.ObjectPropertyTypeInverseFunctional(e));
-helper context OWL!ObjectProperty def : ObjectPropertySymmetric() : Sequence(XML!Element) = OWL!SymmetricObjectProperty.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=self)->collect(e|thisModule.ObjectPropertyTypeSymmetric(e));
-helper context OWL!ObjectProperty def : ObjectPropertyAsymmetric() : Sequence(XML!Element) = OWL!AsymmetricObjectProperty.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=self)->collect(e|thisModule.ObjectPropertyTypeAsymmetric(e));
-helper context OWL!ObjectProperty def : ObjectPropertyReflexive() : Sequence(XML!Element) = OWL!ReflexiveObjectProperty.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=self)->collect(e|thisModule.ObjectPropertyTypeReflexive(e));
-helper context OWL!ObjectProperty def : ObjectPropertyIrreflexive() : Sequence(XML!Element) = OWL!IrreflexiveObjectProperty.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=self)->collect(e|thisModule.ObjectPropertyTypeIrreflexive(e));
+helper def: objectpropertytypes: Map(String, String) = Map {
+		('Transitive', 'http://www.w3.org/2002/07/owl#TransitiveProperty'),
+	 	('Functional', 'http://www.w3.org/2002/07/owl#FunctionalProperty'),
+	 	('InverseFunctional', 'http://www.w3.org/2002/07/owl#InverseFunctionalProperty'),
+		('Symmetric', 'http://www.w3.org/2002/07/owl#SymmetricProperty'),
+		('Asymmetric', 'http://www.w3.org/2002/07/owl#AsymmetricProperty'),
+		('Reflexive', 'http://www.w3.org/2002/07/owl#ReflexiveProperty'),
+		('Irreflexive', 'http://www.w3.org/2002/07/owl#IrreflexiveProperty')
+};
 
-lazy rule ObjectProperty2ObjectProperty {
+rule ObjectProperty2ObjectProperty {
 	from
 	opopi : OWL!ObjectProperty
 	to
 	opopo : XML!Element (
+		parent <- thisModule.root,
  		name <- 'owl:ObjectProperty',
 		children <-  Sequence { 
  			thisModule.addAttribute(Tuple{name='rdf:about', value=opopi.entityURI.getURI()}),
-			opopi.ObjectPropertyTransitive(),
-			opopi.ObjectPropertyFunctional(),
-			opopi.ObjectPropertyInverseFunctional(),
-			opopi.ObjectPropertySymmetric(),
-			opopi.ObjectPropertyAsymmetric(),
-			opopi.ObjectPropertyReflexive(),
-			opopi.ObjectPropertyIrreflexive(),
-		OWL!ObjectPropertyRange.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=opopi)->collect(e|thisModule.ObjectPropertyRange2RDFSRange(e)),
-		OWL!ObjectPropertyDomain.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=opopi)->collect(e|thisModule.ObjectPropertyDomain2RDFSDomain(e)),
-		OWL!EntityAnnotation.allInstancesFrom('IN')->select(e|e.entity=opopi)->collect(e|thisModule.annotations(e))
+			OWL!TransitiveObjectProperty.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=opopi)->collect(e|thisModule.ObjectPropertyType('Transitive')),
+			OWL!FunctionalObjectProperty.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=opopi)->collect(e|thisModule.ObjectPropertyType('Functional')),
+			OWL!InverseFunctionalObjectProperty.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=opopi)->collect(e|thisModule.ObjectPropertyType('InverseFunctional')),
+			OWL!SymmetricObjectProperty.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=opopi)->collect(e|thisModule.ObjectPropertyType('Symmetric')),
+			OWL!AsymmetricObjectProperty.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=opopi)->collect(e|thisModule.ObjectPropertyType('Asymmetric')),
+			OWL!ReflexiveObjectProperty.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=opopi)->collect(e|thisModule.ObjectPropertyType('Reflexive')),
+			OWL!IrreflexiveObjectProperty.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=opopi)->collect(e|thisModule.ObjectPropertyType('Irreflexive')),
+			OWL!ObjectPropertyRange.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=opopi)->collect(e|thisModule.ObjectPropertyRange2RDFSRange(e)),
+			OWL!ObjectPropertyDomain.allInstancesFrom('IN')->select(e|e.objectPropertyExpression=opopi)->collect(e|thisModule.ObjectPropertyDomain2RDFSDomain(e)),
+			OWL!EntityAnnotation.allInstancesFrom('IN')->select(e|e.entity=opopi)->collect(e|thisModule.annotations(e))
  		}
 	)	
-			do {
-
-			--opopi.entityURI.getURI().debug('ObjectProperty2ObjectProperty');
-			
-		}
+	do {
+		--opopi.entityURI.getURI().debug('ObjectProperty2ObjectProperty');		
+	}
 }
 
-lazy rule ObjectPropertyTypeTransient {
+lazy rule ObjectPropertyType {
 	from
-		obptti : OWL!ObjectProperty
+		obptti : String
 		to 
 		obptto : XML!Element (
 			name <- 'rdf:type', 
-			children <- thisModule.addAttribute( Tuple{name='rdf:resource', value='http://www.w3.org/2002/07/owl#TransitiveProperty'})
-			)
-}
-lazy rule ObjectPropertyTypeFunctional {
-	from
-		obptti : OWL!ObjectProperty
-		to 
-		obptto : XML!Element (
-			name <- 'rdf:type', 
-			children <- thisModule.addAttribute( Tuple{name='rdf:resource', value='http://www.w3.org/2002/07/owl#FunctionalProperty'})
-			)
-}
-lazy rule ObjectPropertyTypeInverseFunctional {
-	from
-		obptti : OWL!ObjectProperty
-		to 
-		obptto : XML!Element (
-			name <- 'rdf:type', 
-			children <- thisModule.addAttribute( Tuple{name='rdf:resource', value='http://www.w3.org/2002/07/owl#InverseFunctionalProperty'})
-			)
-}
-lazy rule ObjectPropertyTypeSymmetric {
-	from
-		obptti : OWL!ObjectProperty
-		to 
-		obptto : XML!Element (
-			name <- 'rdf:type', 
-			children <- thisModule.addAttribute( Tuple{name='rdf:resource', value='http://www.w3.org/2002/07/owl#SymmetricProperty'})
-			)
-}
-lazy rule ObjectPropertyTypeAsymmetric {
-	from
-		obptti : OWL!ObjectProperty
-		to 
-		obptto : XML!Element (
-			name <- 'rdf:type', 
-			children <- thisModule.addAttribute( Tuple{name='rdf:resource', value='http://www.w3.org/2002/07/owl#AsymmetricProperty'})
-			)
-}
-lazy rule ObjectPropertyTypeReflexive {
-	from
-		obptti : OWL!ObjectProperty
-		to 
-		obptto : XML!Element (
-			name <- 'rdf:type', 
-			children <- thisModule.addAttribute( Tuple{name='rdf:resource', value='http://www.w3.org/2002/07/owl#ReflexiveProperty'})
-			)
-}
-lazy rule ObjectPropertyTypeIrreflexive {
-	from
-		obptti : OWL!ObjectProperty
-		to 
-		obptto : XML!Element (
-			name <- 'rdf:type', 
-			children <- thisModule.addAttribute( Tuple{name='rdf:resource', value='http://www.w3.org/2002/07/owl#IrreflexiveProperty'})
+			children <- thisModule.addAttribute( Tuple{name='rdf:resource', value=thisModule.objectpropertytypes.get(obptti)})
 			)
 }
 
@@ -231,8 +178,6 @@ lazy rule ObjectPropertyDomain2RDFSDomain {
 			)
 }
 
-helper context OWL!DataProperty def : DataPropertyFunctional() : Sequence(XML!Element) = OWL!FunctionalDataProperty.allInstancesFrom('IN')->select(e|e.dataPropertyExpression=self)->collect(e|thisModule.DataPropertyTypeFunctional(e));
-
 lazy rule DataPropertyTypeFunctional {
 	from
 		obptti : OWL!DataProperty
@@ -243,25 +188,26 @@ lazy rule DataPropertyTypeFunctional {
 			)
 }
 
-lazy rule DataProperty2DataProperty {
+rule DataProperty2DataProperty {
 	from
-	dpopi : OWL!DataProperty
+		dpopi : OWL!DataProperty
 	to
-	dpopo : XML!Element (
- 		name <- 'owl:DatatypeProperty',
-		children <-  Sequence { 
- 			thisModule.addAttribute(Tuple{name='rdf:about', value=dpopi.entityURI.getURI()}),
-			dpopi.DataPropertyFunctional(),
-		OWL!DataPropertyRange.allInstancesFrom('IN')->select(e|e.dataPropertyExpression=dpopi)->collect(e|thisModule.DataPropertyRange2RDFSRange(e)),
-		OWL!DataPropertyDomain.allInstancesFrom('IN')->select(e|e.dataPropertyExpression=dpopi)->collect(e|thisModule.DataPropertyDomain2RDFSDomain(e)),
-		OWL!EntityAnnotation.allInstancesFrom('IN')->select(e|e.entity=dpopi)->collect(e|thisModule.annotations(e))
- 		}
-	)	
-				do {
+		dpopo : XML!Element (
+			parent <- thisModule.root,
+ 			name <- 'owl:DatatypeProperty',
+			children <-  Sequence { 
+ 				thisModule.addAttribute(Tuple{name='rdf:about', value=dpopi.entityURI.getURI()}),
+				OWL!FunctionalDataProperty.allInstancesFrom('IN')->select(e|e.dataPropertyExpression=dpopi)->collect(e|thisModule.DataPropertyTypeFunctional(e)),
+				OWL!DataPropertyRange.allInstancesFrom('IN')->select(e|e.dataPropertyExpression=dpopi)->collect(e|thisModule.DataPropertyRange2RDFSRange(e)),
+				OWL!DataPropertyDomain.allInstancesFrom('IN')->select(e|e.dataPropertyExpression=dpopi)->collect(e|thisModule.DataPropertyDomain2RDFSDomain(e)),
+				OWL!EntityAnnotation.allInstancesFrom('IN')->select(e|e.entity=dpopi)->collect(e|thisModule.annotations(e))
+ 			}
+		)	
+	do {
 			--dpopi.entityURI.getURI().debug('DataProperty2DataProperty');
-			
-		}
+	}
 }
+
 lazy rule DataPropertyRange2RDFSRange {
 	from
 		dprri : OWL!DataPropertyRange
@@ -271,6 +217,7 @@ lazy rule DataPropertyRange2RDFSRange {
 			children <- thisModule.addAttribute( Tuple{name='rdf:resource', value=dprri.range.entityURI.getURI()})
 			)
 }
+
 lazy rule DataPropertyDomain2RDFSDomain {
 	from
 		dprdi : OWL!DataPropertyDomain
@@ -281,48 +228,23 @@ lazy rule DataPropertyDomain2RDFSDomain {
 			)
 }
 
-lazy rule ontology2element {
-from 
- oei : OWL!Ontology
- to
- oeo : XML!Element (
- 	name <- 'owl:Ontology',
-children <-  thisModule.addAttribute( Tuple{name='rdf:about', value=thisModule.defaultNamespace}) 
-)
-}
+helper context OWL!EquivalentClasses def: equivalentClassesIsClass(cl : OWL!Class) : Boolean = self.equivalentClassExpressions->includes(cl);
 
-
-helper context OWL!EquivalentClasses def: equivalentClassesIsCardinality() : Boolean = self.equivalentClassExpressions->includes(OWL!DataExactCardinality) or 
-			self.equivalentClassExpressions->includes(OWL!DataMaxCardinality) or 
-			self.equivalentClassExpressions->includes(OWL!DataMinCardinality) or 
-			self.equivalentClassExpressions->includes(OWL!ObjectExactCardinality) or 
-			self.equivalentClassExpressions->includes(OWL!ObjectMaxCardinality) or 
-			self.equivalentClassExpressions->includes(OWL!ObjectMinCardinality);
-
-helper context OWL!EquivalentClasses def: equivalentClassesIsObjectExactCardinality() : Boolean = self.equivalentClassExpressions->exists(e| e.oclIsTypeOf(OWL!ObjectExactCardinality));
-helper context OWL!EquivalentClasses def: equivalentClassesIsObjectMaxCardinality() : Boolean = self.equivalentClassExpressions->exists(e| e.oclIsTypeOf(OWL!ObjectMaxCardinality));
-helper context OWL!EquivalentClasses def: equivalentClassesIsObjectMinCardinality() : Boolean = self.equivalentClassExpressions->exists(e| e.oclIsTypeOf(OWL!ObjectMinCardinality));
-helper context OWL!EquivalentClasses def: equivalentClassesIsDataExactCardinality() : Boolean = self.equivalentClassExpressions->exists(e| e.oclIsTypeOf(OWL!DataExactCardinality));
-helper context OWL!EquivalentClasses def: equivalentClassesIsDataMaxCardinality() : Boolean = self.equivalentClassExpressions->exists(e| e.oclIsTypeOf(OWL!DataMaxCardinality));
-helper context OWL!EquivalentClasses def: equivalentClassesIsDataMinCardinality() : Boolean = self.equivalentClassExpressions->exists(e| e.oclIsTypeOf(OWL!DataMinCardinality));
-
-helper context OWL!EquivalentClasses def: equivalentClassesIsClass(cl : OWL!Class) : Boolean = self.equivalentClassExpressions->select(e | e.oclType()=OWL!Class)->first() = cl;
-
-lazy rule class2element {
+rule class2element {
 	from 
 		cei : OWL!Class
-using {
-			--ceistr : String = cei.name.debug('');
-			eqclss : Sequence(OWL!EquivalentClasses) = OWL!EquivalentClasses.allInstancesFrom('IN')->select(e| e.equivalentClassesIsClass(cei) );
-			eqclss_oec : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassesIsObjectExactCardinality(e));
-			eqclss_omaxc : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassesIsObjectMaxCardinality(e));
-			eqclss_ominc : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassesIsObjectMinCardinality(e));
-			eqclss_dec : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassesIsDataExactCardinality(e));
-			eqclss_dmaxc : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassesIsDataMaxCardinality(e));
-			eqclss_dminc : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassesIsDataMinCardinality(e));
-}
+	using {
+			eqclss : Sequence(OWL!EquivalentClasses) = OWL!EquivalentClasses.allInstancesFrom('IN')->select(e| e.equivalentClassExpressions->includes(cei) );
+			eqclss_oec : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassExpressions->exists(f| f.oclIsTypeOf(OWL!ObjectExactCardinality)));
+			eqclss_omaxc : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassExpressions->exists(f| f.oclIsTypeOf(OWL!ObjectMaxCardinality)));
+			eqclss_ominc : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassExpressions->exists(f| f.oclIsTypeOf(OWL!ObjectMinCardinality)));
+			eqclss_dec : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassExpressions->exists(f| f.oclIsTypeOf(OWL!DataExactCardinality)));
+			eqclss_dmaxc : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassExpressions->exists(f| f.oclIsTypeOf(OWL!DataMaxCardinality)));
+			eqclss_dminc : Sequence(OWL!EquivalentClasses) = eqclss->select(e|e.equivalentClassExpressions->exists(f| f.oclIsTypeOf(OWL!DataMinCardinality)));
+		}
 	to
 		ceo :   XML!Element (
+			parent <- thisModule.root,
  			name <- 'owl:Class',
 			children <- Sequence { 
  				thisModule.addAttribute( Tuple{name='rdf:about', value=cei.entityURI.getURI()}),
@@ -336,18 +258,16 @@ using {
 				OWL!EntityAnnotation.allInstancesFrom('IN')->select(e|e.entity=cei)->collect(e|thisModule.annotations(e))
 				}
  		)
-		do {
-
-			 --cei.entityURI.getURI().debug('class2element');
-			
-		}
+	do {
+			 --cei.entityURI.getURI().debug('class2element');		
+	}
 }
 
 lazy rule EquivalentClasses2ObjectExactCardinality{
 	from 
 	 ecoeci : OWL!EquivalentClasses
 	 using {
-	 	ecoeci_cd : OWL!ObjectExactCardinality = ecoeci.equivalentClassExpressions->select(e | e.oclType()=OWL!ObjectExactCardinality)->first();
+	 	ecoeci_cd : OWL!ObjectExactCardinality = ecoeci.equivalentClassExpressions->select(e | e.oclIsTypeOf(OWL!ObjectExactCardinality))->first();
 	 }
 	 to
 		 ecoeco : XML!Element (
@@ -379,7 +299,7 @@ lazy rule EquivalentClasses2ObjectMaxCardinality{
 	from 
 		ecomaxci : OWL!EquivalentClasses
 	using {
-	 	ecomaxci_cd : OWL!ObjectMaxCardinality = ecomaxci.equivalentClassExpressions->select(e | e.oclType()=OWL!ObjectMaxCardinality)->first();
+	 	ecomaxci_cd : OWL!ObjectMaxCardinality = ecomaxci.equivalentClassExpressions->select(e | e.oclIsTypeOf(OWL!ObjectMaxCardinality))->first();
 	}
 	 to
 		 ecomaxco : XML!Element (
@@ -411,7 +331,7 @@ lazy rule EquivalentClasses2ObjectMinCardinality{
 	from 
 	 ecominci : OWL!EquivalentClasses
 	 using {
-	 	ecominci_cd : OWL!ObjectExactCardinality = ecominci.equivalentClassExpressions->select(e | e.oclType()=OWL!ObjectMinCardinality)->first();
+	 	ecominci_cd : OWL!ObjectMinCardinality = ecominci.equivalentClassExpressions->select(e | e.oclIsTypeOf(OWL!ObjectMinCardinality))->first();
 	 }
 	 to
 		 ecominco : XML!Element (
@@ -443,7 +363,7 @@ lazy rule EquivalentClasses2DataExactCardinality{
 	from 
 	 ecdeci : OWL!EquivalentClasses
 	 using {
-	 	ecdeci_cd : OWL!DataExactCardinality = ecdeci.equivalentClassExpressions->select(e | e.oclType()=OWL!DataExactCardinality)->first();
+	 	ecdeci_cd : OWL!DataExactCardinality = ecdeci.equivalentClassExpressions->select(e | e.oclIsTypeOf(OWL!DataExactCardinality))->first();
 	 }
 	 to
 		 ecdeco : XML!Element (
@@ -475,7 +395,7 @@ lazy rule EquivalentClasses2DataMaxCardinality{
 	from 
 	 ecdmaxci : OWL!EquivalentClasses
 	 using {
-	 	ecdmaxci_cd : OWL!DataMaxCardinality = ecdmaxci.equivalentClassExpressions->select(e | e.oclType()=OWL!DataMaxCardinality)->first();
+	 	ecdmaxci_cd : OWL!DataMaxCardinality = ecdmaxci.equivalentClassExpressions->select(e | e.oclIsTypeOf(OWL!DataMaxCardinality))->first();
 	 }
 	 to
 		 ecdmaxco : XML!Element (
@@ -507,7 +427,7 @@ lazy rule EquivalentClasses2DataMinCardinality{
 	from 
 	 ecdminci : OWL!EquivalentClasses
 	 using {
-	 	ecdminci_cd : OWL!DataMinCardinality = ecdminci.equivalentClassExpressions->select(e | e.oclType()=OWL!DataMinCardinality)->first();
+	 	ecdminci_cd : OWL!DataMinCardinality = ecdminci.equivalentClassExpressions->select(e | e.oclIsTypeOf(OWL!DataMinCardinality))->first();
 	 }
 	 to
 		 ecdminco : XML!Element (
@@ -546,43 +466,31 @@ lazy rule SubClassOf2element {
 			)
 }
 
-lazy rule EquivalentClasses2enumeration {
+rule EquivalentClasses2enumeration {
 	from 
-		ecei : OWL!EquivalentClasses
+		ecei : OWL!EquivalentClasses in IN ( ecei.equivalentClassesIsEnum() )
 	to
 		eceo : XML!Element (
+			parent <- thisModule.root,
 			name <- 'owl:Class',
 			children <- Sequence { 
 				thisModule.addAttribute( Tuple{name='rdf:about', value=ecei.equivalentClassExpressions->first().entityURI.getURI()}),
-				thisModule.EquivalentClasses2EquivalentClass(ecei)
+				ececo
 			}
-			)
-			do {
-				--ecei.equivalentClassExpressions->first().entityURI.getURI().debug('EquivalentClasses2enumeration');
-			}
-}
-
-
-lazy rule EquivalentClasses2EquivalentClass {
-	from 
-		ececi : OWL!EquivalentClasses
-	to
+			),
 		ececo : XML!Element (
 			name <- 'owl:equivalentClass',
-			children <- thisModule.EquivalentClasses2Class(ececi)
-			)
-}
-
-lazy rule EquivalentClasses2Class {
-	from 
-		ecci : OWL!EquivalentClasses
-	to
+			children <- ecco
+			),
 		ecco : XML!Element (
 			name <- 'owl:Class',
 			children <- Sequence { 
-				thisModule.ObjectOneOf2OneOf(ecci.equivalentClassExpressions->at(2))
+				thisModule.ObjectOneOf2OneOf(ecei.equivalentClassExpressions->at(2))
 			}
 			)
+	do {
+			--ecei.equivalentClassExpressions->first().entityURI.getURI().debug('EquivalentClasses2enumeration');
+	}
 }
 
 lazy rule ObjectOneOf2OneOf {
@@ -594,7 +502,7 @@ lazy rule ObjectOneOf2OneOf {
 			children <- Sequence { 
 				thisModule.addAttribute( Tuple{name='rdf:parseType', value='Collection'}),
 				oooi.individuals->collect(e | thisModule.NamedIndividual2rdfabout(e) )
-			}
+				}
 			)
 }
 
