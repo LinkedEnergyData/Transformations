@@ -4,10 +4,10 @@ Eclipse is not very 'profile-friendly'. In theory it is possible to import a pro
 
 The 'define' step is Eclipse specific. It enriches the profile with EMF/Ecore information.
 
-I didn't succeed in importing, defining and using the EA ODM profile, so I re-created this in Eclipse itself.
+I didn't succeed in importing, defining and using the EA ODM profile, so I re-created this in Eclipse itself. (this is a Papyrus project)
 
-(the profile actually does not exist by itself, it is embedded in EA. One can however take it from an model export where stereotypes from the profile is used )
+(the profile actually does not exist by itself, it is embedded in EA. One can however take it from an model export where stereotypes from the profile are used )
 
-Binding the profile to a model is Eclipse specific too. It is done in the stylesheet. With every change in the profile the binding has to be updated too, but eventually the profile will be complete.
+Binding the profile to a model is Eclipse specific too. It is done in the stylesheet (nasty bit). With every change in the profile the binding has to be updated too, but eventually the profile will be complete.
 
-( EA-ODM-PROFILE should be a project in your workspace )
+( EA-ODM-PROFILE subdirectory should be a project in your workspace )
