@@ -57,9 +57,13 @@ helper context UML!Property def : commentowner() : OWL!Property = if ( not self.
 
 
 helper def: modelURI : String = '';
-helper context UML!Model def: getModelURI() : String = if ( self.URI.oclIsUndefined() ) then 'http://www.enexis.nl/' + self.name else self.URI endif;
-
-
+helper context UML!Model def: getModelURI() : String = if ( not self.URI.oclIsUndefined() ) 
+	 then self.URI 
+	 else if ( not self.namespace.oclIsUndefined() )
+	 	then 'http://iec.ch/TC57/2017#' + self.namespace + self.name
+		else 'http://iec.ch/TC57/2017#' + self.name
+		endif	
+	 endif;
 
 helper context UML!Association def : AssocGetName() : String = if ( not self.name.oclIsUndefined() and self.name <> '' )
 	then self.name
@@ -159,7 +163,7 @@ rule Model2Ontology {
 		moi : UML!Model in IN (moi.oclIsTypeOf(UML!Model))		
 	to
 		moo : OWL!Ontology (
-			 ontologyURI <- thisModule.CreateURI(moi.getModelURI()),
+			 ontologyURI <- thisModule.CreateURI(moi.getModelURI().replaceAll(' ', '_')),
 				-- Classes are no children of Ontology
 				axioms <- Sequence {
 					-- all annotations
@@ -184,7 +188,7 @@ rule Model2Ontology {
 				}
 		)	
 		do {
-				thisModule.modelURI <- moi.getModelURI();
+				thisModule.modelURI <- moi.getModelURI().replaceAll(' ', '_');
 				
 				for (p in moi.getAllProfileApplications()) {
 				 	p.appliedProfile.debug('Applied Profile');
@@ -276,14 +280,14 @@ rule Class2Class {
 		cci : UML!Class  in IN (cci.oclIsTypeOf(UML!Class) and not cci.isCimPrimitive())		
 	to
 		cco : OWL!Class (
-			entityURI <- thisModule.ModelURI2URI(cci.name)
+			entityURI <- thisModule.ModelURI2URI(cci.namespace.name + '.' + cci.name)
 		)		
 	do {
 		for ( p in cci.generalization ) {
 			thisModule.General2SubClassOf(cco, thisModule.resolveTemp(p.general, 'cco') );
 		}
 
-
+cci.namespace.debug(cci.name);
 		--if ( not cci.getAppliedStereotypes()->first().oclIsUndefined() ) {
 			 --cci.getAppliedStereotypes()->first().profile.nestingPackage.name.debug(cci.name);
 			 --cci.getAppliedStereotype('EAODM::OWL::owlClass').debug(cci.name);
@@ -365,9 +369,9 @@ rule Attribute2ObjectProperty {
 --			)
 --}
 
-helper context UML!Property def: isMaxCardinality() : Boolean = (not self.isCardinality()) and (self.upper >= 0);
+helper context UML!Property def: isMaxCardinality() : Boolean = (not self.isCardinality()) and (self.upper > 0);
 
-helper context UML!Property def: isMinCardinality() : Boolean = (not self.isCardinality()) and  (self.lower >= 0);
+helper context UML!Property def: isMinCardinality() : Boolean = (not self.isCardinality()) and  (self.lower > 0);
 
 helper context UML!Property def: isCardinality() : Boolean = (self.upper = self.lower);
 
@@ -427,7 +431,7 @@ opexci3 : UML!Property,
 			objectPropertyExpression <- opexci2
 			)
 }
---		then thisModule.Attribute2DataProperty(p, cco, thisModule.Class2Datatype(p.type), cci)
+
 rule Attribute2DataProperty {
 	from 
 		a2dpi : UML!Property in IN ( not a2dpi.isObjectProperty() and a2dpi.association.oclIsUndefined() and a2dpi.datatype.oclIsUndefined() )
@@ -568,7 +572,7 @@ lazy rule ModelURI2URI {
 		u : String
 	to
 		o : OWL!URI (
-			value <- thisModule.modelURI + '#' + u
+			value <- thisModule.modelURI + '.' + u.replaceAll(' ', '_')
 			)
 }
 
