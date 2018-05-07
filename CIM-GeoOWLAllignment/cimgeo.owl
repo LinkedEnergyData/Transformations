@@ -1,15 +1,26 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://www.purl.org/LinkedEnergyData/cimgeo#"
      xml:base="http://www.purl.org/LinkedEnergyData/cimgeo"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:schema="http://schema.org/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:powder-s="http://www.w3.org/2007/05/powder-s#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:voaf="http://purl.org/vocommons/voaf#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ns1="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:rec54="http://www.w3.org/2001/02pd/rec54#"
+     xmlns:locn="http://www.w3.org/ns/locn#"
+     xmlns:dcat="http://www.w3.org/ns/dcat#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:dc="http://purl.org/dc/elements/1.1/">
     <owl:Ontology rdf:about="http://www.purl.org/LinkedEnergyData/cimgeo#">
+        <owl:imports rdf:resource="http://www.w3.org/ns/locn"/>
         <owl:imports rdf:resource="urn:default:baseUri:"/>
         <owl:imports rdf:resource="http://www.opengis.net/ont/gml"/>
     </owl:Ontology>
@@ -27,6 +38,14 @@
     
 
 
+    <!-- http://purl.org/dc/terms/Location -->
+
+    <rdf:Description rdf:about="http://purl.org/dc/terms/Location">
+        <owl:equivalentClass rdf:resource="http://www.enexis.nl/EA_Model#Location"/>
+    </rdf:Description>
+    
+
+
     <!-- http://www.enexis.nl/EA_Model#Asset -->
 
     <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#Asset">
@@ -35,9 +54,23 @@
     
 
 
+    <!-- http://www.enexis.nl/EA_Model#Location -->
+
+    <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#Location"/>
+    
+
+
     <!-- http://www.enexis.nl/EA_Model#PowerSystemResource -->
 
     <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#PowerSystemResource">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.enexis.nl/EA_Model#ServicePointOutageSummary -->
+
+    <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#ServicePointOutageSummary">
         <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
     </rdf:Description>
 </rdf:RDF>
