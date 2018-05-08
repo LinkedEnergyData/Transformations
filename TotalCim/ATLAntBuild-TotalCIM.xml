@@ -1,8 +1,8 @@
 <project name="QS2OWL" default="transfo">
 	<!-- Change this value if you want to use another base dir in the workspace -->
-	<property name="mybasedir" value="TotalCim"/>
-	<property name="MMdir" value="Quintessential"/>
-	<property name="scriptdir" value="Quintessential-stereotyped"/>
+	<property name="mybasedir" value="Transformations/TotalCim"/>
+	<property name="MMdir" value="Transformations/Quintessential"/>
+	<property name="scriptdir" value="Transformations/Quintessential-stereotyped"/>
 	<!-- Change this value if you want to use another input model -->
 	<property name="model" value="TotalCim-Eclipse"/>
 	
@@ -40,6 +40,6 @@
 		<!-- Load UML 2.0 metamodel-->
 		<atl.loadModel modelHandler="UML2" name="UML" metamodel="MOF" nsuri="http://www.eclipse.org/uml2/5.0.0/UML"/>
 		<!-- Load OWL metamodel-->
-		<atl.loadModel modelHandler="EMF" name="OWL" metamodel="MOF" path="${MMdir}/OWL2.ecore"/>
+		<atl.loadModel modelHandler="EMF" name="OWL" metamodel="MOF" path="${MMdir}/owl2.ecore"/>
 	</target>
 </project>
