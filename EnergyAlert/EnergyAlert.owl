@@ -1,0 +1,1682 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="htp://purl.org/EnergyAlert/ontology#"
+     xml:base="htp://purl.org/EnergyAlert/ontology"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:powder-s="http://www.w3.org/2007/05/powder-s#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="htp://purl.org/EnergyAlert/ontology#"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/identifier -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/identifier"/>
+    
+
+
+    <!-- http://www.w3.org/2003/06/sw-vocab-status/ns#term_status -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+    
+
+
+    <!-- http://www.w3.org/2007/05/powder-s#describedby -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2007/05/powder-s#describedby"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#gmlLiteral -->
+
+    <rdfs:Datatype rdf:about="http://www.opengis.net/ont/geosparql#gmlLiteral">
+        <dc:contributor>Matthew Perry</dc:contributor>
+        <dc:creator>OGC GeoSPARQL 1.0 Standard Working Group</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-06-16</dc:date>
+        <dc:description xml:lang="en">
+      A GML serialization of a geometry object.
+    </dc:description>
+        <rdfs:comment xml:lang="en">
+      A GML serialization of a geometry object.
+    </rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0"/>
+        <rdfs:label xml:lang="en">GML Literal</rdfs:label>
+        <skos:definition xml:lang="en">
+      A GML serialization of a geometry object.
+    </skos:definition>
+        <skos:prefLabel xml:lang="en">GML Literal</skos:prefLabel>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Document.docStatus -->
+
+    <owl:ObjectProperty rdf:about="http://www.enexis.nl/IEC-CIM#Document.docStatus"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Document.electronicAddress -->
+
+    <owl:ObjectProperty rdf:about="http://www.enexis.nl/IEC-CIM#Document.electronicAddress"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Document.status -->
+
+    <owl:ObjectProperty rdf:about="http://www.enexis.nl/IEC-CIM#Document.status">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#Document"/>
+        <rdfs:range rdf:resource="http://www.enexis.nl/IEC-CIM#Status"/>
+        <rdfs:comment>Status of subject matter (e.g., Agreement, Work) this document represents. For status of the document itself, use &apos;docStatus&apos; attribute.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#NameType_Names -->
+
+    <owl:ObjectProperty rdf:about="http://www.enexis.nl/IEC-CIM#NameType_Names">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#Name"/>
+        <rdfs:range rdf:resource="http://www.enexis.nl/IEC-CIM#NameType"/>
+        <rdfs:comment>All names of this type.Type of this name.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Names_IdentifiedObject -->
+
+    <owl:ObjectProperty rdf:about="http://www.enexis.nl/IEC-CIM#Names_IdentifiedObject">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#Name"/>
+        <rdfs:range rdf:resource="http://www.enexis.nl/IEC-CIM#IdentifiedObject"/>
+        <rdfs:comment>All names of this identified object.Identified object that this name designates.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Outage.actualPeriod -->
+
+    <owl:ObjectProperty rdf:about="http://www.enexis.nl/IEC-CIM#Outage.actualPeriod">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#Outage"/>
+        <rdfs:range rdf:resource="http://www.enexis.nl/IEC-CIM#DateTimeInterval"/>
+        <rdfs:comment>Actual outage period; end of the period corresponds to the actual restoration time.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Outage.estimatedPeriod -->
+
+    <owl:ObjectProperty rdf:about="http://www.enexis.nl/IEC-CIM#Outage.estimatedPeriod">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#Outage"/>
+        <rdfs:range rdf:resource="http://www.enexis.nl/IEC-CIM#DateTimeInterval"/>
+        <rdfs:comment>Estimated outage period. The start of the period makes sense in case of a planned outage only, whereas the end of the period corresponds to the estimated restoration time in general.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Outage.summary -->
+
+    <owl:ObjectProperty rdf:about="http://www.enexis.nl/IEC-CIM#Outage.summary">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#Outage"/>
+        <rdfs:range rdf:resource="http://www.enexis.nl/IEC-CIM#ServicePointOutageSummary"/>
+        <rdfs:comment>Summary counts of service points (customers) affected by this outage.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Outages_Equipments -->
+
+    <owl:ObjectProperty rdf:about="http://www.enexis.nl/IEC-CIM#Outages_Equipments">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#Outage"/>
+        <rdfs:range rdf:resource="http://www.enexis.nl/IEC-CIM#Equipment"/>
+        <rdfs:comment>All outages in which this equipment is involved.All equipments associated with this outage.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint.amiBillingReady -->
+
+    <owl:ObjectProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint.amiBillingReady"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint.connectionState -->
+
+    <owl:ObjectProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint.connectionState"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint.estimatedLoad -->
+
+    <owl:ObjectProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint.estimatedLoad"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint.nominalServiceVoltage -->
+
+    <owl:ObjectProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint.nominalServiceVoltage"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint.phaseCode -->
+
+    <owl:ObjectProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint.phaseCode"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint.ratedCurrent -->
+
+    <owl:ObjectProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint.ratedCurrent"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint.ratedPower -->
+
+    <owl:ObjectProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint.ratedPower"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoints_Outages -->
+
+    <owl:ObjectProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoints_Outages">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#Outage"/>
+        <rdfs:range rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint"/>
+        <rdfs:comment>All outages at this usage point.All usage points associated with this outage.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasGeometry -->
+
+    <owl:ObjectProperty rdf:about="http://www.opengis.net/ont/geosparql#hasGeometry">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <dc:contributor>Matthew Perry</dc:contributor>
+        <dc:creator>OGC GeoSPARQL 1.0 Standard Working Group</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-06-16</dc:date>
+        <dc:description xml:lang="en">
+      A spatial representation for a given feature.
+    </dc:description>
+        <rdfs:comment xml:lang="en">
+      A spatial representation for a given feature.
+    </rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0"/>
+        <rdfs:label xml:lang="en">hasGeometry</rdfs:label>
+        <skos:definition xml:lang="en">
+      A spatial representation for a given feature.
+    </skos:definition>
+        <skos:prefLabel xml:lang="en">hasGeometry</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/locn#address -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/locn#address">
+        <rdfs:range rdf:resource="http://www.w3.org/ns/locn#Address"/>
+        <terms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">locn:address</terms:identifier>
+        <rdfs:comment xml:lang="en">The locn:address property relationship associates any resource with the locn:Address class </rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/locn"/>
+        <rdfs:label xml:lang="en">address</rdfs:label>
+        <ns:term_status xml:lang="en">testing</ns:term_status>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#DateInterval.end -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#DateInterval.end">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#DateInterval"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment>End date of this interval.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#DateInterval.start -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#DateInterval.start">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#DateInterval"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment>Start date of this interval.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#DateTimeInterval.end -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#DateTimeInterval.end"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#DateTimeInterval.start -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#DateTimeInterval.start"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Document.authorName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Document.authorName"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Document.comment -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Document.comment"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Document.createdDateTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Document.createdDateTime">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#Document"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment>Date and time that this document was created.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Document.lastModifiedDateTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Document.lastModifiedDateTime">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#Document"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment>Date and time this document was last modified. Documents may potentially be modified many times during their lifetime.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Document.revisionNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Document.revisionNumber"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Document.subject -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Document.subject"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Document.title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Document.title"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Document.type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Document.type"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Equipment.aggregate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Equipment.aggregate"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Equipment.inService -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Equipment.inService"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Equipment.normallyInService -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Equipment.normallyInService"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#IdentifiedObject.aliasName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#IdentifiedObject.aliasName"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#IdentifiedObject.description -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#IdentifiedObject.description">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#IdentifiedObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#IdentifiedObject.mRID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#IdentifiedObject.mRID"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#IdentifiedObject.name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#IdentifiedObject.name">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#IdentifiedObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The name is any free human readable and possibly non unique text naming the object.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Name.name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Name.name">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#Name"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Any free text that name the object.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#NameType.name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#NameType.name">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#NameType"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Name of the name type.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Outage.cancelledDateTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Outage.cancelledDateTime">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#Outage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment>Date and time planned outage has been cancelled.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Outage.cause -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Outage.cause">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#Outage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>One or more causes of this outage.
+Note: At present, this is a free text; could be replaced with a separate associated class in case we have multiple causes (e.g. OutageCauseType, inheriting from IdentifiedObject).</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Outage.isPlanned -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Outage.isPlanned">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#Outage"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>True if planned, false otherwise (for example due to a breaker trip).</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#ServicePointOutageSummary.criticalCount -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#ServicePointOutageSummary.criticalCount"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#ServicePointOutageSummary.totalCount -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#ServicePointOutageSummary.totalCount">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#ServicePointOutageSummary"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <rdfs:comment>Number of all service (delivery) points affected by an outage.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Status.dateTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Status.dateTime"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Status.reason -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Status.reason"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Status.remark -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Status.remark"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Status.value -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#Status.value">
+        <rdfs:domain rdf:resource="http://www.enexis.nl/IEC-CIM#Status"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Status value at &apos;dateTime&apos;; prior status changes may have been kept in instances of activity records associated with the object to which this status applies.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint.checkBilling -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint.checkBilling"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint.grounded -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint.grounded"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint.isSdp -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint.isSdp"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint.isVirtual -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint.isVirtual"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint.minimalUsageExpected -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint.minimalUsageExpected"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint.outageRegion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint.outageRegion"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint.readCycle -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint.readCycle"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint.readRoute -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint.readRoute"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint.serviceDeliveryRemark -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint.serviceDeliveryRemark"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint.servicePriority -->
+
+    <owl:DatatypeProperty rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint.servicePriority"/>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#asGML -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#asGML">
+        <rdfs:subPropertyOf rdf:resource="http://www.opengis.net/ont/geosparql#hasSerialization"/>
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.opengis.net/ont/geosparql#gmlLiteral"/>
+        <dc:contributor>Matthew Perry</dc:contributor>
+        <dc:creator>OGC GeoSPARQL 1.0 Standard Working Group</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-06-16</dc:date>
+        <dc:description xml:lang="en">
+      The GML serialization of a geometry
+    </dc:description>
+        <rdfs:comment xml:lang="en">
+      The GML serialization of a geometry
+    </rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0"/>
+        <rdfs:label xml:lang="en">asGML</rdfs:label>
+        <skos:definition xml:lang="en">
+      The GML serialization of a geometry
+    </skos:definition>
+        <skos:prefLabel xml:lang="en">asGML</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasSerialization -->
+
+    <owl:DatatypeProperty rdf:about="http://www.opengis.net/ont/geosparql#hasSerialization">
+        <rdfs:domain rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <dc:contributor>Matthew Perry</dc:contributor>
+        <dc:creator>OGC GeoSPARQL 1.0 Standard Working Group</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-06-16</dc:date>
+        <dc:description xml:lang="en">
+      Connects a geometry object with its text-based serialization.
+    </dc:description>
+        <rdfs:comment xml:lang="en">
+      Connects a geometry object with its text-based serialization.
+    </rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0"/>
+        <rdfs:label xml:lang="en">has serialization</rdfs:label>
+        <skos:definition xml:lang="en">
+      Connects a geometry object with its text-based serialization.
+    </skos:definition>
+        <skos:prefLabel xml:lang="en">has serialization</skos:prefLabel>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/locn#addressArea -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/locn#addressArea">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/locn#Address"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <terms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">locn:addressArea</terms:identifier>
+        <rdfs:comment xml:lang="en">The name or names of a geographic area or locality that groups a number of addressable objects for addressing purposes, without being an administrative unit. This would typically be part of a city, a neighbourhood or village. The domain of locn:addressArea is locn:Address.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/locn"/>
+        <rdfs:label xml:lang="en">address area</rdfs:label>
+        <ns:term_status xml:lang="en">testing</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/locn#postCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/locn#postCode">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/locn#Address"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <terms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">locn:postCode</terms:identifier>
+        <rdfs:comment xml:lang="en">The post code (a.k.a postal code, zip code etc.). Post codes are common elements in many countries&apos; postal address systems. The domain of locn:postCode is locn:Address.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/locn"/>
+        <rdfs:label xml:lang="en">post code</rdfs:label>
+        <ns:term_status xml:lang="en">testing</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/locn#thoroughfare -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/locn#thoroughfare">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/locn#Address"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <terms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">locn:thoroughfare</terms:identifier>
+        <rdfs:comment xml:lang="en">An address component that represents the name of a passage or way through from one location to another. A thoroughfare is not necessarily a road, it might be a waterway or some other feature. The domain of locn:thoroughfare is locn:Address.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/locn"/>
+        <rdfs:label xml:lang="en">thoroughfare</rdfs:label>
+        <ns:term_status xml:lang="en">testing</ns:term_status>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#ActivePower -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#ActivePower"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#AmiBillingReadyKind -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#AmiBillingReadyKind"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#CurrentFlow -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#CurrentFlow"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#DateInterval -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#DateInterval"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#DateTimeInterval -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#DateTimeInterval">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#DateTimeInterval.end"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#DateTimeInterval.start"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#DateTimeInterval.end"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#DateTimeInterval.start"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment>Interval between two date and time points.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Document -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#Document">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.docStatus"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#Status"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.electronicAddress"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#ElectronicAddress"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.status"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#Status"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.docStatus"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#Status"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.electronicAddress"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#ElectronicAddress"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.status"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#Status"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.authorName"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.comment"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.createdDateTime"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.lastModifiedDateTime"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.revisionNumber"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.subject"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.title"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.type"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.authorName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.comment"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.createdDateTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.lastModifiedDateTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.revisionNumber"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.subject"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.title"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Document.type"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.enexis.nl/IEC-CIM#IdentifiedObject"/>
+        <rdfs:comment>Parent class for different groupings of information collected and managed as a part of a business process. It will frequently contain references to other objects, such as assets, people and power system resources.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#ElectronicAddress -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#ElectronicAddress"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Equipment -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#Equipment">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Equipment.aggregate"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Equipment.inService"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Equipment.normallyInService"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Equipment.aggregate"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Equipment.inService"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Equipment.normallyInService"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.enexis.nl/IEC-CIM#PowerSystemResource"/>
+        <rdfs:comment>The parts of a power system that are physical devices, electronic or mechanical.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#IdentifiedObject -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#IdentifiedObject">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#IdentifiedObject.aliasName"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#IdentifiedObject.description"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#IdentifiedObject.mRID"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#IdentifiedObject.name"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#IdentifiedObject.aliasName"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#IdentifiedObject.description"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#IdentifiedObject.mRID"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#IdentifiedObject.name"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment>This is a root class to provide common identification for all classes needing identification and naming attributes.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Name -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#Name"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#NameType -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#NameType"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#OrganisationRole -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#OrganisationRole">
+        <rdfs:subClassOf rdf:resource="http://www.enexis.nl/IEC-CIM#IdentifiedObject"/>
+        <rdfs:comment>Identifies a way in which an organisation may participate in the utility enterprise (e.g., customer, manufacturer, etc).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Outage -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#Outage">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Outage.actualPeriod"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#DateTimeInterval"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Outage.estimatedPeriod"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#DateTimeInterval"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Outage.summary"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#ServicePointOutageSummary"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Outage.actualPeriod"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#DateTimeInterval"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Outage.estimatedPeriod"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#DateTimeInterval"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Outage.summary"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#ServicePointOutageSummary"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Outage.cancelledDateTime"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Outage.cause"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Outage.isPlanned"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Outage.cancelledDateTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Outage.cause"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Outage.isPlanned"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.enexis.nl/IEC-CIM#Document"/>
+        <rdfs:comment>Document describing details of an active or planned outage in a part of the electrical network.
+A non-planned outage may be created upon:
+- a breaker trip,
+- a fault indicator status change,
+- a meter event indicating customer outage,
+- a reception of one or more customer trouble calls, or
+- an operator command, reflecting information obtained from the field crew.
+Outage restoration may be performed using a switching plan which complements the outage information with detailed switching activities, including the relationship to the crew and work.
+A planned outage may be created upon:
+- a request for service, maintenance or construction work in the field, or
+- an operator-defined outage for what-if/contingency network analysis.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#PhaseCode -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#PhaseCode"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#PowerSystemResource -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#PowerSystemResource">
+        <rdfs:subClassOf rdf:resource="http://www.enexis.nl/IEC-CIM#IdentifiedObject"/>
+        <rdfs:comment>A power system resource can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources can have measurements associated.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#ServicePointOutageSummary -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#ServicePointOutageSummary">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#ServicePointOutageSummary.criticalCount"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#ServicePointOutageSummary.totalCount"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#ServicePointOutageSummary.criticalCount"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#ServicePointOutageSummary.totalCount"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment>Summary counts of service points affected by an outage. These counts are sometimes referred to as total and critical customer count.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Status -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#Status">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Status.dateTime"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Status.reason"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Status.remark"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Status.value"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Status.dateTime"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Status.reason"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Status.remark"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#Status.value"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment>Current status information relevant to an entity.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePoint -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#UsagePoint">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.amiBillingReady"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#AmiBillingReadyKind"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.connectionState"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePointConnectedKind"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.estimatedLoad"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#CurrentFlow"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.nominalServiceVoltage"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#Voltage"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.phaseCode"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#PhaseCode"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.ratedCurrent"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#CurrentFlow"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.ratedPower"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#ActivePower"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.amiBillingReady"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#AmiBillingReadyKind"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.connectionState"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePointConnectedKind"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.estimatedLoad"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#CurrentFlow"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.nominalServiceVoltage"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#Voltage"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.phaseCode"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#PhaseCode"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.ratedCurrent"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#CurrentFlow"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.ratedPower"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.enexis.nl/IEC-CIM#ActivePower"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.checkBilling"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.grounded"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.isSdp"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.isVirtual"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.minimalUsageExpected"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.outageRegion"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.readCycle"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.readRoute"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.serviceDeliveryRemark"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.servicePriority"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.checkBilling"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.grounded"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.isSdp"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.isVirtual"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.minimalUsageExpected"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.outageRegion"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.readCycle"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.readRoute"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.serviceDeliveryRemark"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.enexis.nl/IEC-CIM#UsagePoint.servicePriority"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.enexis.nl/IEC-CIM#IdentifiedObject"/>
+        <rdfs:comment>Logical or physical point in the network to which readings or events may be attributed. Used at the place where a physical or virtual meter may be located; however, it is not required that a meter be present.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#UsagePointConnectedKind -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#UsagePointConnectedKind"/>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Voltage -->
+
+    <owl:Class rdf:about="http://www.enexis.nl/IEC-CIM#Voltage"/>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#Feature -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Feature">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <owl:disjointWith rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>
+        <dc:contributor>Matthew Perry</dc:contributor>
+        <dc:creator>OGC GeoSPARQL 1.0 Standard Working Group</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-06-16</dc:date>
+        <dc:description xml:lang="en">
+      This class represents the top-level feature type. This class is 
+      equivalent to GFI_Feature defined in ISO 19156:2011, and it is 
+      superclass of all feature types.
+    </dc:description>
+        <rdfs:comment xml:lang="en">
+      This class represents the top-level feature type. This class is 
+      equivalent to GFI_Feature defined in ISO 19156:2011, and it is 
+      superclass of all feature types.
+    </rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/gml"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0"/>
+        <rdfs:label xml:lang="en">Feature</rdfs:label>
+        <skos:definition xml:lang="en">
+      This class represents the top-level feature type. This class is 
+      equivalent to GFI_Feature defined in ISO 19156:2011, and it is 
+      superclass of all feature types.
+    </skos:definition>
+        <skos:prefLabel xml:lang="en">Feature</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#Geometry -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Geometry">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#SpatialObject"/>
+        <dc:contributor>Matthew Perry</dc:contributor>
+        <dc:creator>OGC GeoSPARQL 1.0 Standard Working Group</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-06-16</dc:date>
+        <dc:description xml:lang="en">
+      The class represents the top-level geometry type. This class is 
+      equivalent to the UML class GM_Object defined in ISO 19107, and 
+      it is superclass of all geometry types.
+    </dc:description>
+        <rdfs:comment xml:lang="en">
+      The class represents the top-level geometry type. This class is 
+      equivalent to the UML class GM_Object defined in ISO 19107, and 
+      it is superclass of all geometry types.
+    </rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/gml"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0"/>
+        <rdfs:label xml:lang="en">Geometry</rdfs:label>
+        <skos:definition xml:lang="en">
+      The class represents the top-level geometry type. This class is 
+      equivalent to the UML class GM_Object defined in ISO 19107, and 
+      it is superclass of all geometry types.
+    </skos:definition>
+        <skos:prefLabel xml:lang="en">Geometry</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#SpatialObject -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#SpatialObject">
+        <dc:contributor>Matthew Perry</dc:contributor>
+        <dc:creator>OGC GeoSPARQL 1.0 Standard Working Group</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-06-16</dc:date>
+        <dc:description xml:lang="en">
+      The class spatial-object represents everything that can have 
+      a spatial representation. It is superclass of feature and geometry.
+    </dc:description>
+        <rdfs:comment xml:lang="en">
+      The class spatial-object represents everything that can have 
+      a spatial representation. It is superclass of feature and geometry.
+    </rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/geosparql"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/gml"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/spec/geosparql/1.0"/>
+        <rdfs:label xml:lang="en">SpatialObject</rdfs:label>
+        <skos:definition xml:lang="en">
+      The class spatial-object represents everything that can have 
+      a spatial representation. It is superclass of feature and geometry.
+    </skos:definition>
+        <skos:prefLabel xml:lang="en">SpatialObject</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.opengis.net/ont/sf#Geometry -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/sf#Geometry"/>
+    
+
+
+    <!-- http://www.opengis.net/ont/sf#Point -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/sf#Point">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/sf#Geometry"/>
+        <rdfs:comment xml:lang="en">
+A Point is a 0-dimensional geometric object and represents a single location in coordinate space. 
+A Point has an x-coordinate value, a y-coordinate value. If called for by the associated Spatial Reference System, it may also have coordinate values for z and m.
+The boundary of a Point is the empty set.
+    </rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.opengis.net/ont/sf"/>
+        <rdfs:label xml:lang="en">Point</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/locn#Address -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/locn#Address">
+        <terms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">locn:Address</terms:identifier>
+        <rdfs:comment xml:lang="en">An &quot;address representation&quot; as conceptually defined by the INSPIRE Address Representation data type. The locn:addressId property may be used to link this locn:Address to other representations.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/locn"/>
+        <rdfs:label xml:lang="en">Address</rdfs:label>
+        <ns:term_status xml:lang="en">testing</ns:term_status>
+        <powder-s:describedby rdf:resource="https://joinup.ec.europa.eu/node/55858"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+
