@@ -38,39 +38,33 @@
     
 
 
-    <!-- http://purl.org/dc/terms/Location -->
-
-    <rdf:Description rdf:about="http://purl.org/dc/terms/Location">
-        <owl:equivalentClass rdf:resource="http://www.enexis.nl/EA_Model#Location"/>
-    </rdf:Description>
-    
-
-
     <!-- http://www.enexis.nl/EA_Model#Asset -->
 
-    <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#Asset">
+    <owl:Class rdf:about="http://www.enexis.nl/EA_Model#Asset">
         <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
-    </rdf:Description>
-    
-
-
-    <!-- http://www.enexis.nl/EA_Model#Location -->
-
-    <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#Location"/>
+    </owl:Class>
     
 
 
     <!-- http://www.enexis.nl/EA_Model#PowerSystemResource -->
 
-    <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#PowerSystemResource">
+    <owl:Class rdf:about="http://www.enexis.nl/EA_Model#PowerSystemResource">
         <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
-    </rdf:Description>
+    </owl:Class>
     
 
 
     <!-- http://www.enexis.nl/EA_Model#ServicePointOutageSummary -->
 
-    <rdf:Description rdf:about="http://www.enexis.nl/EA_Model#ServicePointOutageSummary">
+    <owl:Class rdf:about="http://www.enexis.nl/EA_Model#ServicePointOutageSummary">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.enexis.nl/IEC-CIM#Location -->
+
+    <rdf:Description rdf:about="http://www.enexis.nl/IEC-CIM#Location">
         <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
     </rdf:Description>
 </rdf:RDF>

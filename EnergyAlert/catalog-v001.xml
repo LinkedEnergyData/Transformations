@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="urn:default:baseUri:" uri="file:/home/joep/workspace/Transformations/TotalCim/TotalCim-Eclipse.owl"/>
+    <uri id="Imports Wizard Entry" name="http://www.purl.org/LinkedEnergyData/cimgeo#" uri="file:/home/joep/workspace/Transformations/CIM-GeoOWLAllignment/cimgeo.owl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1525773614198" name="duplicate:htp://purl.org/EnergyAlert/ontology" uri="EnergyAlert.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1525773614198" name="duplicate:htp://purl.org/EnergyAlert/ontology" uri="EnergyAlert2.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1525878254695" name="htp://purl.org/EnergyAlert/ontology" uri="EnergyAlert.owl"/>
     </group>
 </catalog>
