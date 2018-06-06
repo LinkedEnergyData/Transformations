@@ -18,13 +18,24 @@ helper def: datatypes : Map(String, String) =
 		('Float', 'http://www.w3.org/2001/XMLSchema#float'),
 		('Long', 'http://www.w3.org/2001/XMLSchema#long'),
 		('Single', 'http://www.w3.org/2001/XMLSchema#short'),
-		('Variant', 'http://www.w3.org/2001/XMLSchema#string')
+		('Variant', 'http://www.w3.org/2001/XMLSchema#string'),
+		('DummyPrimitive', 'http://www.w3.org/2001/XMLSchema#string'),
+		('CharacterString', 'http://www.w3.org/2001/XMLSchema#string'),
+		('URI', 'http://www.w3.org/2001/XMLSchema#anyUri')
 	};
 	
 helper context UML!Class def : isCimPrimitive() : Boolean = if (thisModule.datatypes.get(self.name).oclIsUndefined()) 
 					then false
 					else true
 					endif;	
+
+helper context UML!DataType def : isCimPrimitive() : Boolean = if (thisModule.datatypes.get(self.name).oclIsUndefined()) 
+					then false
+					else true
+					endif;	
+
+helper context UML!Class def : ToDataType() : OWL!Datatype = thisModule.resolveTemp(self, 'cdo');
+helper context UML!DataType def : ToDataType() : OWL!Datatype = thisModule.resolveTemp(self, 'ddo');
 	
 helper context UML!Enumeration def : isCimPrimitive() : Boolean = false;
 
@@ -32,10 +43,15 @@ helper context UML!Class def : CimPrimitive() : String = if (thisModule.datatype
 					then 'http://www.w3.org/2001/XMLSchema#string'
 					else thisModule.datatypes.get(self.name)
 					endif;
-	
+
+helper context UML!DataType def : CimPrimitive() : String = if (thisModule.datatypes.get(self.name).oclIsUndefined()) 
+					then 'http://www.w3.org/2001/XMLSchema#string'
+					else thisModule.datatypes.get(self.name)
+					endif;	
 	
 helper context UML!Class def : reftype(ptype : UML!Classifier) : OWL!Type = thisModule.resolveTemp(ptype, 'cco');
 helper context UML!Enumeration def : reftype(ptype : UML!Classifier) : OWL!Type = thisModule.resolveTemp(ptype, 'eoo');
+helper context UML!DataType def : reftype(ptype : UML!Classifier) : OWL!Type = thisModule.resolveTemp(ptype, 'ddo').debug(ptype);
 
 helper context UML!Class def : commentowner() : OWL!Class = thisModule.resolveTemp(self, 'cco');
 helper context UML!Association def : commentowner() : OWL!Association = thisModule.resolveTemp(self, 'asopo');
@@ -57,88 +73,20 @@ helper context UML!Property def : commentowner() : OWL!Property = if ( not self.
 
 
 helper def: modelURI : String = '';
-helper context UML!Model def: getModelURI() : String = if ( not self.URI.oclIsUndefined() ) 
+helper context UML!Model def: getModelURIraw() : String = if ( not self.URI.oclIsUndefined() ) 
 	 then self.URI 
 	 else if ( not self.namespace.oclIsUndefined() )
-	 	then 'http://iec.ch/TC57/2017#' + self.namespace + self.name
-		else 'http://iec.ch/TC57/2017#' + self.name
+	 	then 'http://IEC/TC57/2017/' + self.namespace + '/' + self.name + '#'
+		else 'http://IEC/TC57/2017/' + self.name +  '#'
 		endif	
 	 endif;
 
-helper context UML!Association def : AssocGetName() : String = if ( not self.name.oclIsUndefined() and self.name <> '' )
-	then self.name
-	else self.AssocGetMemberNames()
-	endif;
+helper context UML!Model def: getModelURI() : String = if ( self.getModelURIraw() = '' ) 
+	 then 'http://IEC/TC57/2017/#'
+	 else self.getModelURIraw()
+	 endif;
 
-helper context UML!Association def : AssocGetMemberNames() : String = 
-	let
-		assFirstEndName : String = if ( self.ownedEnd->size() > 0 ) 
-							then if ( self.ownedEnd->at(1).name.oclIsUndefined())
-								then if ( not self.ownedEnd->at(1).type.oclIsUndefined() )
-								then if ( not self.ownedEnd->at(1).type.name.oclIsUndefined() )
-									then self.ownedEnd->at(1).type.name
-									else ''
-									endif
-									else ''
-									endif
-									else self.ownedEnd->at(1).name
-									endif
-									else ''
-									endif
-in
-	let
-		assFirstEndTypeName : String = if ( self.ownedEnd->size() > 0 ) 
-							then if ( not self.ownedEnd->at(1).type.oclIsUndefined() )
-								then if ( not self.ownedEnd->at(1).type.name.oclIsUndefined() )
-									then self.ownedEnd->at(1).type.name
-									else 'TypeNameUndefined'
-									endif
-									else 'TypeUndefined'
-									endif
-									else 'noMember'
-									endif
-in
-let
-assSecondEndName : String = if ( self.ownedEnd->size() > 1 ) 
-								then if ( self.ownedEnd->at(2).name.oclIsUndefined())
-								then if ( not self.ownedEnd->at(2).type.oclIsUndefined() )
-								then if ( not self.ownedEnd->at(2).type.name.oclIsUndefined() )
-									then self.ownedEnd->at(2).type.name
-									else ''
-									endif
-									else ''
-									endif
-									else self.ownedEnd->at(2).name
-									endif
-									else ''
-									endif
-in
-	let
-		assSecondEndTypeName : String = if ( self.ownedEnd->size() > 1 ) 
-							then if ( not self.ownedEnd->at(2).type.oclIsUndefined() )
-								then if ( not self.ownedEnd->at(2).type.name.oclIsUndefined() )
-									then self.ownedEnd->at(2).type.name
-									else 'TypeNameUndefined'
-									endif
-									else 'TypeUndefined'
-									endif
-									else 'noMember'
-									endif
-in
-let
-assfirst : String = if ( assFirstEndName <> '' )
-	then assFirstEndName
-	else assFirstEndTypeName
-	endif
-in
-let 
-asssecond : String = if ( assSecondEndName <> '' )
-	then assSecondEndName
-	else assSecondEndTypeName
-	endif
-in
-assfirst + '_' + asssecond;
-	
+helper context UML!Association def : AssocGetName() : String = 'A_' + self.memberEnd.at(1).type.name + '_' + self.memberEnd.at(2).type.name;
 
 helper context UML!Association def : hasObjectPropertyAxiom(Axiom : String) : Boolean = if ( self.getAppliedStereotype('EAODM::OWL::objectProperty').oclIsUndefined() )
 	then false
@@ -163,7 +111,7 @@ rule Model2Ontology {
 		moi : UML!Model in IN (moi.oclIsTypeOf(UML!Model))		
 	to
 		moo : OWL!Ontology (
-			 ontologyURI <- thisModule.CreateURI(moi.getModelURI().replaceAll(' ', '_')),
+			 ontologyURI <- thisModule.CreateURI(moi.getModelURI()),
 				-- Classes are no children of Ontology
 				axioms <- Sequence {
 					-- all annotations
@@ -277,9 +225,10 @@ lazy rule comment2annotation {
 
 rule Class2Class {
 	from
-		cci : UML!Class  in IN (cci.oclIsTypeOf(UML!Class) and not cci.isCimPrimitive())		
+		cci : UML!Class  in IN (cci.oclIsTypeOf(UML!Class) and not cci.isCimPrimitive() and not cci.name.oclIsUndefined())		
 	to
 		cco : OWL!Class (
+			-- namespace is the package name
 			entityURI <- thisModule.ModelURI2URI(cci.namespace.name + '.' + cci.name)
 		)		
 	do {
@@ -287,7 +236,7 @@ rule Class2Class {
 			thisModule.General2SubClassOf(cco, thisModule.resolveTemp(p.general, 'cco') );
 		}
 
-cci.namespace.debug(cci.name);
+--cci.namespace.debug(cci.name);
 		--if ( not cci.getAppliedStereotypes()->first().oclIsUndefined() ) {
 			 --cci.getAppliedStereotypes()->first().profile.nestingPackage.name.debug(cci.name);
 			 --cci.getAppliedStereotype('EAODM::OWL::owlClass').debug(cci.name);
@@ -298,9 +247,9 @@ cci.namespace.debug(cci.name);
 	}
 }
 
-lazy rule Class2Datatype {
+rule Class2Datatype {
 	from
-		cdi : UML!Class
+		cdi : UML!Class  in IN (cdi.oclIsTypeOf(UML!Class) and cdi.isCimPrimitive())	
 		to
 		cdo : OWL!Datatype (
 			entityURI <- thisModule.CreateURI(cdi.CimPrimitive())
@@ -311,29 +260,45 @@ lazy rule Class2Datatype {
 			}
 }
 
+rule DataType2Datatype {
+	from
+		ddi : UML!DataType in IN ( not ddi.oclIsTypeOf( UML!Enumeration ) )
+		to
+		ddo : OWL!Datatype (
+			entityURI <- thisModule.CreateURI(ddi.CimPrimitive())
+			)
+			do {
+				ddi.name.debug('f');
+				thisModule.datatypes.get(ddi.name).debug('g');
+			}
+}
+
 -- ObjectProperties fom assocs are not included !!
 helper context UML!Property def : isObjectProperty() : Boolean = if ( self.class.oclIsUndefined() )
 	then false
 	else if ( self.type.oclIsUndefined() )
 		then false
-		else not self.type.isCimPrimitive()
+		else if self.type.oclIsTypeOf(UML!DataType)
+		then false
+		else not self.type.isCimPrimitive() 
+		endif
 		endif
 		endif;
 
 rule Attribute2ObjectProperty {
 	from
-	a2opi : UML!Property in IN  ( a2opi.isObjectProperty() and a2opi.association.oclIsUndefined() and a2opi.datatype.oclIsUndefined())
+		a2opi : UML!Property in IN  ( a2opi.isObjectProperty() and a2opi.association.oclIsUndefined() and a2opi.datatype.oclIsUndefined())
 	to 
-	a2opo : OWL!ObjectProperty (
-		entityURI <- thisModule.ModelURI2URI(a2opi.class.name + '.' + a2opi.name)
-		),
-			a2opo1 : OWL!ObjectPropertyRange (
-				range <- a2opi.type.reftype(a2opi.type),
-				objectPropertyExpression <- a2opo
-				),
+		a2opo : OWL!ObjectProperty (
+			entityURI <- thisModule.ModelURI2URI(a2opi.class.name + '.' + a2opi.name)
+			),
 		a2opo2 :	OWL!ObjectPropertyDomain (
-				domain <- thisModule.resolveTemp(a2opi.class, 'cco'),
-				objectPropertyExpression <- a2opo
+			domain <- thisModule.resolveTemp(a2opi.class, 'cco'),
+			objectPropertyExpression <- a2opo
+			),
+		a2opo1 : OWL!ObjectPropertyRange (
+			range <- a2opi.type.reftype(a2opi.type),
+			objectPropertyExpression <- a2opo
 			)
 	do {
 								--aoi.name.debug('');	
@@ -396,15 +361,15 @@ lazy rule ObjectProperty2ObjectExactCardinality {
 
 lazy rule ObjectProperty2ObjectMaxCardinality {
 	from
-			opexci3 : UML!Property,
+		opexci3 : UML!Property,
 		opexci2 : OWL!ObjectProperty
 
 	to
-	opexcio : OWL!EquivalentClasses (
+		opexcio : OWL!EquivalentClasses (
 			equivalentClassExpressions <- Sequence {
 				opexci3.class.reftype(opexci3.class),
 				opexcio1
-			}
+				}
 			),
 		opexcio1 : OWL!ObjectMaxCardinality (
 			cardinality <- opexci3.upper,
@@ -415,15 +380,14 @@ lazy rule ObjectProperty2ObjectMaxCardinality {
 
 lazy rule ObjectProperty2ObjectMinCardinality {
 	from
-opexci3 : UML!Property,
+		opexci3 : UML!Property,
 		opexci2 : OWL!ObjectProperty
-		
 	to
-	opexcio : OWL!EquivalentClasses (
+		opexcio : OWL!EquivalentClasses (
 			equivalentClassExpressions <- Sequence {
 				opexci3.class.reftype(opexci3.class),
 				opexcio1
-			}
+				}
 			),
 		opexcio1 : OWL!ObjectMinCardinality (
 			cardinality <- opexci3.lower,
@@ -440,12 +404,12 @@ rule Attribute2DataProperty {
 		a2dpo : OWL!DataProperty (
 				entityURI <- thisModule.ModelURI2URI(a2dpi.class.name + '.' + a2dpi.name)
 			),
-			a2dpo1 : OWL!DataPropertyRange (
-				range <- thisModule.Class2Datatype(a2dpi.type),
-				dataPropertyExpression <- a2dpo
-				),
 		a2dpo2 :	OWL!DataPropertyDomain (
 				domain <- thisModule.resolveTemp(a2dpi.class, 'cco'),
+				dataPropertyExpression <- a2dpo
+			),
+		a2dpo1 : OWL!DataPropertyRange (
+				range <- a2dpi.type.ToDataType(),
 				dataPropertyExpression <- a2dpo
 			)
 	do {
@@ -470,15 +434,15 @@ lazy rule DataProperty2DataExactCardinality {
 		opexci2 : OWL!ObjectProperty
 
 	to
-	opexcio : OWL!EquivalentClasses (
+		opexcio : OWL!EquivalentClasses (
 			equivalentClassExpressions <- Sequence {
 				opexci3.class.reftype(opexci3.class),
 				opexcio1
-			}
+				}
 			),
 		opexcio1 : OWL!DataExactCardinality (
 			cardinality <- opexci3.upper,
-			dataRange <- thisModule.Class2Datatype(opexci3.type),
+			dataRange <- opexci3.type.ToDataType(),
 			dataPropertyExpression <- opexci2
 			)
 }
@@ -489,15 +453,15 @@ lazy rule DataProperty2DataMaxCardinality {
 		opexci2 : OWL!ObjectProperty
 
 	to
-	opexcio : OWL!EquivalentClasses (
+		opexcio : OWL!EquivalentClasses (
 			equivalentClassExpressions <- Sequence {
 				opexci3.class.reftype(opexci3.class),
 				opexcio1
-			}
+				}
 			),
 		opexcio1 : OWL!DataMaxCardinality (
 			cardinality <- opexci3.upper,
-			dataRange <- thisModule.Class2Datatype(opexci3.type),
+			dataRange <- opexci3.type.ToDataType(),
 			dataPropertyExpression <- opexci2
 			)
 }
@@ -512,15 +476,15 @@ lazy rule DataProperty2DataMinCardinality {
 			equivalentClassExpressions <- Sequence {
 				opexci3.class.reftype(opexci3.class),
 				opexcio1
-			}
+				}
 			),
 		opexcio1 : OWL!DataMinCardinality (
 			cardinality <- opexci3.lower,
-			
-			dataRange <- thisModule.Class2Datatype(opexci3.type),
+			dataRange <- opexci3.type.ToDataType(),
 			dataPropertyExpression <- opexci2
 			)
 }
+
 lazy rule General2SubClassOf {
 	from 
 		gsi0 : OWL!Class,
@@ -538,14 +502,13 @@ rule Enumeration2DataOneOf {
 	to
 		eoo : OWL!Class (
 			entityURI <- thisModule.ModelURI2URI(eoi.name)
-		)	,
+			)	,
 	    eoo1 : OWL!ObjectOneOf (
 	    	individuals <- eoi.ownedLiteral->collect(e | thisModule.literal2individual(e) )
-	    ),
+	    	),
 		eoo2 : OWL!EquivalentClasses (
 			equivalentClassExpressions <- Sequence { eoo, eoo1 }
 			)
-		
 }
 
 lazy rule literal2individual {
@@ -572,7 +535,8 @@ lazy rule ModelURI2URI {
 		u : String
 	to
 		o : OWL!URI (
-			value <- thisModule.modelURI + '.' + u.replaceAll(' ', '_')
+			--value <- thisModule.modelURI + '.' + u.replaceAll(' ', '_')
+			value <- '#' + u.replaceAll(' ', '_')
 			)
 }
 
@@ -580,7 +544,7 @@ lazy rule ModelURI2URI {
 
 rule Association2ObjectProperty {
 	from
-	asopi : UML!Association in IN
+		asopi : UML!Association in IN
 using {
 		--local0 : String = asopi.debug('');
 	--local : String = asopi.memberEnd.debug('');
@@ -590,17 +554,16 @@ using {
 --local4 : String = asopi.memberEnd.at(2).name.debug('');
 }
 	to
-	asopo : OWL!ObjectProperty (
+		asopo : OWL!ObjectProperty (
 				entityURI <- thisModule.ModelURI2URI(asopi.AssocGetName())
-				--entityURI <- thisModule.ModelURI2URI(asopi.DebugAssociation5().debug(''))
-				
+				--entityURI <- thisModule.ModelURI2URI(asopi.DebugAssociation5().debug(''))	
 			),
-			asopo1 : OWL!ObjectPropertyRange (
-				range <- thisModule.resolveTemp(asopi.memberEnd.at(1).type, 'cco'),
-				objectPropertyExpression <- asopo
-				),
 		asopo2 :	OWL!ObjectPropertyDomain (
 				domain <- thisModule.resolveTemp(asopi.memberEnd.at(2).type, 'cco'),
+				objectPropertyExpression <- asopo
+			),
+		asopo1 : OWL!ObjectPropertyRange (
+				range <- thisModule.resolveTemp(asopi.memberEnd.at(1).type, 'cco'),
 				objectPropertyExpression <- asopo
 			)
 }
