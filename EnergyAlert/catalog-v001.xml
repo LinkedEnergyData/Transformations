@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="http://www.w3.org/2004/02/skos/core" uri="file:////fspaka02/userdata7a$/AL12686/Documents/workspace/Transformations/CIM-GeoOWLAllignment/skos.rdf"/>
+    <uri id="User Entered Import Resolution" name="http://purl.org/dc/elements/1.1/" uri="file:////fspaka02/userdata7a$/AL12686/Documents/workspace/Transformations/CIM-GeoOWLAllignment/dcelements.rdf"/>
+    <uri id="User Entered Import Resolution" name="http://www.opengis.net/ont/sf" uri="file:////fspaka02/userdata7a$/AL12686/Documents/workspace/Transformations/CIM-GeoOWLAllignment/simple_features_geometries.rdf"/>
+    <uri id="User Entered Import Resolution" name="http://www.opengis.net/ont/geosparql" uri="file:////fspaka02/userdata7a$/AL12686/Documents/workspace/Transformations/CIM-GeoOWLAllignment/geosparql_vocab_all.rdf"/>
+    <uri id="User Entered Import Resolution" name="http://www.opengis.net/ont/gml" uri="file:////fspaka02/userdata7a$/AL12686/Documents/workspace/Transformations/CIM-GeoOWLAllignment/gml_32_geometries.rdf"/>
     <uri id="User Entered Import Resolution" name="http://IEC/TC57/2017/EA_Model#" uri="file:////fspaka02/userdata7a$/AL12686/Documents/workspace/Transformations/TotalCim/TotalCim-Eclipse.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.purl.org/LinkedEnergyData/cimgeo#" uri="file:////fspaka02/userdata7a$/AL12686/Documents/workspace/Transformations/CIM-GeoOWLAllignment/cimgeo.owl"/>
     <uri id="User Entered Import Resolution" name="urn:default:baseUri:" uri="file:/home/joep/workspace/Transformations/TotalCim/TotalCim-Eclipse.owl"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.purl.org/LinkedEnergyData/ExtensionOntology#"
-     xml:base="http://www.purl.org/LinkedEnergyData/ExtensionOntology"
+<rdf:RDF xmlns="http://www.purl.org/EnergyAlert/ExtensionOntology#"
+     xml:base="http://www.purl.org/EnergyAlert/ExtensionOntology"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -9,9 +9,47 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:dc="http://purl.org/dc/elements/1.1/">
-    <owl:Ontology rdf:about="http://www.purl.org/LinkedEnergyData/ExtensionOntology#">
+    <owl:Ontology rdf:about="http://www.purl.org/EnergyAlert/ExtensionOntology#">
         <owl:imports rdf:resource="http://www.purl.org/LinkedEnergyData/cimgeo#"/>
     </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.purl.org/EnergyAlert/ExtensionOntology#Incident_Location -->
+
+    <owl:ObjectProperty rdf:about="http://www.purl.org/EnergyAlert/ExtensionOntology#Incident_Location">
+        <rdfs:domain rdf:resource="urn:default:baseUri:#Operations.Incident"/>
+        <rdfs:range rdf:resource="urn:default:baseUri:#Common.Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.purl.org/EnergyAlert/ExtensionOntology#Outage_Equipments -->
+
+    <owl:ObjectProperty rdf:about="http://www.purl.org/EnergyAlert/ExtensionOntology#Outage_Equipments">
+        <rdfs:domain rdf:resource="urn:default:baseUri:#Operations.Outage"/>
+        <rdfs:range rdf:resource="urn:default:baseUri:#Core.Equipment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.purl.org/EnergyAlert/ExtensionOntology#Outage_ServiceSupplier -->
+
+    <owl:ObjectProperty rdf:about="http://www.purl.org/EnergyAlert/ExtensionOntology#Outage_ServiceSupplier">
+        <rdfs:domain rdf:resource="urn:default:baseUri:#Operations.Outage"/>
+        <rdfs:range rdf:resource="urn:default:baseUri:#PaymentMetering.ServiceSupplier"/>
+    </owl:ObjectProperty>
 </rdf:RDF>
 
 
