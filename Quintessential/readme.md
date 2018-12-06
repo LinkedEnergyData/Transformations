@@ -13,11 +13,12 @@ The total transformation consist of 3 steps:
 
 The first 2 are done with ATL scripts, the second with a dedicated 'projector' which you must put in the 'plugins' subdir of the eclipse installation (org.eclipse.m2m.atl.projectors.xml_0.4.0.jar for convenience in this project, originally from  http://docatlanmod.emn.fr/ATL/Plugins/org.eclipse.m2m.atl.projectors.xml_0.4.0.jar)
 
-The total transform can be done by starting the Ant build script 
+The total transform can be done by starting the Ant build script.
+
 PS. If the Ant Build doesn't work. right click on the buildfile, \<run as>, \<ant build....> on the \<Main> tab, put
   ${workspace_loc:/}
 in the \<Base Directory> field, UNset \<build before launch> in tab \<Build> and check \<Run in the same JRE as the workbench> on the \<JRE> tab.
-If you have downloaded the whole git tree, on the \<MAIN> tab ,\<Base Directory> filed, select button \<Browse Filesystem> and select \<workspacedir>/Transformations-master\Transformations-master
+If you have downloaded the whole git tree, on the \<MAIN> tab ,\<Base Directory> field, select button \<Browse Filesystem> and select \<workspacedir>/Transformations-master/Transformations-master or type ${workspace_loc:/Transformations-master/Transformations-master}
 
 This Ant-Build run is the only way the last step ( actual xml production ) can be triggered.
 
