@@ -1,0 +1,1085 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:owl="http:///owl.ecore">
+  <owl:Ontology ontologyURI="/36"/>
+  <owl:Class entityURI="/37"/>
+  <owl:Class entityURI="/63"/>
+  <owl:Class entityURI="/96"/>
+  <owl:Class entityURI="/177"/>
+  <owl:Class entityURI="/209"/>
+  <owl:Class entityURI="/269"/>
+  <owl:Class entityURI="/310"/>
+  <owl:Class entityURI="/312"/>
+  <owl:Class entityURI="/353"/>
+  <owl:Class entityURI="/398"/>
+  <owl:Class entityURI="/519"/>
+  <owl:Class entityURI="/600"/>
+  <owl:Class entityURI="/651"/>
+  <owl:Class entityURI="/678"/>
+  <owl:Class entityURI="/705"/>
+  <owl:Class entityURI="/706"/>
+  <owl:Class entityURI="/707"/>
+  <owl:Class entityURI="/708"/>
+  <owl:ObjectOneOf individuals="/709 /711 /713"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/18 /19"/>
+  <owl:Class entityURI="/715"/>
+  <owl:ObjectOneOf individuals="/716 /718 /720 /722 /724 /726 /728 /730 /732 /734 /736 /738 /740 /742 /744 /746 /748 /750 /752 /754 /756 /758 /760 /762 /764 /766"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/21 /22"/>
+  <owl:Class entityURI="/768"/>
+  <owl:ObjectOneOf individuals="/769 /771 /773 /775 /777 /779 /781 /783 /785 /787 /789 /791 /793 /795 /797 /799 /801"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/24 /25"/>
+  <owl:Class entityURI="/803"/>
+  <owl:ObjectOneOf individuals="/804 /806 /808 /810 /812 /814 /816 /818 /820 /822 /824 /826 /828 /830 /832 /834 /836 /838 /840 /842 /844 /846 /848 /850 /852 /854 /856 /858 /860 /862 /864 /866 /868 /870 /872 /874 /876 /878 /880 /882 /884 /886 /888 /890 /892 /894 /896 /898 /900 /902 /904 /906 /908 /910 /912 /914 /916 /918 /920 /922 /924 /926 /928 /930 /932 /934 /936 /938 /940 /942 /944 /946 /948 /950 /952 /954 /956 /958 /960 /962 /964 /966 /968 /970 /972 /974 /976 /978 /980 /982 /984 /986 /988 /990 /992 /994 /996 /998 /1000 /1002 /1004 /1006 /1008 /1010 /1012 /1014 /1016 /1018 /1020 /1022 /1024 /1026 /1028 /1030 /1032 /1034 /1036 /1038 /1040 /1042 /1044 /1046 /1048 /1050 /1052 /1054 /1056 /1058 /1060 /1062 /1064 /1066 /1068 /1070 /1072 /1074 /1076 /1078"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/27 /28"/>
+  <owl:ObjectProperty entityURI="/1080"/>
+  <owl:ObjectPropertyRange range="/4" objectPropertyExpression="/30"/>
+  <owl:ObjectPropertyDomain domain="/1" objectPropertyExpression="/30"/>
+  <owl:ObjectProperty entityURI="/1081"/>
+  <owl:ObjectPropertyRange range="/7" objectPropertyExpression="/33"/>
+  <owl:ObjectPropertyDomain domain="/5" objectPropertyExpression="/33"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Fault"/>
+  <owl:SubClassOf subClassExpression="/1" superClassExpression="/6"/>
+  <owl:ObjectProperty entityURI="/42"/>
+  <owl:ObjectPropertyRange range="/2" objectPropertyExpression="/39"/>
+  <owl:ObjectPropertyDomain domain="/1" objectPropertyExpression="/39"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Fault.impedance"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/1 /44"/>
+  <owl:ObjectMinCardinality classExpression="/2" objectPropertyExpression="/39"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/1 /46"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/2" objectPropertyExpression="/39"/>
+  <owl:ObjectProperty entityURI="/50"/>
+  <owl:ObjectPropertyRange range="/18" objectPropertyExpression="/47"/>
+  <owl:ObjectPropertyDomain domain="/1" objectPropertyExpression="/47"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Fault.kind"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/1 /52"/>
+  <owl:ObjectMinCardinality classExpression="/18" objectPropertyExpression="/47"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/1 /54"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/18" objectPropertyExpression="/47"/>
+  <owl:ObjectProperty entityURI="/58"/>
+  <owl:ObjectPropertyRange range="/21" objectPropertyExpression="/55"/>
+  <owl:ObjectPropertyDomain domain="/1" objectPropertyExpression="/55"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Fault.phases"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/1 /60"/>
+  <owl:ObjectMinCardinality classExpression="/21" objectPropertyExpression="/55"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/1 /62"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/21" objectPropertyExpression="/55"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#FaultImpedance"/>
+  <owl:ObjectProperty entityURI="/67"/>
+  <owl:ObjectPropertyRange range="/14" objectPropertyExpression="/64"/>
+  <owl:ObjectPropertyDomain domain="/2" objectPropertyExpression="/64"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#FaultImpedance.rGround"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/2 /69"/>
+  <owl:ObjectMinCardinality classExpression="/14" objectPropertyExpression="/64"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/2 /71"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/14" objectPropertyExpression="/64"/>
+  <owl:ObjectProperty entityURI="/75"/>
+  <owl:ObjectPropertyRange range="/14" objectPropertyExpression="/72"/>
+  <owl:ObjectPropertyDomain domain="/2" objectPropertyExpression="/72"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#FaultImpedance.rLineToLine"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/2 /77"/>
+  <owl:ObjectMinCardinality classExpression="/14" objectPropertyExpression="/72"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/2 /79"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/14" objectPropertyExpression="/72"/>
+  <owl:ObjectProperty entityURI="/83"/>
+  <owl:ObjectPropertyRange range="/13" objectPropertyExpression="/80"/>
+  <owl:ObjectPropertyDomain domain="/2" objectPropertyExpression="/80"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#FaultImpedance.xGround"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/2 /85"/>
+  <owl:ObjectMinCardinality classExpression="/13" objectPropertyExpression="/80"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/2 /87"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/13" objectPropertyExpression="/80"/>
+  <owl:ObjectProperty entityURI="/91"/>
+  <owl:ObjectPropertyRange range="/13" objectPropertyExpression="/88"/>
+  <owl:ObjectPropertyDomain domain="/2" objectPropertyExpression="/88"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#FaultImpedance.xLineToLine"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/2 /93"/>
+  <owl:ObjectMinCardinality classExpression="/13" objectPropertyExpression="/88"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/2 /95"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/13" objectPropertyExpression="/88"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ElectronicAddress"/>
+  <owl:Datatype entityURI="/98"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/102"/>
+  <owl:DataPropertyRange range="/97" dataPropertyExpression="/99"/>
+  <owl:DataPropertyDomain domain="/3" dataPropertyExpression="/99"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ElectronicAddress.lan"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/3 /104"/>
+  <owl:DataMinCardinality dataRange="/97" dataPropertyExpression="/99"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/3 /106"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/97" dataPropertyExpression="/99"/>
+  <owl:Datatype entityURI="/108"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/112"/>
+  <owl:DataPropertyRange range="/107" dataPropertyExpression="/109"/>
+  <owl:DataPropertyDomain domain="/3" dataPropertyExpression="/109"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ElectronicAddress.mac"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/3 /114"/>
+  <owl:DataMinCardinality dataRange="/107" dataPropertyExpression="/109"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/3 /116"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/107" dataPropertyExpression="/109"/>
+  <owl:Datatype entityURI="/118"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/122"/>
+  <owl:DataPropertyRange range="/117" dataPropertyExpression="/119"/>
+  <owl:DataPropertyDomain domain="/3" dataPropertyExpression="/119"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ElectronicAddress.email1"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/3 /124"/>
+  <owl:DataMinCardinality dataRange="/117" dataPropertyExpression="/119"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/3 /126"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/117" dataPropertyExpression="/119"/>
+  <owl:Datatype entityURI="/128"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/132"/>
+  <owl:DataPropertyRange range="/127" dataPropertyExpression="/129"/>
+  <owl:DataPropertyDomain domain="/3" dataPropertyExpression="/129"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ElectronicAddress.email2"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/3 /134"/>
+  <owl:DataMinCardinality dataRange="/127" dataPropertyExpression="/129"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/3 /136"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/127" dataPropertyExpression="/129"/>
+  <owl:Datatype entityURI="/138"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/142"/>
+  <owl:DataPropertyRange range="/137" dataPropertyExpression="/139"/>
+  <owl:DataPropertyDomain domain="/3" dataPropertyExpression="/139"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ElectronicAddress.web"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/3 /144"/>
+  <owl:DataMinCardinality dataRange="/137" dataPropertyExpression="/139"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/3 /146"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/137" dataPropertyExpression="/139"/>
+  <owl:Datatype entityURI="/148"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/152"/>
+  <owl:DataPropertyRange range="/147" dataPropertyExpression="/149"/>
+  <owl:DataPropertyDomain domain="/3" dataPropertyExpression="/149"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ElectronicAddress.radio"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/3 /154"/>
+  <owl:DataMinCardinality dataRange="/147" dataPropertyExpression="/149"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/3 /156"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/147" dataPropertyExpression="/149"/>
+  <owl:Datatype entityURI="/158"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/162"/>
+  <owl:DataPropertyRange range="/157" dataPropertyExpression="/159"/>
+  <owl:DataPropertyDomain domain="/3" dataPropertyExpression="/159"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ElectronicAddress.userID"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/3 /164"/>
+  <owl:DataMinCardinality dataRange="/157" dataPropertyExpression="/159"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/3 /166"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/157" dataPropertyExpression="/159"/>
+  <owl:Datatype entityURI="/168"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/172"/>
+  <owl:DataPropertyRange range="/167" dataPropertyExpression="/169"/>
+  <owl:DataPropertyDomain domain="/3" dataPropertyExpression="/169"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ElectronicAddress.password"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/3 /174"/>
+  <owl:DataMinCardinality dataRange="/167" dataPropertyExpression="/169"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/3 /176"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/167" dataPropertyExpression="/169"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Equipment"/>
+  <owl:SubClassOf subClassExpression="/4" superClassExpression="/7"/>
+  <owl:Datatype entityURI="/180"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#boolean"/>
+  <owl:DataProperty entityURI="/184"/>
+  <owl:DataPropertyRange range="/179" dataPropertyExpression="/181"/>
+  <owl:DataPropertyDomain domain="/4" dataPropertyExpression="/181"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Equipment.aggregate"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/4 /186"/>
+  <owl:DataMinCardinality dataRange="/179" dataPropertyExpression="/181"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/4 /188"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/179" dataPropertyExpression="/181"/>
+  <owl:Datatype entityURI="/190"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#boolean"/>
+  <owl:DataProperty entityURI="/194"/>
+  <owl:DataPropertyRange range="/189" dataPropertyExpression="/191"/>
+  <owl:DataPropertyDomain domain="/4" dataPropertyExpression="/191"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Equipment.inService"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/4 /196"/>
+  <owl:DataMinCardinality dataRange="/189" dataPropertyExpression="/191"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/4 /198"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/189" dataPropertyExpression="/191"/>
+  <owl:Datatype entityURI="/200"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#boolean"/>
+  <owl:DataProperty entityURI="/204"/>
+  <owl:DataPropertyRange range="/199" dataPropertyExpression="/201"/>
+  <owl:DataPropertyDomain domain="/4" dataPropertyExpression="/201"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Equipment.normallyInService"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/4 /206"/>
+  <owl:DataMinCardinality dataRange="/199" dataPropertyExpression="/201"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/4 /208"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/199" dataPropertyExpression="/201"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Location"/>
+  <owl:SubClassOf subClassExpression="/5" superClassExpression="/6"/>
+  <owl:Datatype entityURI="/212"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/216"/>
+  <owl:DataPropertyRange range="/211" dataPropertyExpression="/213"/>
+  <owl:DataPropertyDomain domain="/5" dataPropertyExpression="/213"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Location.type"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/5 /218"/>
+  <owl:DataMinCardinality dataRange="/211" dataPropertyExpression="/213"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/5 /220"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/211" dataPropertyExpression="/213"/>
+  <owl:ObjectProperty entityURI="/224"/>
+  <owl:ObjectPropertyRange range="/9" objectPropertyExpression="/221"/>
+  <owl:ObjectPropertyDomain domain="/5" objectPropertyExpression="/221"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Location.mainAddress"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/5 /226"/>
+  <owl:ObjectMinCardinality classExpression="/9" objectPropertyExpression="/221"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/5 /228"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/9" objectPropertyExpression="/221"/>
+  <owl:ObjectProperty entityURI="/232"/>
+  <owl:ObjectPropertyRange range="/11" objectPropertyExpression="/229"/>
+  <owl:ObjectPropertyDomain domain="/5" objectPropertyExpression="/229"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Location.phone1"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/5 /234"/>
+  <owl:ObjectMinCardinality classExpression="/11" objectPropertyExpression="/229"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/5 /236"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/11" objectPropertyExpression="/229"/>
+  <owl:ObjectProperty entityURI="/240"/>
+  <owl:ObjectPropertyRange range="/11" objectPropertyExpression="/237"/>
+  <owl:ObjectPropertyDomain domain="/5" objectPropertyExpression="/237"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Location.phone2"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/5 /242"/>
+  <owl:ObjectMinCardinality classExpression="/11" objectPropertyExpression="/237"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/5 /244"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/11" objectPropertyExpression="/237"/>
+  <owl:ObjectProperty entityURI="/248"/>
+  <owl:ObjectPropertyRange range="/3" objectPropertyExpression="/245"/>
+  <owl:ObjectPropertyDomain domain="/5" objectPropertyExpression="/245"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Location.electronicAddress"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/5 /250"/>
+  <owl:ObjectMinCardinality classExpression="/3" objectPropertyExpression="/245"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/5 /252"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/3" objectPropertyExpression="/245"/>
+  <owl:Datatype entityURI="/254"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/258"/>
+  <owl:DataPropertyRange range="/253" dataPropertyExpression="/255"/>
+  <owl:DataPropertyDomain domain="/5" dataPropertyExpression="/255"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Location.direction"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/5 /260"/>
+  <owl:DataMinCardinality dataRange="/253" dataPropertyExpression="/255"/>
+  <owl:ObjectProperty entityURI="/264"/>
+  <owl:ObjectPropertyRange range="/8" objectPropertyExpression="/261"/>
+  <owl:ObjectPropertyDomain domain="/5" objectPropertyExpression="/261"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Location.status"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/5 /266"/>
+  <owl:ObjectMinCardinality classExpression="/8" objectPropertyExpression="/261"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/5 /268"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/8" objectPropertyExpression="/261"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#IdentifiedObject"/>
+  <owl:Datatype entityURI="/271"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/275"/>
+  <owl:DataPropertyRange range="/270" dataPropertyExpression="/272"/>
+  <owl:DataPropertyDomain domain="/6" dataPropertyExpression="/272"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#IdentifiedObject.aliasName"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/6 /277"/>
+  <owl:DataMinCardinality dataRange="/270" dataPropertyExpression="/272"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/6 /279"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/270" dataPropertyExpression="/272"/>
+  <owl:Datatype entityURI="/281"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/285"/>
+  <owl:DataPropertyRange range="/280" dataPropertyExpression="/282"/>
+  <owl:DataPropertyDomain domain="/6" dataPropertyExpression="/282"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#IdentifiedObject.description"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/6 /287"/>
+  <owl:DataMinCardinality dataRange="/280" dataPropertyExpression="/282"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/6 /289"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/280" dataPropertyExpression="/282"/>
+  <owl:Datatype entityURI="/291"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/295"/>
+  <owl:DataPropertyRange range="/290" dataPropertyExpression="/292"/>
+  <owl:DataPropertyDomain domain="/6" dataPropertyExpression="/292"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#IdentifiedObject.mRID"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/6 /297"/>
+  <owl:DataMinCardinality dataRange="/290" dataPropertyExpression="/292"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/6 /299"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/290" dataPropertyExpression="/292"/>
+  <owl:Datatype entityURI="/301"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/305"/>
+  <owl:DataPropertyRange range="/300" dataPropertyExpression="/302"/>
+  <owl:DataPropertyDomain domain="/6" dataPropertyExpression="/302"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#IdentifiedObject.name"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/6 /307"/>
+  <owl:DataMinCardinality dataRange="/300" dataPropertyExpression="/302"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/6 /309"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/300" dataPropertyExpression="/302"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#PowerSystemResource"/>
+  <owl:SubClassOf subClassExpression="/7" superClassExpression="/6"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Status"/>
+  <owl:Datatype entityURI="/314"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/318"/>
+  <owl:DataPropertyRange range="/313" dataPropertyExpression="/315"/>
+  <owl:DataPropertyDomain domain="/8" dataPropertyExpression="/315"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Status.value"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/8 /320"/>
+  <owl:DataMinCardinality dataRange="/313" dataPropertyExpression="/315"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/8 /322"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/313" dataPropertyExpression="/315"/>
+  <owl:Datatype entityURI="/324"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  <owl:DataProperty entityURI="/328"/>
+  <owl:DataPropertyRange range="/323" dataPropertyExpression="/325"/>
+  <owl:DataPropertyDomain domain="/8" dataPropertyExpression="/325"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Status.dateTime"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/8 /330"/>
+  <owl:DataMinCardinality dataRange="/323" dataPropertyExpression="/325"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/8 /332"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/323" dataPropertyExpression="/325"/>
+  <owl:Datatype entityURI="/334"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/338"/>
+  <owl:DataPropertyRange range="/333" dataPropertyExpression="/335"/>
+  <owl:DataPropertyDomain domain="/8" dataPropertyExpression="/335"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Status.remark"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/8 /340"/>
+  <owl:DataMinCardinality dataRange="/333" dataPropertyExpression="/335"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/8 /342"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/333" dataPropertyExpression="/335"/>
+  <owl:Datatype entityURI="/344"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/348"/>
+  <owl:DataPropertyRange range="/343" dataPropertyExpression="/345"/>
+  <owl:DataPropertyDomain domain="/8" dataPropertyExpression="/345"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Status.reason"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/8 /350"/>
+  <owl:DataMinCardinality dataRange="/343" dataPropertyExpression="/345"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/8 /352"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/343" dataPropertyExpression="/345"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetAddress"/>
+  <owl:ObjectProperty entityURI="/357"/>
+  <owl:ObjectPropertyRange range="/10" objectPropertyExpression="/354"/>
+  <owl:ObjectPropertyDomain domain="/9" objectPropertyExpression="/354"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetAddress.streetDetail"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/9 /359"/>
+  <owl:ObjectMinCardinality classExpression="/10" objectPropertyExpression="/354"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/9 /361"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/10" objectPropertyExpression="/354"/>
+  <owl:ObjectProperty entityURI="/365"/>
+  <owl:ObjectPropertyRange range="/12" objectPropertyExpression="/362"/>
+  <owl:ObjectPropertyDomain domain="/9" objectPropertyExpression="/362"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetAddress.townDetail"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/9 /367"/>
+  <owl:ObjectMinCardinality classExpression="/12" objectPropertyExpression="/362"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/9 /369"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/12" objectPropertyExpression="/362"/>
+  <owl:ObjectProperty entityURI="/373"/>
+  <owl:ObjectPropertyRange range="/8" objectPropertyExpression="/370"/>
+  <owl:ObjectPropertyDomain domain="/9" objectPropertyExpression="/370"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetAddress.status"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/9 /375"/>
+  <owl:ObjectMinCardinality classExpression="/8" objectPropertyExpression="/370"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/9 /377"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/8" objectPropertyExpression="/370"/>
+  <owl:Datatype entityURI="/379"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/383"/>
+  <owl:DataPropertyRange range="/378" dataPropertyExpression="/380"/>
+  <owl:DataPropertyDomain domain="/9" dataPropertyExpression="/380"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetAddress.postalCode"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/9 /385"/>
+  <owl:DataMinCardinality dataRange="/378" dataPropertyExpression="/380"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/9 /387"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/378" dataPropertyExpression="/380"/>
+  <owl:Datatype entityURI="/389"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/393"/>
+  <owl:DataPropertyRange range="/388" dataPropertyExpression="/390"/>
+  <owl:DataPropertyDomain domain="/9" dataPropertyExpression="/390"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetAddress.poBox"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/9 /395"/>
+  <owl:DataMinCardinality dataRange="/388" dataPropertyExpression="/390"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/9 /397"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/388" dataPropertyExpression="/390"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetDetail"/>
+  <owl:Datatype entityURI="/400"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/404"/>
+  <owl:DataPropertyRange range="/399" dataPropertyExpression="/401"/>
+  <owl:DataPropertyDomain domain="/10" dataPropertyExpression="/401"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetDetail.number"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /406"/>
+  <owl:DataMinCardinality dataRange="/399" dataPropertyExpression="/401"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /408"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/399" dataPropertyExpression="/401"/>
+  <owl:Datatype entityURI="/410"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/414"/>
+  <owl:DataPropertyRange range="/409" dataPropertyExpression="/411"/>
+  <owl:DataPropertyDomain domain="/10" dataPropertyExpression="/411"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetDetail.name"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /416"/>
+  <owl:DataMinCardinality dataRange="/409" dataPropertyExpression="/411"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /418"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/409" dataPropertyExpression="/411"/>
+  <owl:Datatype entityURI="/420"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/424"/>
+  <owl:DataPropertyRange range="/419" dataPropertyExpression="/421"/>
+  <owl:DataPropertyDomain domain="/10" dataPropertyExpression="/421"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetDetail.suffix"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /426"/>
+  <owl:DataMinCardinality dataRange="/419" dataPropertyExpression="/421"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /428"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/419" dataPropertyExpression="/421"/>
+  <owl:Datatype entityURI="/430"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/434"/>
+  <owl:DataPropertyRange range="/429" dataPropertyExpression="/431"/>
+  <owl:DataPropertyDomain domain="/10" dataPropertyExpression="/431"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetDetail.prefix"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /436"/>
+  <owl:DataMinCardinality dataRange="/429" dataPropertyExpression="/431"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /438"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/429" dataPropertyExpression="/431"/>
+  <owl:Datatype entityURI="/440"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/444"/>
+  <owl:DataPropertyRange range="/439" dataPropertyExpression="/441"/>
+  <owl:DataPropertyDomain domain="/10" dataPropertyExpression="/441"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetDetail.type"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /446"/>
+  <owl:DataMinCardinality dataRange="/439" dataPropertyExpression="/441"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /448"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/439" dataPropertyExpression="/441"/>
+  <owl:Datatype entityURI="/450"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/454"/>
+  <owl:DataPropertyRange range="/449" dataPropertyExpression="/451"/>
+  <owl:DataPropertyDomain domain="/10" dataPropertyExpression="/451"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetDetail.code"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /456"/>
+  <owl:DataMinCardinality dataRange="/449" dataPropertyExpression="/451"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /458"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/449" dataPropertyExpression="/451"/>
+  <owl:Datatype entityURI="/460"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/464"/>
+  <owl:DataPropertyRange range="/459" dataPropertyExpression="/461"/>
+  <owl:DataPropertyDomain domain="/10" dataPropertyExpression="/461"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetDetail.buildingName"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /466"/>
+  <owl:DataMinCardinality dataRange="/459" dataPropertyExpression="/461"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /468"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/459" dataPropertyExpression="/461"/>
+  <owl:Datatype entityURI="/470"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/474"/>
+  <owl:DataPropertyRange range="/469" dataPropertyExpression="/471"/>
+  <owl:DataPropertyDomain domain="/10" dataPropertyExpression="/471"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetDetail.suiteNumber"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /476"/>
+  <owl:DataMinCardinality dataRange="/469" dataPropertyExpression="/471"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /478"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/469" dataPropertyExpression="/471"/>
+  <owl:Datatype entityURI="/480"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/484"/>
+  <owl:DataPropertyRange range="/479" dataPropertyExpression="/481"/>
+  <owl:DataPropertyDomain domain="/10" dataPropertyExpression="/481"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetDetail.addressGeneral"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /486"/>
+  <owl:DataMinCardinality dataRange="/479" dataPropertyExpression="/481"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /488"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/479" dataPropertyExpression="/481"/>
+  <owl:Datatype entityURI="/490"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/494"/>
+  <owl:DataPropertyRange range="/489" dataPropertyExpression="/491"/>
+  <owl:DataPropertyDomain domain="/10" dataPropertyExpression="/491"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetDetail.addressGeneral2"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /496"/>
+  <owl:DataMinCardinality dataRange="/489" dataPropertyExpression="/491"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /498"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/489" dataPropertyExpression="/491"/>
+  <owl:Datatype entityURI="/500"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/504"/>
+  <owl:DataPropertyRange range="/499" dataPropertyExpression="/501"/>
+  <owl:DataPropertyDomain domain="/10" dataPropertyExpression="/501"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetDetail.addressGeneral3"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /506"/>
+  <owl:DataMinCardinality dataRange="/499" dataPropertyExpression="/501"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /508"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/499" dataPropertyExpression="/501"/>
+  <owl:Datatype entityURI="/510"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#boolean"/>
+  <owl:DataProperty entityURI="/514"/>
+  <owl:DataPropertyRange range="/509" dataPropertyExpression="/511"/>
+  <owl:DataPropertyDomain domain="/10" dataPropertyExpression="/511"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#StreetDetail.withinTownLimits"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /516"/>
+  <owl:DataMinCardinality dataRange="/509" dataPropertyExpression="/511"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/10 /518"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/509" dataPropertyExpression="/511"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#TelephoneNumber"/>
+  <owl:Datatype entityURI="/521"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/525"/>
+  <owl:DataPropertyRange range="/520" dataPropertyExpression="/522"/>
+  <owl:DataPropertyDomain domain="/11" dataPropertyExpression="/522"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#TelephoneNumber.countryCode"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/11 /527"/>
+  <owl:DataMinCardinality dataRange="/520" dataPropertyExpression="/522"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/11 /529"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/520" dataPropertyExpression="/522"/>
+  <owl:Datatype entityURI="/531"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/535"/>
+  <owl:DataPropertyRange range="/530" dataPropertyExpression="/532"/>
+  <owl:DataPropertyDomain domain="/11" dataPropertyExpression="/532"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#TelephoneNumber.areaCode"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/11 /537"/>
+  <owl:DataMinCardinality dataRange="/530" dataPropertyExpression="/532"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/11 /539"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/530" dataPropertyExpression="/532"/>
+  <owl:Datatype entityURI="/541"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/545"/>
+  <owl:DataPropertyRange range="/540" dataPropertyExpression="/542"/>
+  <owl:DataPropertyDomain domain="/11" dataPropertyExpression="/542"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#TelephoneNumber.cityCode"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/11 /547"/>
+  <owl:DataMinCardinality dataRange="/540" dataPropertyExpression="/542"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/11 /549"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/540" dataPropertyExpression="/542"/>
+  <owl:Datatype entityURI="/551"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/555"/>
+  <owl:DataPropertyRange range="/550" dataPropertyExpression="/552"/>
+  <owl:DataPropertyDomain domain="/11" dataPropertyExpression="/552"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#TelephoneNumber.localNumber"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/11 /557"/>
+  <owl:DataMinCardinality dataRange="/550" dataPropertyExpression="/552"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/11 /559"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/550" dataPropertyExpression="/552"/>
+  <owl:Datatype entityURI="/561"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/565"/>
+  <owl:DataPropertyRange range="/560" dataPropertyExpression="/562"/>
+  <owl:DataPropertyDomain domain="/11" dataPropertyExpression="/562"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#TelephoneNumber.extension"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/11 /567"/>
+  <owl:DataMinCardinality dataRange="/560" dataPropertyExpression="/562"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/11 /569"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/560" dataPropertyExpression="/562"/>
+  <owl:Datatype entityURI="/571"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/575"/>
+  <owl:DataPropertyRange range="/570" dataPropertyExpression="/572"/>
+  <owl:DataPropertyDomain domain="/11" dataPropertyExpression="/572"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#TelephoneNumber.dialOut"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/11 /577"/>
+  <owl:DataMinCardinality dataRange="/570" dataPropertyExpression="/572"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/11 /579"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/570" dataPropertyExpression="/572"/>
+  <owl:Datatype entityURI="/581"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/585"/>
+  <owl:DataPropertyRange range="/580" dataPropertyExpression="/582"/>
+  <owl:DataPropertyDomain domain="/11" dataPropertyExpression="/582"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#TelephoneNumber.internationalPrefix"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/11 /587"/>
+  <owl:DataMinCardinality dataRange="/580" dataPropertyExpression="/582"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/11 /589"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/580" dataPropertyExpression="/582"/>
+  <owl:Datatype entityURI="/591"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/595"/>
+  <owl:DataPropertyRange range="/590" dataPropertyExpression="/592"/>
+  <owl:DataPropertyDomain domain="/11" dataPropertyExpression="/592"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#TelephoneNumber.ituPhone"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/11 /597"/>
+  <owl:DataMinCardinality dataRange="/590" dataPropertyExpression="/592"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/11 /599"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/590" dataPropertyExpression="/592"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#TownDetail"/>
+  <owl:Datatype entityURI="/602"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/606"/>
+  <owl:DataPropertyRange range="/601" dataPropertyExpression="/603"/>
+  <owl:DataPropertyDomain domain="/12" dataPropertyExpression="/603"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#TownDetail.code"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/12 /608"/>
+  <owl:DataMinCardinality dataRange="/601" dataPropertyExpression="/603"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/12 /610"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/601" dataPropertyExpression="/603"/>
+  <owl:Datatype entityURI="/612"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/616"/>
+  <owl:DataPropertyRange range="/611" dataPropertyExpression="/613"/>
+  <owl:DataPropertyDomain domain="/12" dataPropertyExpression="/613"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#TownDetail.section"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/12 /618"/>
+  <owl:DataMinCardinality dataRange="/611" dataPropertyExpression="/613"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/12 /620"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/611" dataPropertyExpression="/613"/>
+  <owl:Datatype entityURI="/622"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/626"/>
+  <owl:DataPropertyRange range="/621" dataPropertyExpression="/623"/>
+  <owl:DataPropertyDomain domain="/12" dataPropertyExpression="/623"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#TownDetail.name"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/12 /628"/>
+  <owl:DataMinCardinality dataRange="/621" dataPropertyExpression="/623"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/12 /630"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/621" dataPropertyExpression="/623"/>
+  <owl:Datatype entityURI="/632"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/636"/>
+  <owl:DataPropertyRange range="/631" dataPropertyExpression="/633"/>
+  <owl:DataPropertyDomain domain="/12" dataPropertyExpression="/633"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#TownDetail.stateOrProvince"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/12 /638"/>
+  <owl:DataMinCardinality dataRange="/631" dataPropertyExpression="/633"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/12 /640"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/631" dataPropertyExpression="/633"/>
+  <owl:Datatype entityURI="/642"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#string"/>
+  <owl:DataProperty entityURI="/646"/>
+  <owl:DataPropertyRange range="/641" dataPropertyExpression="/643"/>
+  <owl:DataPropertyDomain domain="/12" dataPropertyExpression="/643"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#TownDetail.country"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/12 /648"/>
+  <owl:DataMinCardinality dataRange="/641" dataPropertyExpression="/643"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/12 /650"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/641" dataPropertyExpression="/643"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Reactance"/>
+  <owl:Datatype entityURI="/653"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#float"/>
+  <owl:DataProperty entityURI="/657"/>
+  <owl:DataPropertyRange range="/652" dataPropertyExpression="/654"/>
+  <owl:DataPropertyDomain domain="/13" dataPropertyExpression="/654"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Reactance.value"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/13 /659"/>
+  <owl:DataMinCardinality dataRange="/652" dataPropertyExpression="/654"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/13 /661"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/652" dataPropertyExpression="/654"/>
+  <owl:ObjectProperty entityURI="/665"/>
+  <owl:ObjectPropertyRange range="/27" objectPropertyExpression="/662"/>
+  <owl:ObjectPropertyDomain domain="/13" objectPropertyExpression="/662"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Reactance.unit"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/13 /667"/>
+  <owl:ObjectMinCardinality classExpression="/27" objectPropertyExpression="/662"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/13 /669"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/27" objectPropertyExpression="/662"/>
+  <owl:ObjectProperty entityURI="/673"/>
+  <owl:ObjectPropertyRange range="/24" objectPropertyExpression="/670"/>
+  <owl:ObjectPropertyDomain domain="/13" objectPropertyExpression="/670"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Reactance.multiplier"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/13 /675"/>
+  <owl:ObjectMinCardinality classExpression="/24" objectPropertyExpression="/670"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/13 /677"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/24" objectPropertyExpression="/670"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Resistance"/>
+  <owl:Datatype entityURI="/680"/>
+  <owl:URI value="http://www.w3.org/2001/XMLSchema#float"/>
+  <owl:DataProperty entityURI="/684"/>
+  <owl:DataPropertyRange range="/679" dataPropertyExpression="/681"/>
+  <owl:DataPropertyDomain domain="/14" dataPropertyExpression="/681"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Resistance.value"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/14 /686"/>
+  <owl:DataMinCardinality dataRange="/679" dataPropertyExpression="/681"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/14 /688"/>
+  <owl:DataMaxCardinality cardinality="1" dataRange="/679" dataPropertyExpression="/681"/>
+  <owl:ObjectProperty entityURI="/692"/>
+  <owl:ObjectPropertyRange range="/27" objectPropertyExpression="/689"/>
+  <owl:ObjectPropertyDomain domain="/14" objectPropertyExpression="/689"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Resistance.unit"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/14 /694"/>
+  <owl:ObjectMinCardinality classExpression="/27" objectPropertyExpression="/689"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/14 /696"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/27" objectPropertyExpression="/689"/>
+  <owl:ObjectProperty entityURI="/700"/>
+  <owl:ObjectPropertyRange range="/24" objectPropertyExpression="/697"/>
+  <owl:ObjectPropertyDomain domain="/14" objectPropertyExpression="/697"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Resistance.multiplier"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/14 /702"/>
+  <owl:ObjectMinCardinality classExpression="/24" objectPropertyExpression="/697"/>
+  <owl:EquivalentClasses equivalentClassExpressions="/14 /704"/>
+  <owl:ObjectMaxCardinality cardinality="1" classExpression="/24" objectPropertyExpression="/697"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#DummyPrimitive"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#CharacterString"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#URI"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#PhaseConnectedFaultKind"/>
+  <owl:NamedIndividual entityURI="/710"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#lineToGround"/>
+  <owl:NamedIndividual entityURI="/712"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#lineToLine"/>
+  <owl:NamedIndividual entityURI="/714"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#lineToLineToGround"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#PhaseCode"/>
+  <owl:NamedIndividual entityURI="/717"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ABCN"/>
+  <owl:NamedIndividual entityURI="/719"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ABC"/>
+  <owl:NamedIndividual entityURI="/721"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ABN"/>
+  <owl:NamedIndividual entityURI="/723"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ACN"/>
+  <owl:NamedIndividual entityURI="/725"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#BCN"/>
+  <owl:NamedIndividual entityURI="/727"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#AB"/>
+  <owl:NamedIndividual entityURI="/729"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#AC"/>
+  <owl:NamedIndividual entityURI="/731"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#BC"/>
+  <owl:NamedIndividual entityURI="/733"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#AN"/>
+  <owl:NamedIndividual entityURI="/735"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#BN"/>
+  <owl:NamedIndividual entityURI="/737"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#CN"/>
+  <owl:NamedIndividual entityURI="/739"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#A"/>
+  <owl:NamedIndividual entityURI="/741"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#B"/>
+  <owl:NamedIndividual entityURI="/743"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#C"/>
+  <owl:NamedIndividual entityURI="/745"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#N"/>
+  <owl:NamedIndividual entityURI="/747"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#s1N"/>
+  <owl:NamedIndividual entityURI="/749"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#s2N"/>
+  <owl:NamedIndividual entityURI="/751"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#s12N"/>
+  <owl:NamedIndividual entityURI="/753"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#s1"/>
+  <owl:NamedIndividual entityURI="/755"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#s2"/>
+  <owl:NamedIndividual entityURI="/757"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#s12"/>
+  <owl:NamedIndividual entityURI="/759"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#none"/>
+  <owl:NamedIndividual entityURI="/761"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#X"/>
+  <owl:NamedIndividual entityURI="/763"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#XY"/>
+  <owl:NamedIndividual entityURI="/765"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#XN"/>
+  <owl:NamedIndividual entityURI="/767"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#XYN"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#UnitMultiplier"/>
+  <owl:NamedIndividual entityURI="/770"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#y"/>
+  <owl:NamedIndividual entityURI="/772"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#z"/>
+  <owl:NamedIndividual entityURI="/774"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#a"/>
+  <owl:NamedIndividual entityURI="/776"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#f"/>
+  <owl:NamedIndividual entityURI="/778"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#p"/>
+  <owl:NamedIndividual entityURI="/780"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#n"/>
+  <owl:NamedIndividual entityURI="/782"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#micro"/>
+  <owl:NamedIndividual entityURI="/784"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#m"/>
+  <owl:NamedIndividual entityURI="/786"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#c"/>
+  <owl:NamedIndividual entityURI="/788"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#d"/>
+  <owl:NamedIndividual entityURI="/790"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#none"/>
+  <owl:NamedIndividual entityURI="/792"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#da"/>
+  <owl:NamedIndividual entityURI="/794"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#h"/>
+  <owl:NamedIndividual entityURI="/796"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#k"/>
+  <owl:NamedIndividual entityURI="/798"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#G"/>
+  <owl:NamedIndividual entityURI="/800"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#T"/>
+  <owl:NamedIndividual entityURI="/802"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#E"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#UnitSymbol"/>
+  <owl:NamedIndividual entityURI="/805"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#none"/>
+  <owl:NamedIndividual entityURI="/807"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#m"/>
+  <owl:NamedIndividual entityURI="/809"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#kg"/>
+  <owl:NamedIndividual entityURI="/811"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#s"/>
+  <owl:NamedIndividual entityURI="/813"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#A"/>
+  <owl:NamedIndividual entityURI="/815"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#K"/>
+  <owl:NamedIndividual entityURI="/817"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#mol"/>
+  <owl:NamedIndividual entityURI="/819"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#cd"/>
+  <owl:NamedIndividual entityURI="/821"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#deg"/>
+  <owl:NamedIndividual entityURI="/823"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#rad"/>
+  <owl:NamedIndividual entityURI="/825"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#sr"/>
+  <owl:NamedIndividual entityURI="/827"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Gy"/>
+  <owl:NamedIndividual entityURI="/829"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Bq"/>
+  <owl:NamedIndividual entityURI="/831"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#degC"/>
+  <owl:NamedIndividual entityURI="/833"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Sv"/>
+  <owl:NamedIndividual entityURI="/835"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#F"/>
+  <owl:NamedIndividual entityURI="/837"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#C"/>
+  <owl:NamedIndividual entityURI="/839"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#V"/>
+  <owl:NamedIndividual entityURI="/841"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ohm"/>
+  <owl:NamedIndividual entityURI="/843"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#J"/>
+  <owl:NamedIndividual entityURI="/845"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#N"/>
+  <owl:NamedIndividual entityURI="/847"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Hz"/>
+  <owl:NamedIndividual entityURI="/849"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#lx"/>
+  <owl:NamedIndividual entityURI="/851"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#lm"/>
+  <owl:NamedIndividual entityURI="/853"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Wb"/>
+  <owl:NamedIndividual entityURI="/855"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#T"/>
+  <owl:NamedIndividual entityURI="/857"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#W"/>
+  <owl:NamedIndividual entityURI="/859"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Pa"/>
+  <owl:NamedIndividual entityURI="/861"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#m2"/>
+  <owl:NamedIndividual entityURI="/863"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#m3"/>
+  <owl:NamedIndividual entityURI="/865"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#mPers"/>
+  <owl:NamedIndividual entityURI="/867"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#mPers2"/>
+  <owl:NamedIndividual entityURI="/869"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#m3Pers"/>
+  <owl:NamedIndividual entityURI="/871"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#mPerm3"/>
+  <owl:NamedIndividual entityURI="/873"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#kgm"/>
+  <owl:NamedIndividual entityURI="/875"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#kgPerm3"/>
+  <owl:NamedIndividual entityURI="/877"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#WPermK"/>
+  <owl:NamedIndividual entityURI="/879"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#JPerK"/>
+  <owl:NamedIndividual entityURI="/881"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ppm"/>
+  <owl:NamedIndividual entityURI="/883"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#rotPers"/>
+  <owl:NamedIndividual entityURI="/885"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#radPers"/>
+  <owl:NamedIndividual entityURI="/887"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#VA"/>
+  <owl:NamedIndividual entityURI="/889"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#VAr"/>
+  <owl:NamedIndividual entityURI="/891"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#cosPhi"/>
+  <owl:NamedIndividual entityURI="/893"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Vs"/>
+  <owl:NamedIndividual entityURI="/895"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#V2"/>
+  <owl:NamedIndividual entityURI="/897"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#As"/>
+  <owl:NamedIndividual entityURI="/899"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#A2"/>
+  <owl:NamedIndividual entityURI="/901"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#A2s"/>
+  <owl:NamedIndividual entityURI="/903"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#VAh"/>
+  <owl:NamedIndividual entityURI="/905"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Wh"/>
+  <owl:NamedIndividual entityURI="/907"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#VArh"/>
+  <owl:NamedIndividual entityURI="/909"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#VPerHz"/>
+  <owl:NamedIndividual entityURI="/911"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#HzPers"/>
+  <owl:NamedIndividual entityURI="/913"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#character"/>
+  <owl:NamedIndividual entityURI="/915"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#charPers"/>
+  <owl:NamedIndividual entityURI="/917"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#kgm2"/>
+  <owl:NamedIndividual entityURI="/919"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#dB"/>
+  <owl:NamedIndividual entityURI="/921"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#WPers"/>
+  <owl:NamedIndividual entityURI="/923"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#lPers"/>
+  <owl:NamedIndividual entityURI="/925"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#dBm"/>
+  <owl:NamedIndividual entityURI="/927"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#h"/>
+  <owl:NamedIndividual entityURI="/929"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#min"/>
+  <owl:NamedIndividual entityURI="/931"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Q"/>
+  <owl:NamedIndividual entityURI="/933"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Qh"/>
+  <owl:NamedIndividual entityURI="/935"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ohmm"/>
+  <owl:NamedIndividual entityURI="/937"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#APerm"/>
+  <owl:NamedIndividual entityURI="/939"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#V2h"/>
+  <owl:NamedIndividual entityURI="/941"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#A2h"/>
+  <owl:NamedIndividual entityURI="/943"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Ah"/>
+  <owl:NamedIndividual entityURI="/945"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#count"/>
+  <owl:NamedIndividual entityURI="/947"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ft3"/>
+  <owl:NamedIndividual entityURI="/949"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#m3Perh"/>
+  <owl:NamedIndividual entityURI="/951"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#gal"/>
+  <owl:NamedIndividual entityURI="/953"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Btu"/>
+  <owl:NamedIndividual entityURI="/955"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#l"/>
+  <owl:NamedIndividual entityURI="/957"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#lPerh"/>
+  <owl:NamedIndividual entityURI="/959"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#lPerl"/>
+  <owl:NamedIndividual entityURI="/961"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#gPerg"/>
+  <owl:NamedIndividual entityURI="/963"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#molPerm3"/>
+  <owl:NamedIndividual entityURI="/965"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#molPermol"/>
+  <owl:NamedIndividual entityURI="/967"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#molPerkg"/>
+  <owl:NamedIndividual entityURI="/969"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#sPers"/>
+  <owl:NamedIndividual entityURI="/971"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#HzPerHz"/>
+  <owl:NamedIndividual entityURI="/973"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#VPerV"/>
+  <owl:NamedIndividual entityURI="/975"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#APerA"/>
+  <owl:NamedIndividual entityURI="/977"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#VPerVA"/>
+  <owl:NamedIndividual entityURI="/979"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#rev"/>
+  <owl:NamedIndividual entityURI="/981"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#kat"/>
+  <owl:NamedIndividual entityURI="/983"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#JPerkg"/>
+  <owl:NamedIndividual entityURI="/985"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#m3Uncompensated"/>
+  <owl:NamedIndividual entityURI="/987"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#m3Compensated"/>
+  <owl:NamedIndividual entityURI="/989"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#WPerW"/>
+  <owl:NamedIndividual entityURI="/991"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#therm"/>
+  <owl:NamedIndividual entityURI="/993"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#onePerm"/>
+  <owl:NamedIndividual entityURI="/995"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#m3Perkg"/>
+  <owl:NamedIndividual entityURI="/997"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Pas"/>
+  <owl:NamedIndividual entityURI="/999"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Nm"/>
+  <owl:NamedIndividual entityURI="/1001"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#NPerm"/>
+  <owl:NamedIndividual entityURI="/1003"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#radPers2"/>
+  <owl:NamedIndividual entityURI="/1005"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#WPerm2"/>
+  <owl:NamedIndividual entityURI="/1007"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#JPerkgK"/>
+  <owl:NamedIndividual entityURI="/1009"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#JPerm3"/>
+  <owl:NamedIndividual entityURI="/1011"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#VPerm"/>
+  <owl:NamedIndividual entityURI="/1013"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#CPerm3"/>
+  <owl:NamedIndividual entityURI="/1015"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#CPerm2"/>
+  <owl:NamedIndividual entityURI="/1017"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#FPerm"/>
+  <owl:NamedIndividual entityURI="/1019"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#HPerm"/>
+  <owl:NamedIndividual entityURI="/1021"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#JPermol"/>
+  <owl:NamedIndividual entityURI="/1023"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#JPermolK"/>
+  <owl:NamedIndividual entityURI="/1025"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#CPerkg"/>
+  <owl:NamedIndividual entityURI="/1027"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#GyPers"/>
+  <owl:NamedIndividual entityURI="/1029"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#WPersr"/>
+  <owl:NamedIndividual entityURI="/1031"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#WPerm2sr"/>
+  <owl:NamedIndividual entityURI="/1033"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#katPerm3"/>
+  <owl:NamedIndividual entityURI="/1035"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#d"/>
+  <owl:NamedIndividual entityURI="/1037"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#anglemin"/>
+  <owl:NamedIndividual entityURI="/1039"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#anglesec"/>
+  <owl:NamedIndividual entityURI="/1041"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ha"/>
+  <owl:NamedIndividual entityURI="/1043"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#tonne"/>
+  <owl:NamedIndividual entityURI="/1045"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#bar"/>
+  <owl:NamedIndividual entityURI="/1047"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#mmHg"/>
+  <owl:NamedIndividual entityURI="/1049"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#kn"/>
+  <owl:NamedIndividual entityURI="/1051"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Vh"/>
+  <owl:NamedIndividual entityURI="/1053"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Mx"/>
+  <owl:NamedIndividual entityURI="/1055"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#G"/>
+  <owl:NamedIndividual entityURI="/1057"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#Oe"/>
+  <owl:NamedIndividual entityURI="/1059"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#WPerA"/>
+  <owl:NamedIndividual entityURI="/1061"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#SPerm"/>
+  <owl:NamedIndividual entityURI="/1063"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#onePerHz"/>
+  <owl:NamedIndividual entityURI="/1065"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#VPerVAr"/>
+  <owl:NamedIndividual entityURI="/1067"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#ohmPerm"/>
+  <owl:NamedIndividual entityURI="/1069"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#kgPerJ"/>
+  <owl:NamedIndividual entityURI="/1071"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#JPers"/>
+  <owl:NamedIndividual entityURI="/1073"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#m2Pers"/>
+  <owl:NamedIndividual entityURI="/1075"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#JPerm2"/>
+  <owl:NamedIndividual entityURI="/1077"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#KPers"/>
+  <owl:NamedIndividual entityURI="/1079"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#PaPers"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#FaultyEquipment_Faults"/>
+  <owl:URI value="http://www.enexis.nl/EA_Model#PowerSystemResources_Location"/>
+</xmi:XMI>
