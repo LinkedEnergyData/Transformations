@@ -17,7 +17,7 @@ The total transform can be done by starting the Ant build script
 PS. If the Ant Build doesn't work. right click on the buildfile, <run as>, <ant build....> on the <Main> tab, put
   ${workspace_loc:/}
 in the <Base Directory> field, UNset <build before launch> in tan <Build> and check <Run in the same JRE as the workbench> on the <JRE> tab.
-
+If you have downloaded the whole git tree, on the <MAIN> tab ,<Base Directory> filed, select button <Browse Filesystem> and select <workspacedir>/Transformations-master\Transformations-master
 
 This Ant-Build run is the only way the last step ( actual xml production ) can be triggered.
 
