@@ -39,3 +39,4 @@ Actual tools are in fact not relevant and should be interchangable. It's the met
 
 #Getting al transformations in your workspace: Download this repository, you will get something like Transformations-Master.zip.
 Unzip this. You will get the directory "Transformations-Master". Drag&drop the subdirs into your workspace dir. Then import 'existing projects into workspace, select your workspace dir, select the new projects and enter.
+Further reading: the Quintessential transformation.
