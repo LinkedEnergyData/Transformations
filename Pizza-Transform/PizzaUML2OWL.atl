@@ -1,0 +1,1379 @@
+-- @path MM=/UML2OWL/UML.ecore
+-- @path MM1=/UML2OWL/owl2.ecore
+
+module LinkED;
+create OUT : OWL from IN : UML, PRO : UML;
+
+helper def: datatypes : Map(String, String) =
+	Map {
+		('String', 'http://www.w3.org/2001/XMLSchema#string'),
+		('Integer', 'http://www.w3.org/2001/XMLSchema#nonNegativeInteger'),
+		('Boolean', 'http://www.w3.org/2001/XMLSchema#boolean'),
+		('DateTime', 'http://www.w3.org/2001/XMLSchema#dateTime'),
+		('UnlimitedNatural', 'http://www.w3.org/2001/XMLSchema#integer'),
+		('Byte', 'http://www.w3.org/2001/XMLSchema#byte'),
+		('Currency', 'http://www.w3.org/2001/XMLSchema#decimal'),
+		('Date', 'http://www.w3.org/2001/XMLSchema#date'),
+		('Double', 'http://www.w3.org/2001/XMLSchema#double'),
+		('Float', 'http://www.w3.org/2001/XMLSchema#float'),
+		('Long', 'http://www.w3.org/2001/XMLSchema#long'),
+		('Single', 'http://www.w3.org/2001/XMLSchema#short'),
+		('Variant', 'http://www.w3.org/2001/XMLSchema#string'),
+		('DummyPrimitive', 'http://www.w3.org/2001/XMLSchema#string'),
+		('CharacterString', 'http://www.w3.org/2001/XMLSchema#string'),
+		('URI', 'http://www.w3.org/2001/XMLSchema#anyUri')
+	};
+	
+helper context UML!Enumeration def : isCimPrimitive() : Boolean = false;
+
+helper context UML!Class def : isCimPrimitive() : Boolean = if (thisModule.datatypes.get(self.name).oclIsUndefined()) 
+					then false
+					else true
+					endif;	
+
+helper context UML!DataType def : isCimPrimitive() : Boolean = if (thisModule.datatypes.get(self.name).oclIsUndefined()) 
+					then false
+					else true
+					endif;	
+
+helper context UML!Class def : CimPrimitive() : String = if (thisModule.datatypes.get(self.name).oclIsUndefined()) 
+					then 'http://www.w3.org/2001/XMLSchema#string'
+					else thisModule.datatypes.get(self.name)
+					endif;
+
+helper context UML!DataType def : CimPrimitive() : String = if (thisModule.datatypes.get(self.name).oclIsUndefined()) 
+					then 'http://www.w3.org/2001/XMLSchema#string'
+					else thisModule.datatypes.get(self.name)
+					endif;
+
+helper context UML!Class def : ToDataType() : OWL!Datatype = thisModule.resolveTemp(self, 'cdo');
+helper context UML!DataType def : ToDataType() : OWL!Datatype = thisModule.resolveTemp(self, 'ddo');
+	
+helper context UML!Class def : reftype(ptype : UML!Classifier) : OWL!Type = if (self.isEnumeration()) 
+	then thisModule.resolveTemp(ptype, 'cddo')
+	else thisModule.resolveTemp(ptype, 'cco')
+	endif;
+helper context UML!Enumeration def : reftype(ptype : UML!Classifier) : OWL!Type = thisModule.resolveTemp(ptype, 'eoo');
+helper context UML!DataType def : reftype(ptype : UML!Classifier) : OWL!Type = thisModule.resolveTemp(ptype, 'ddo');
+
+helper context UML!Class def : commentowner() : OWL!Class = thisModule.resolveTemp(self, 'cco');
+helper context UML!Association def : commentowner() : OWL!Association = thisModule.resolveTemp(self, 'asopo');
+
+helper context UML!Property def : commentowner() : OWL!Property = if ( not self.class.oclIsUndefined() )
+	then if ( not self.type.oclIsUndefined() )
+		then if ( not self.type.isCimPrimitive() )
+			then thisModule.resolveTemp(self, 'a2opo')
+			else thisModule.resolveTemp(self, 'a2dpo')
+			endif
+			else thisModule.resolveTemp(self, 'a2dpo')
+		endif
+		else thisModule.resolveTemp(self, 'a2dpo')
+		endif;
+
+helper def: modelURI : String = 
+	let modelUriPackage : UML!Package = UML!Package.allInstancesFrom('IN')->select( e|e.hasStereoType('U2OOntology') and not e.anonymous() )->first() in
+	if ( not modelUriPackage.oclIsUndefined() )
+		then let modelUriDefST : UML!Stereotype = modelUriPackage.getStereoType('U2OOntology') in
+			if ( not modelUriDefST.oclIsUndefined() )
+				then let modelUriDefaultDef : String = modelUriPackage.getValue(modelUriDefST, 'defaultNamespace') in
+					if ( not modelUriDefaultDef.oclIsUndefined() ) 
+					then modelUriDefaultDef.replaceAll(' ', '_')
+					else if (  not modelUriPackage.getValue(modelUriDefST, 'namespaceDefinition').oclIsUndefined() ) 
+						then let modelUriDef : String = modelUriPackage.getValue(modelUriDefST, 'namespaceDefinition').namespaceURI in
+								if ( not modelUriDef.oclIsUndefined() ) 
+								then modelUriDef.replaceAll(' ', '_')
+								else 'http://PleaseApplyStereotype/#'
+								endif
+						else 'http://PleaseApplyStereotype/#'
+						endif
+					endif
+				else 'http://PleaseApplyStereotype/#'
+			endif
+			else 'http://PleaseApplyStereotype/#'
+	endif;
+
+helper def : xmlBase : String = 
+	let modelUriPackage : UML!Package = UML!Package.allInstancesFrom('IN')->select( e|e.hasStereoType('U2OOntology') and not e.anonymous() )->first() in
+	let xmlBaseDef : String = modelUriPackage.getValue(modelUriPackage.getStereoType('U2OOntology'), 'xmlBase') in
+		if ( xmlBaseDef.oclIsUndefined() or xmlBaseDef = '' ) 
+			then thisModule.modelURI.debug('xmlBase ')
+			else xmlBaseDef.replaceAll(' ', '_').debug('xmlBase ')
+			endif;
+
+helper context UML!Association def : AssocGetName() : String = self.memberEnd.at(1).type.name + '_' + self.memberEnd.at(2).type.name;
+
+helper context UML!Class def : isEnumeration() : Boolean = ( self.ownedAttribute->size() > 0 and self.ownedAttribute->forAll(e|e.isMandatory() and e.hasNoType()));
+
+helper context UML!MultiplicityElement def : isMandatory() : Boolean = (self.upper = 1 and self.lower = 1);
+helper context UML!Property def: hasNoType() : Boolean = self.type.oclIsUndefined();
+
+helper context UML!Association def : hasObjectPropertyAxiom(Axiom : String) : Boolean = if ( self.getStereoType('U2OObjectProperty').oclIsUndefined() )
+	then false
+	else (self.getValue(self.getStereoType('U2OObjectProperty'), Axiom) = true)
+	endif;
+
+helper context UML!Property def : hasObjectPropertyAxiom(Axiom : String) : Boolean = if ( self.getStereoType('U2OObjectProperty').oclIsUndefined() )
+	then false
+	else (self.getValue(self.getStereoType('U2OObjectProperty'), Axiom) = true)
+	endif;
+
+helper context UML!Property def : hasDatatypePropertyAxiom(Axiom : String) : Boolean = if ( self.getStereoType('U2ODatatypeProperty').oclIsUndefined() )
+	then false
+	else (self.getValue(self.getStereoType('U2ODatatypeProperty'), Axiom) = true)
+	endif;
+
+rule Model2Ontology {
+	from
+		moi : UML!Model in IN (moi.oclIsTypeOf(UML!Model))		
+	to
+		moo : OWL!Ontology (
+			 ontologyURI <- thisModule.CreateURI(thisModule.modelURI),
+				-- Classes are no children of Ontology
+				axioms <- Sequence {
+					-- all comment annotations
+					 UML!Comment.allInstancesFrom('IN')->select(e| ( not e.owner.oclIsTypeOf(UML!Package)) and (not e.anonymousOwner()) )->collect( e | thisModule.comment2annotation(e) ),
+					 -- lets get all typed assocs
+					UML!Association.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isFunctional') )->collect( e | thisModule.functionalAss(e) ),
+					UML!Association.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isInverseFunctional') )->collect( e | thisModule.inverseFunctionalAss(e) ),
+					UML!Association.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isTransitive') )->collect( e | thisModule.transitiveAss(e) ),
+					UML!Association.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isSymmetric') )->collect( e | thisModule.symmetricAss(e) ),
+					UML!Association.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isAsymmetric') )->collect( e | thisModule.asymmetricAss(e) ),
+					UML!Association.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isReflexive') )->collect( e | thisModule.reflexiveAss(e) ),
+					UML!Association.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isIrreflexive') )->collect( e | thisModule.irreflexiveAss(e) ),
+					-- get all typed objectproperties
+					UML!Property.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isFunctional') )->collect( e | thisModule.functionalProp(e) ),
+					UML!Property.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isInverseFunctional') )->collect( e | thisModule.inverseFunctionalProp(e) ),
+					UML!Property.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isTransitive') )->collect( e | thisModule.transitiveProp(e) ),
+					UML!Property.allInstancesFrom('IN')->select( e|e.hasObjectPropertyAxiom('isSymmetric') )->collect( e | thisModule.symmetricProp(e) ),
+					-- get all typed dataproperties
+										-- get all typed objectproperties
+					UML!Property.allInstancesFrom('IN')->select( e|e.hasDatatypePropertyAxiom('isFunctional') )->collect( e | thisModule.functionalDataProp(e) )
+
+				},
+				ontologyAnnotations <- UML!Package.allInstancesFrom('IN')->select(e|not e.anonymous() and e.hasStereoType('U2OOntology'))->collect(e|e.debug('package1').ontologyAnnotations())
+		)	
+		do {
+								
+				for (p in moi.getAllProfileApplications()) {
+				 	p.appliedProfile.debug('Applied Profile');
+			 		for (p2 in p.appliedProfile.nestedPackage) {
+				 		p2.debug('     Nested package');
+					}
+			 		--for (p3 in p.appliedProfile.ownedMember) {
+				 	--	p3.debug('  Owned Member');
+					--}
+				}
+				
+				UML!Package.allInstancesFrom('IN')->select( e|e.hasTaggedValue('U2OOntology', 'xmlBase') and not e.anonymous() )->collect(e| thisModule.serialization(e));
+		}
+}
+
+lazy rule serialization {
+	from serii : UML!Package
+	to serio : OWL!Serialization (
+		xmlBase <- thisModule.CreateURI(serii.getTaggedValue('U2OOntology', 'xmlBase'))
+		)
+	
+}
+
+-- foreign axioms ( dc, terms, skos, etc   .....) are in InstanceSpecifications
+helper context UML!InstanceSpecification def : FindSlot(propname : String) : UML!Slot = self.slot->select(e|not e.definingFeature.oclIsUndefined() and e.definingFeature.name = propname)->first();
+helper context UML!InstanceSpecification def : GetLiteralString(propname: String) : String = 
+	let slot : UML!Slot = self.FindSlot(propname) in
+	if ( not slot.oclIsUndefined() )
+	then slot.value->first().value
+	else ''
+	endif;
+
+helper context UML!Package def : ontologyAnnotations() : Sequence(OWL!AnnotationByConstant) = 
+	UML!Dependency.allInstancesFrom('IN')->select(e|e.supplier.debug('supplier ')->first() = self and e.client.debug('client ')->first().oclIsTypeOf(UML!InstanceSpecification) and e.client->first().slot.notEmpty() and e.client->first().classifier->first().namespace.debug('namespace ').hasTaggedValue('U2OOntology', 'namespaceDefinition') ).debug('suppliers ')->collect(e| thisModule.InstanceSpecification2Annotation(e.client->first().debug('client1 ')) );
+																																																																																								
+lazy rule InstanceSpecification2Annotation {
+	from oanni : UML!InstanceSpecification 
+
+	to  oanno  : OWL!AnnotationByConstant (
+			annotationProperty <- thisModule.createAnnotationPropertyH( oanni.classifier->first().namespace.getValue(oanni.classifier->first().namespace.debug('namespace').getStereoType('U2OOntology').debug('stereotype'), 'namespaceDefinition').namespacePrefix.debug('namespaceDef') + ':' + oanni.classifier->first().name.debug('name') ),
+			annotationValue <- oanno1,
+			language <- oanni.GetLiteralString('language')
+			),
+		oanno1 : OWL!Constant (
+				lexicalValue <- oanni.GetLiteralString('value')				
+			)
+			do {
+				oanni.slot->collect(e|e.definingFeature.debug('definingFeature ' + e.definingFeature.oclType()));
+			}
+}
+
+rule annotationProperties {
+	from apropsi : UML!Package in IN ( apropsi.anonymous() and apropsi.hasStereoType('U2OOntology') and  apropsi.hasTaggedValue('U2OOntology', 'namespaceDefinition'))
+using {
+	 	prf : String = apropsi.getTaggedValue('U2OOntology', 'namespaceDefinition').namespacePrefix.debug('namespaceDefinition prefix : ');
+		uri : String = apropsi.getTaggedValue('U2OOntology', 'namespaceDefinition').namespaceURI.debug('namespaceDefinition URI : ');
+	 }
+
+	to apropso : OWL!AnnotationProperty (
+		 entityURI <- thisModule.CreateURI( uri + '@' + prf ) 
+		)
+}
+
+lazy rule comment2annotation {
+	from
+		cai : UML!Comment 
+	to
+		cao : OWL!EntityAnnotation (
+				entity <- cai.owner.debug('owner ' + cai.owner.oclType() ).commentowner().debug('comment '),
+				entityAnnotations <- Sequence { cao3
+				}
+			),
+		cao2 : OWL!Constant (
+				lexicalValue <- cai.body
+			),
+		cao3 : OWL!AnnotationByConstant (
+			annotationProperty <- thisModule.createAnnotationPropertyH( 'rdfs:comment' ),
+				annotationValue <- cao2
+			)
+}
+
+-- anonymous end OR stereotype
+helper context UML!Comment def : anonymousOwner() : Boolean = if ( self.owner.oclIsTypeOf(UML!Class) )
+	then self.owner.anonymous()
+	else if (self.owner.oclIsTypeOf(UML!Association))
+		then self.owner.hasODMStereoType() or self.owner.memberEnd.at(1).type.anonymous() or self.owner.memberEnd.at(2).type.anonymous()
+		else false
+		endif
+		endif;
+
+
+helper context UML!Element def : anonymous() : Boolean = 
+	if ( self.hasStereoType('anonymous') ) 
+		then true
+		else if ( self.name.oclIsUndefined() ) 
+			then false
+			else if (self.name.toLower()  = '<anonymous>' ) 
+					then true
+					else false
+					endif
+					endif
+					endif;	
+
+helper context UML!Association def : isAssociationFor(ctype : UML!Class) : Boolean = self.memberEnd.at(1).type = ctype or self.memberEnd.at(2).type = ctype;
+
+-- Profile Helpers
+
+helper context UML!Class def : hasStereoType(stype : String) : Boolean = not self.getAppliedStereotype('ODM-Transform::' + stype).oclIsUndefined();
+helper context UML!Property def : hasStereoType(stype : String) : Boolean = not self.getAppliedStereotype('ODM-Transform::' + stype).oclIsUndefined();
+helper context UML!Package def : hasStereoType(stype : String) : Boolean = not self.getAppliedStereotype('ODM-Transform::' + stype).oclIsUndefined();
+helper context UML!Association def : hasStereoType(stype : String) : Boolean = not self.getAppliedStereotype('ODM-Transform::' + stype).oclIsUndefined();
+helper context UML!Enumeration def : hasStereoType(stype : String) : Boolean = not self.getAppliedStereotype('ODM-Transform::' + stype).oclIsUndefined();
+
+helper context UML!Class def : getStereoType(stype : String) : UML!Stereotype = self.getAppliedStereotype('ODM-Transform::' + stype);
+helper context UML!Property def : getStereoType(stype : String) : UML!Stereotype = self.getAppliedStereotype('ODM-Transform::' + stype);
+helper context UML!Package def : getStereoType(stype : String) : UML!Stereotype = self.getAppliedStereotype('ODM-Transform::' + stype);
+helper context UML!Association def : getStereoType(stype : String) : UML!Stereotype = self.getAppliedStereotype('ODM-Transform::' + stype);
+helper context UML!Enumeration def : getStereoType(stype : String) : UML!Stereotype = self.getAppliedStereotype('ODM-Transform::' + stype);
+
+helper context UML!Class def : stereotypeSelfValue(stype : String) : UML!Class = self.getValue(self.getAppliedStereotype('ODM-Transform::' + stype), stype);
+helper context UML!Property def : stereotypeSelfValue(stype : String) : UML!Class = self.getValue(self.getAppliedStereotype('ODM-Transform::' + stype), stype);
+
+helper context UML!Package def : hasTaggedValue(stype : String, vtype : String) : Boolean = 
+	let stereoType : UML!Stereotype = self.getStereoType(stype) in
+		if ( stereoType.oclIsUndefined() ) 
+			then false
+			else let taggedValue : String = self.getValue(stereoType, vtype) in
+			if ( taggedValue.oclIsUndefined() or taggedValue = '' )
+				then false
+				else true
+				endif
+				endif;		
+		
+helper context UML!Package def : getTaggedValue(stype : String, vtype : String) : String = 
+			let stereoType : UML!Stereotype = self.getStereoType(stype) in
+		if ( stereoType.oclIsUndefined() ) 
+			then ''
+			else let taggedValue : String = self.getValue(stereoType, vtype) in
+			if ( taggedValue.oclIsUndefined() )
+				then ''
+				else taggedValue
+				endif
+				endif;
+
+helper context UML!Class def : hasTaggedValue(stype : String, vtype : String) : Boolean = 
+	let stereoType : UML!Stereotype = self.getStereoType(stype) in
+		if ( stereoType.oclIsUndefined() ) 
+			then false
+			else let taggedValue : String = self.getValue(stereoType, vtype) in
+			if ( taggedValue.oclIsUndefined() or taggedValue = '' )
+				then false
+				else true
+				endif
+				endif;		
+		
+helper context UML!Class def : getTaggedValue(stype : String, vtype : String) : String = 
+			let stereoType : UML!Stereotype = self.getStereoType(stype) in
+		if ( stereoType.oclIsUndefined() ) 
+			then ''
+			else let taggedValue : String = self.getValue(stereoType, vtype) in
+			if ( taggedValue.oclIsUndefined() )
+				then ''
+				else taggedValue
+				endif
+				endif;
+		
+helper context UML!Enumeration def : hasTaggedValue(stype : String, vtype : String) : Boolean = 
+	let stereoType : UML!Stereotype = self.getStereoType(stype) in
+		if ( stereoType.oclIsUndefined() ) 
+			then false
+			else let taggedValue : String = self.getValue(stereoType, vtype) in
+			if ( taggedValue.oclIsUndefined() or taggedValue = '' )
+				then false
+				else true
+				endif
+				endif;		
+		
+helper context UML!Enumeration def : getTaggedValue(stype : String, vtype : String) : String = 
+			let stereoType : UML!Stereotype = self.getStereoType(stype) in
+		if ( stereoType.oclIsUndefined() ) 
+			then ''
+			else let taggedValue : String = self.getValue(stereoType, vtype) in
+			if ( taggedValue.oclIsUndefined() )
+				then ''
+				else taggedValue
+				endif
+				endif;
+helper context UML!Class def : hasClassifierReferenceTaggedValue(stype : String, vtype : String) : Boolean = 
+	let stereoType : UML!Stereotype = self.getStereoType(stype) in
+		if ( stereoType.oclIsUndefined() ) 
+			then false
+			else let taggedValue : UML!Classifier = self.getValue(stereoType, vtype) in
+			if ( taggedValue.oclIsUndefined() )
+				then false
+				else true
+				endif
+				endif;
+		
+helper context UML!Enumeration def : hasClassifierReferenceTaggedValue(stype : String, vtype : String) : Boolean = 
+	let stereoType : UML!Stereotype = self.getStereoType(stype) in
+		if ( stereoType.oclIsUndefined() ) 
+			then false
+			else let taggedValue : UML!Classifier = self.getValue(stereoType, vtype) in
+			if ( taggedValue.oclIsUndefined() )
+				then false
+				else true
+				endif
+				endif;
+		
+helper context UML!Class def : hasPropertyReferenceTaggedValue(stype : String, vtype : String) : Boolean = 
+	let stereoType : UML!Stereotype = self.getStereoType(stype) in
+		if ( stereoType.oclIsUndefined() ) 
+			then false
+			else let taggedValue : UML!Property = self.getValue(stereoType, vtype) in
+			if ( taggedValue.oclIsUndefined() )
+				then false
+				else true
+				endif
+				endif;		
+		
+helper context UML!Class def : getClassifierReferenceTaggedValue(stype : String, vtype : String) : UML!Classifier =
+			self.getValue(self.getStereoType(stype), vtype);
+			-- check existence first !!
+			
+helper context UML!Enumeration def : getClassifierReferenceTaggedValue(stype : String, vtype : String) : UML!Classifier =
+			self.getValue(self.getStereoType(stype), vtype);
+			-- check existence first !!
+			
+helper context UML!Class def : getPropertyReferenceTaggedValue(stype : String, vtype : String) : UML!Property =
+			self.getValue(self.getStereoType(stype), vtype);
+			-- check existence first !!
+
+-- if parent also in Intersection skip it 
+helper context UML!Class def : augmentClassIntersection() : Sequence(UML!Class) = 
+	let theAssociation : UML!Association = UML!Association.allInstancesFrom('IN')->select( e|e.isAssociationFor(self) and e.hasStereoType('U2OEquivalentClassAssociation'))->first( ) in
+	if ( not theAssociation.oclIsUndefined() )
+		then Sequence{ 	theAssociation.theOtherEnd(self) }
+		else Sequence{}
+		endif;
+			
+helper context UML!Class def : superClassInIntersection( superClass : UML!Class ) : Boolean = 
+	-- chain U2OAugment -> <<anonymous>> Class -> U2OEquivalentClassAssociation -> <<U2OIntersectionOf>> Class -> U2OInstersectionOfClass 
+    if ( self.hasStereoType('U2OAugment') )
+    	then let theIntersection : UML!Class = self.debug().stereotypeSelfValue('U2OAugment').augmentClassIntersection()->first() in
+		if ( not theIntersection.oclIsUndefined()  )
+    		then  if ( theIntersection.hasClassifierReferenceTaggedValue('U2OIntersectionOf', 'U2OIntersectionClass') )
+    			then let theInstersectionClass : UML!Class = theIntersection.getClassifierReferenceTaggedValue('U2OIntersectionOf', 'U2OIntersectionClass') in
+				theInstersectionClass = superClass 
+				else false
+				endif
+			else false
+			endif
+	else false
+	endif;
+
+helper context UML!Classifier def : foreignEntityAnnotationsHelper() : Sequence(OWL!AnnotationByConstant) = 
+	UML!Dependency.allInstancesFrom('IN')->select(e|e.supplier->first() = self and e.client->first().oclIsTypeOf(UML!InstanceSpecification) and e.client->first().slot.notEmpty() and e.client->first().classifier->first().namespace.hasTaggedValue('U2OOntology', 'namespaceDefinition') )->collect(e| thisModule.InstanceSpecification2Annotation(e.client->first()) );
+
+lazy rule AnnotationByConstant2EntityAnnotation {
+	from 
+		cli0 : OWL!Class,
+		cli1 : OWL!AnnotationByConstant
+	to
+		cao : OWL!EntityAnnotation (
+				entity <- cli0,
+				entityAnnotations <- Sequence { cli1 }
+			)
+}
+
+rule Class2Class {
+	from
+		cci : UML!Class  in IN (cci.debug().oclIsTypeOf(UML!Class) and not cci.isCimPrimitive() and not cci.name.oclIsUndefined() and not cci.isEnumeration() and not cci.anonymous() )
+	to
+		cco : OWL!Class (
+			-- namespace is the package name
+			-- entityURI <- thisModule.ModelURI2URI(cci.namespace.name + '.' + cci.name)
+			entityURI <- thisModule.ModelURI2URI(cci.name)
+		)		
+	do {
+		for ( p in cci.generalization ) {
+			if ( not p.general.anonymous() and not cci.superClassInIntersection(p.general)  ) {
+				thisModule.General2SubClassOf(cco, thisModule.resolveTemp(p.general, 'cco') );
+			}
+		}
+	
+		cci.name.debug('Classname');
+		
+		-- find labels
+		--if ( cci.hasStereoType('U2OLabels').debug('U2OLabels ') ) {
+		--	for ( ff in  cci.getValue(cci.getStereoType('U2OLabels'), 'labels') ) {
+		--		ff.debug( 'label: '+ ff.language + '  ' + ff.label);
+		--		thisModule.createEntityAnnotation( cco, ff.language , ff.label, 'rdfs:label');
+		--	}
+		--}
+		cci.createLabels(cco);
+
+		if ( cci.hasStereoType('U2OAugment') ) {
+			if ( not cci.stereotypeSelfValue('U2OAugment').oclIsUndefined() ) {
+				-- ClassAxiom = {SubClassOf, EquivalentClasses, DisjointClasses, DisjointUnion}
+				cci.stereotypeSelfValue('U2OAugment').U2OEquivalentClassHelper(cci);
+				cci.stereotypeSelfValue('U2OAugment').U2OSubClassRestrictionHelper(cci);
+				cci.stereotypeSelfValue('U2OAugment').U2ODisjointClassHelper(cci);
+				-- Don't do the Union for now.
+				-- Labels can also be at the augmentation class
+				-- find labels
+				cci.stereotypeSelfValue('U2OAugment').createLabels(cco);
+				--if ( cci.stereotypeSelfValue('U2OAugment').hasStereoType('U2OLabels ').debug('U2OLabels') ) {
+				--	for ( ff in  cci.stereotypeSelfValue('U2OAugment').getValue(cci.stereotypeSelfValue('U2OAugment').getStereoType('U2OLabels'), 'labels') ) {
+				--		ff.debug( 'label: '+ ff.language + '  ' + ff.label);
+				--		thisModule.createEntityAnnotation( cco, ff.language , ff.label, 'rdfs:label');
+				--	}
+				--}
+				-- now find foreign axioms and create Annotations for them
+				cci.stereotypeSelfValue('U2OAugment').foreignEntityAnnotationsHelper()->collect(e|thisModule.AnnotationByConstant2EntityAnnotation(cco,e));
+			}
+		}
+	}
+}
+
+helper context UML!Classifier def : createLabels(theOwlClass : OWL!Class) : Sequence(OWL!EntityAnnotation) = 
+	if ( self.hasStereoType('U2OLabels').debug('U2OLabels ') )
+	then self.getValue(self.getStereoType('U2OLabels'), 'labels')->collect(e| 
+				thisModule.createEntityAnnotation( theOwlClass, e.debug( 'label: '+ e.language + '  ' + e.label).language , e.label, 'rdfs:label'))
+				else Sequence{}
+					endif;
+
+	
+	
+lazy rule createEntityAnnotation {
+	from 
+	cli0 : OWL!Class,
+		cli1 : String,
+		cli2 : String,
+		cli3 : String
+	to
+		cao : OWL!EntityAnnotation (
+				entity <- cli0,
+				entityAnnotations <- Sequence { cao3
+				}
+			),
+		cao2 : OWL!Constant (
+				--lexicalValue <- cli2 + '@' + cli1
+				lexicalValue <- cli2 
+			),
+		cao3 : OWL!AnnotationByConstant (
+			annotationProperty <- thisModule.createAnnotationPropertyH( cli3 ),
+				annotationValue <- cao2,
+				language <- cli1
+			)
+}
+
+helper def: AnnotationProperties : Map(String, OWL!AnnotationProperty) = Map {};
+	
+helper def : createAnnotationPropertyH(ap: String) : OWL!AnnotationProperty = if ( not thisModule.AnnotationProperties.get(ap).oclIsUndefined() )
+		then thisModule.AnnotationProperties.get(ap)
+		else thisModule.createAnnotationProperty(ap)
+		endif;
+	
+lazy rule createAnnotationProperty {
+	from capi : String
+	to	capo : OWL!AnnotationProperty (
+		entityURI <- thisModule.CreateURI( capi )
+		)
+		do {
+			thisModule.AnnotationProperties <- thisModule.AnnotationProperties.union(Map{(capi, capo)} ).debug('weird');
+		}
+}
+
+helper context UML!Association def : theOtherEnd(lclass : UML!Class) : UML!Class = if ( not ( self.memberEnd.at(1).type = lclass) )
+	then self.memberEnd.at(1).type
+	else self.memberEnd.at(2).type
+	endif;
+
+-- ClassAxiom : SubClassRestriction
+
+helper context UML!Class def : U2OSubClassRestrictionHelper(theOriginClass : UML!Class) : Sequence(OWL!ClassAxiom) = 
+	let theSubClassRestrictionAssociation : Sequence(UML!Association) = UML!Association.allInstancesFrom('IN')->select( e|e.isAssociationFor(self) and e.hasStereoType('U2OSubClassRestrictionAssociation')) in
+	theSubClassRestrictionAssociation->collect(e| 
+		if ( e.theOtherEnd(self).hasPropertyReferenceTaggedValue('U2OSomeAllPattern', 'U2OOnProperty') )
+			then e.theOtherEnd(self).U2OSomeAllPattern(theOriginClass)
+			else thisModule.U2OSubClassRestriction(theOriginClass, e.theOtherEnd(self))
+				endif
+		);
+
+
+-- SOMEALL pattern <<U2OSomeAllPattern>> Class, tagged value 'U2OOnProperty', <<U2OUnionOfAssociation>>'s
+-- to <<U2OUnionOf>> Classes
+
+helper context UML!Class def : U2OSomeAllPattern(theOriginClass : UML!Class) : Sequence(OWL!ClassAxiom) = 
+	let theProperty : UML!Property = self.getPropertyReferenceTaggedValue('U2OSomeAllPattern', 'U2OOnProperty').debug('getPropertyReferenceTaggedValue(U2OOnProperty)   ') in
+	self.theUnionOfClassHelper()->flatten()->collect(e|thisModule.SomeValuesFromPattern(e, theProperty, theOriginClass))->union( Sequence{ thisModule.AllValuesFromPattern(self, theProperty, theOriginClass) } );
+	
+
+lazy rule U2OSubClassRestriction {
+	from oecli : UML!Class,
+		oecli1 : UML!Class
+	to oeclo : OWL!SubClassOf (
+		-- use superClassExpression because OWL2XML uses it, and sub... for finding it...
+		superClassExpression <- Sequence {
+			oecli1.SomeValueRestrictionsHelper(),
+			oecli1.AllValueRestrictionsHelper(),
+			oecli1.HasValueRestrictionHelper(),
+			oecli1.MinCardinalityHelper()
+		}->flatten()->first(),
+		subClassExpression <- oecli
+		)
+}
+
+-- ClassAxiom : EquivalentClass
+
+helper context UML!Class def : U2OEquivalentClassHelper(theOriginClass : UML!Class) : Sequence(OWL!ClassAxiom) =  
+	UML!Association.allInstancesFrom('IN')->select( e|e.isAssociationFor(self) and e.hasStereoType('U2OEquivalentClassAssociation'))->collect( e | thisModule.U2OEquivalentClass(theOriginClass, e.theOtherEnd(self)) );
+
+lazy rule U2OEquivalentClass {
+	from oecli : UML!Class,
+		oecli1 : UML!Class
+
+	to oeclo : OWL!EquivalentClasses (
+		equivalentClassExpressions <- Sequence {
+			-- Pizza has intersections and unions 
+			oecli,
+			oecli1.debug('U2OEquivalentClass: ').IntersectionOfHelper(),
+			oecli1.theUnionOfClassSelfHelper()
+			--oecli1.theUnionOfClassHelper(), -- assoc
+			--oecli1.theUnionOfClassesReferences() --or direct
+			
+				}
+		)
+}
+
+-- ClassAxiom : DisjointClasses
+
+-- 2 different serializations : owl:disjointWith enclosed in a class
+--							   owl:AllDisjointClasses : separate marching rule
+
+helper context UML!Class def : U2ODisjointClassHelper(theOriginClass : UML!Class) : Sequence(OWL!ClassAxiom) = if ( self.hasStereoType('U2ODisjointClass') ) 
+	then if ( not self.debug('DisjointClass ').stereotypeSelfValue('U2ODisjointClass').debug('U2ODisjointClass ').oclIsUndefined() )
+		then Sequence { thisModule.U2ODisjointClasses(theOriginClass, self) }
+		else Sequence { }
+	endif
+	else Sequence { }
+endif;
+	
+lazy rule U2ODisjointClasses {
+	from oecli : UML!Class,
+		oecli1 : UML!Class
+
+	to oeclo : OWL!DisjointClasses (
+		disjointClassExpressions <- Sequence {
+			thisModule.resolveTemp(oecli, 'cco'),
+			thisModule.resolveTemp(oecli1.stereotypeSelfValue('U2ODisjointClass'), 'cco')
+			
+				}
+		)
+}
+
+-- IntersectionOf
+
+helper context UML!Class def : IntersectionOfHelper() : Sequence (OWL!ObjectIntersectionOf) = if ( self.hasStereoType('U2OIntersectionOf') )
+	then Sequence {thisModule.IntersectionOf(self) }
+	else Sequence {}
+	endif;
+	
+helper context UML!Class def : hasIntersectionClass() : Sequence (OWL!ClassExpression) = if ( self.hasClassifierReferenceTaggedValue('U2OIntersectionOf', 'U2OIntersectionClass') )
+	then Sequence { thisModule.resolveTemp(self.getClassifierReferenceTaggedValue('U2OIntersectionOf', 'U2OIntersectionClass'), 'cco') }
+	else Sequence {}
+	endif;
+
+lazy rule IntersectionOf {
+	from oioi : UML!Class -- <anonymous>
+	to oioo : OWL!ObjectIntersectionOf (
+		classExpressions <- Sequence {
+			-- any parent classes
+			oioi.debug('U2OIntersectionOf: ').hasIntersectionClass(),
+			-- any complements
+			oioi.ComplementsOfHelper(),
+			-- any restrictions
+			--oioi.SomeValueRestrictionsHelper(),
+			UML!Association.allInstancesFrom('IN')->select( e|e.isAssociationFor(oioi) and e.hasStereoType('U2ORestrictionAssociation'))->collect( e | e.theOtherEnd(oioi).SomeValueRestrictionsHelper() ),
+			--oioi.AllValueRestrictionsHelper(),
+			UML!Association.allInstancesFrom('IN')->select( e|e.isAssociationFor(oioi) and e.hasStereoType('U2ORestrictionAssociation'))->collect( e | e.theOtherEnd(oioi).AllValueRestrictionsHelper() ),
+			--oioi.HasValueRestrictionHelper(),
+			UML!Association.allInstancesFrom('IN')->select( e|e.isAssociationFor(oioi) and e.hasStereoType('U2ORestrictionAssociation'))->collect( e | e.theOtherEnd(oioi).HasValueRestrictionHelper() ),
+			--oioi.MinCardinalityHelper(),
+			UML!Association.allInstancesFrom('IN')->select( e|e.isAssociationFor(oioi) and e.hasStereoType('U2ORestrictionAssociation'))->collect( e | e.theOtherEnd(oioi).MinCardinalityHelper() )
+			-- any one-ofs, not yet!!
+				}
+		)
+}	
+
+
+
+-- Complements :
+	
+helper context UML!Class def : ComplementsOfHelper() : Sequence (OWL!ClassExpression) = 
+	UML!Association.allInstancesFrom('IN')->select( e|e.isAssociationFor(self) and e.theOtherEnd(self).anonymous() and e.hasStereoType('U2OComplementOfAssociation')  )->collect( e | thisModule.ComplementOf(e.theOtherEnd(self),self) );
+
+
+helper context UML!Class def : hasComplementOfClass() : Sequence (OWL!ClassExpression) = if ( self.hasClassifierReferenceTaggedValue('U2OComplementOf', 'U2OComplementOfClass') )
+	then Sequence { thisModule.resolveTemp(self.getClassifierReferenceTaggedValue('U2OComplementOf', 'U2OComplementOfClass'), 'cco') }
+	else Sequence {}
+	endif;
+	
+lazy rule ComplementOf {
+	from ocoi : UML!Class,
+		ocoi1 : UML!Class
+	to ocoo : OWL!ObjectComplementOf (
+		classExpression <- Sequence {
+		-- can be one class only
+		ocoi.debug('ComplementOf: ').hasComplementOfClass().debug('ComplementOfClass: '),
+		-- any restrictions
+		ocoi.SomeValueRestrictionsHelper(),
+		ocoi.AllValueRestrictionsHelper(),
+		ocoi.HasValueRestrictionHelper(),
+		ocoi.MinCardinalityHelper()
+			}->flatten()->first()				-- can only be one, so ......
+		)
+}
+
+-- Restrictions : SomeValues, AllValues, hasValue, Cardinality
+
+-- SomeValues
+
+helper context UML!Class def : SomeValueRestrictionsHelper(theotherclass : UML!Class) : Sequence(OWL!ClassExpression) = if ( self.debug('SomeValueRestrictionsHelper ').hasStereoType('U2OSomeValuesFrom').debug('U2OSomeValuesFrom ') )
+	then Sequence { thisModule.SomeValuesFrom(self) }
+	else Sequence { }
+endif;
+
+lazy rule SomeValuesFrom {
+	from ocoi : UML!Class
+	to ocoo : OWL!ObjectSomeValuesFrom (
+		classExpression <- ocoi.debug('U2OSomeValuesFrom The Class ').RestrictionOrUnionClassFor('U2OSomeValuesFrom').debug('U2OSomeValuesFromCE') ,
+		objectPropertyExpression <- ocoi.objectPropertyFor('U2OSomeValuesFrom').debug('U2OSomeValuesFromOPE') 
+			)
+}
+
+lazy rule SomeValuesFromPattern {
+	from ocoi  : OWL!Class,
+	     ocoi1 : UML!Property,
+		 ocoi2 : UML!Class
+	to 	ocoio : OWL!SubClassOf (
+		superClassExpression <- ocoio1,
+		subClassExpression <- thisModule.resolveTemp(ocoi2, 'cco')
+		),				
+	 ocoio1 : OWL!ObjectSomeValuesFrom (
+		classExpression <- ocoi,
+		objectPropertyExpression <- thisModule.resolveTemp(ocoi1, 'a2opo')
+			)
+}
+
+-- AllValues
+
+helper context UML!Class def : AllValueRestrictionsHelper(theotherclass : UML!Class) : Sequence(OWL!ClassExpression) = if ( self.debug('AllValueRestrictionsHelper ').hasStereoType('U2OAllValuesFrom').debug('U2OAllValuesFrom ') )
+	then Sequence { thisModule.AllValuesFrom(self) }
+	else Sequence { }
+endif;
+
+lazy rule AllValuesFrom {
+	from ocoi : UML!Class
+	to ocoo : OWL!ObjectAllValuesFrom (
+		classExpression <- ocoi.debug('U2OAllValuesFrom The Class ').RestrictionOrUnionClassFor('U2OAllValuesFrom').debug('U2OAllValuesFromCE') ,
+		objectPropertyExpression <- ocoi.objectPropertyFor('U2OAllValuesFrom').debug('U2OAllValuesFromOPE') 
+			)
+}
+
+lazy rule AllValuesFromPattern {
+	from ocoi : UML!Class,
+		ocoi1 : UML!Property,
+		ocoi2 : UML!Class
+	to ocoio : OWL!SubClassOf (
+		superClassExpression <- ocoio1,
+		subClassExpression <- thisModule.resolveTemp(ocoi2, 'cco')
+		),		
+	ocoio1 : OWL!ObjectAllValuesFrom (
+		classExpression <- thisModule.theUnionOf(ocoi),
+		objectPropertyExpression <- thisModule.resolveTemp(ocoi1, 'a2opo')
+		)
+}
+
+-- HasValue
+
+helper context UML!Class def : HasValueRestrictionHelper(theotherclass : UML!Class) : Sequence(OWL!ClassExpression) = if ( self.debug('HasValueRestrictionHelper ').hasStereoType('U2OHasValue').debug('U2OHasValue ') )
+	then Sequence { thisModule.HasValue(self) }
+	else Sequence { }
+endif;
+
+lazy rule HasValue {
+	from ocoi : UML!Class
+	to ocoo : OWL!ObjectHasValue (
+		individual <- ocoi.debug('U2OHasValue The Class ').individualFor().debug('U2OHasValueCE') ,
+		objectPropertyExpression <- ocoi.objectPropertyFor('U2OHasValue').debug('U2OHasValueOPE') 
+			)
+}
+
+-- MinCardinality
+
+helper context UML!Class def : MinCardinalityHelper(theotherclass : UML!Class) : Sequence(OWL!ClassExpression) = if ( self.debug('MinCardinalityHelper ').hasStereoType('U2OMinCardinality').debug('U2OMinCardinality ') )
+	then Sequence { thisModule.MinCardinality(self) }
+	else Sequence { }
+endif;
+
+lazy rule MinCardinality {
+	from ocoi : UML!Class
+	to ocoo : OWL!ObjectMinCardinality (
+		cardinality <- ocoi.debug('U2OMinCardinality ').getTaggedValue('U2OMinCardinality', 'U2OCardinality').debug('MinCardinalityCE') ,
+		objectPropertyExpression <- ocoi.objectPropertyFor('U2OMinCardinality').debug('MinCardinalityOPE') 
+			)
+}
+
+helper context UML!Class def : objectPropertyFor( stype : String) : OWL!ObjectPropertyExpression = 
+	if ( self.debug('objectPropertyFor ' + stype ).hasPropertyReferenceTaggedValue(stype, 'U2OOnProperty').debug('hasPropertyReferenceTaggedValue(U2OOnProperty)   ') )
+		then let thePropertyReference : UML!Property = self.getPropertyReferenceTaggedValue(stype, 'U2OOnProperty').debug('U2OOnProperty: ') in
+			if ( not thePropertyReference.oclIsUndefined() )
+				then thisModule.resolveTemp(thePropertyReference, 'a2opo')
+				else thisModule.emptyObjectPropertyExpression(self)
+			endif
+		else thisModule.emptyObjectPropertyExpression(self)
+	endif;
+
+-- can be simple class OR intersection
+helper context UML!Class def : DisperseRestriction() : OWL!ClassExpression =
+	if ( self.hasStereoType('U2OIntersectionOf') ) 
+		then thisModule.IntersectionOf(self)
+		else thisModule.resolveTemp(self, 'cco')
+		endif;
+
+
+
+helper context UML!Class def : RestrictionOrUnionClassFor(stype : String) : OWL!ClassExpression = if ( self.debug('RestrictionOrUnionClassFor ').hasClassifierReferenceTaggedValue(stype, 'U2ORestrictionClass') )
+	then self.getClassifierReferenceTaggedValue(stype, 'U2ORestrictionClass').DisperseRestriction() 
+	else thisModule.theUnionOf(self)
+		endif;
+
+helper context UML!Class def : theUnionOfClassHelper (  ) : Sequence(OWL!ClassExpression) = 
+	UML!Association.allInstancesFrom('IN')->select( e|e.isAssociationFor(self) and e.hasStereoType('U2OUnionOfAssociation') )->collect(e | e.theOtherEnd(self).theUnionOfClassReference()->union(e.theOtherEnd(self).theUnionOfClassesReferences()).debug('theUnionOfClassHelper ') );
+
+helper context UML!Class def : theUnionOfClassSelfHelper (  ) : Sequence(OWL!ClassExpression) = 
+	if ( self.hasClassifierReferenceTaggedValue('U2OUnionOf', 'U2OUnionOfClass') or 
+			self.hasClassifierReferenceTaggedValue('U2OUnionOf', 'U2OUnionOfClasses') )
+		then Sequence { thisModule.theUnionOfSelf(self).debug('theUnionOfSelf ') }
+		else Sequence {}
+endif;
+
+helper context UML!Class def : theUnionOfClassReference (  ) : Sequence(OWL!ClassExpression) = 
+	if ( self.hasClassifierReferenceTaggedValue('U2OUnionOf', 'U2OUnionOfClass') )
+		then Sequence { thisModule.resolveTemp(self.getClassifierReferenceTaggedValue('U2OUnionOf', 'U2OUnionOfClass').debug(), 'cco') }
+		else Sequence {}
+		endif; 
+		
+helper context UML!Class def : theUnionOfClassesReferences (  ) : Sequence(OWL!ClassExpression) = 
+	if ( self.hasClassifierReferenceTaggedValue('U2OUnionOf', 'U2OUnionOfClasses') )
+		then Sequence {self.getTaggedValue('U2OUnionOf', 'U2OUnionOfClasses').debug('TaggedValue(U2OUnionOf, U2OUnionOfClasses) ')->collect(e| thisModule.resolveTemp(e, 'cco') ) }
+		else Sequence {}
+		endif; 
+
+lazy rule theUnionOf {
+	from ocoi : UML!Class
+	to ocoo : OWL!ObjectUnionOf (	
+		classExpressions <- Sequence { 
+			ocoi.theUnionOfClassHelper()
+		}
+	)
+}
+
+lazy rule theUnionOfSelf {
+	from ocoi : UML!Class
+	to ocoo : OWL!ObjectUnionOf (	
+		classExpressions <- Sequence { 
+			ocoi.theUnionOfClassReference(),
+			ocoi.theUnionOfClassesReferences()
+		}
+	)
+}
+
+lazy rule emptyObjectPropertyExpression {
+	from ocoi : UML!Class	
+	to ocoo : OWL!ObjectProperty (	
+			)
+}
+lazy rule emptyIndividual {
+	from ocoi : UML!Class	
+	to ocoo : OWL!Individual (	
+			)
+}
+
+helper context UML!Class def : individualFor() : OWL!Individual = 	if ( self.debug('individualFor ' ).hasTaggedValue('U2OHasValue', 'U2OHasValueEnumerationLiteral').debug('hasTaggedValue(U2OHasValu ,U2OHasValueEnumerationLiteral)   ') ) 
+			then thisModule.resolveTemp(self.getTaggedValue('U2OHasValue', 'U2OHasValueEnumerationLiteral').debug('getIV'), 'lio').debug('kk')
+			else thisModule.emptyIndividual(self)
+	endif;	
+
+rule Class2Datatype {
+	from
+		cdi : UML!Class  in IN (cdi.oclIsTypeOf(UML!Class) and cdi.isCimPrimitive())	
+		to
+		cdo : OWL!Datatype (
+			entityURI <- thisModule.CreateURI(cdi.CimPrimitive())
+			)
+}
+
+rule DataType2Datatype {
+	from
+		ddi : UML!DataType in IN ( not ddi.oclIsTypeOf( UML!Enumeration ) )
+		to
+		ddo : OWL!Datatype (
+			entityURI <- thisModule.CreateURI(ddi.CimPrimitive())
+			)
+			do {
+				ddi.name.debug('f');
+				thisModule.datatypes.get(ddi.name).debug('g');
+			}
+}
+
+-- ObjectProperties fom assocs are not included !!
+helper context UML!Property def : isProperObjectProperty() : Boolean = 
+	if ( not self.isObjectProperty() )
+	then false
+	else if ( self.association.oclIsUndefined() )
+			then if ( self.datatype.oclIsUndefined() )
+				then if ( not self.class.anonymous() )
+					then true
+					else false
+					endif
+				else false
+				endif
+			else false
+			endif
+	endif;
+
+-- ObjectProperties fom assocs are not included !!
+helper context UML!Property def : isObjectProperty() : Boolean = if ( self.class.oclIsUndefined() )
+	then false
+	else if ( self.type.oclIsUndefined() )
+		then false
+		else if self.type.oclIsTypeOf(UML!DataType)
+		then false
+		else not self.type.isCimPrimitive() 
+		endif
+		endif
+		endif;
+
+rule Attribute2ObjectProperty {
+	from
+		a2opi : UML!Property in IN  ( a2opi.isProperObjectProperty() )
+	to 
+		a2opo : OWL!ObjectProperty (
+			--entityURI <- thisModule.ModelURI2URI(a2opi.class.name + '.' + a2opi.name)
+			entityURI <- thisModule.ModelURI2URI(a2opi.name)
+			),
+		a2opo2 :	OWL!ObjectPropertyDomain (
+			domain <- thisModule.resolveTemp(a2opi.class, 'cco'),
+			objectPropertyExpression <- a2opo
+			),
+		a2opo1 : OWL!ObjectPropertyRange (
+			range <- a2opi.type.reftype(a2opi.type),
+			objectPropertyExpression <- a2opo
+			)
+	do {
+								--aoi.name.debug('');	
+			--aoi.lower.debug('');	
+			--aoi.upper.debug('');
+				if (a2opi.isCardinality() ) {
+					thisModule.ObjectProperty2ObjectExactCardinality(a2opi, a2opo);
+				}
+				if (a2opi.isMinCardinality() ) {
+					thisModule.ObjectProperty2ObjectMinCardinality(a2opi, a2opo);
+				}
+				if (a2opi.isMaxCardinality() ) {
+					thisModule.ObjectProperty2ObjectMaxCardinality(a2opi, a2opo);
+				}
+				if ( a2opi.hasStereoType('U2OSubPropertyOf') ) {
+					thisModule.SubPropertyOf(a2opi, a2opo);
+				}
+				if ( a2opi.hasStereoType('U2OInverseOf') ) {
+					thisModule.InverseOf(a2opi, a2opo);
+				}
+			}
+}
+
+
+helper context UML!Property def : getTheSubProperty() : UML!Property = self.stereotypeSelfValue('U2OSubPropertyOf').debug('getSP');
+
+lazy rule SubPropertyOf {
+	from spoi : UML!Property,
+		spoi1 : OWL!ObjectProperty
+	to spoo : OWL!SubObjectPropertyOf (
+		superObjectPropertyExpression <- spoi1,
+		subObjectPropertyExpressions <- thisModule.resolveTemp(spoi.getTheSubProperty(), 'a2opo')
+		)
+}
+
+helper context UML!Property def : getTheInverseOf() : UML!Property = self.stereotypeSelfValue('U2OInverseOf').debug('getIO');
+
+lazy rule InverseOf {
+	from spoi : UML!Property,
+		spoi1 : OWL!ObjectProperty
+	to spoo : OWL!InverseObjectProperties (
+		inverseObjectProperties <- Sequence { spoi1, thisModule.resolveTemp(spoi.getTheInverseOf(), 'a2opo') }
+		)
+}
+
+helper context UML!Property def: isMaxCardinality() : Boolean = (not self.isCardinality()) and (self.upper > 0);
+
+helper context UML!Property def: isMinCardinality() : Boolean = (not self.isCardinality()) and  (self.lower > 0);
+
+helper context UML!Property def: isCardinality() : Boolean = (self.upper = self.lower);
+
+
+lazy rule ObjectProperty2ObjectExactCardinality {
+	from
+        opexci3 : UML!Property,
+		opexci2 : OWL!ObjectProperty
+	to
+		opexcio : OWL!EquivalentClasses (
+			equivalentClassExpressions <- Sequence {
+				opexci3.class.reftype(opexci3.class),
+				opexcio1
+				}
+			),
+		opexcio1 : OWL!ObjectExactCardinality (
+			cardinality <- opexci3.upper,
+			classExpression <- opexci3.type.reftype(opexci3.type),
+			objectPropertyExpression <- opexci2
+			)
+}
+
+lazy rule ObjectProperty2ObjectMaxCardinality {
+	from
+		opexci3 : UML!Property,
+		opexci2 : OWL!ObjectProperty
+
+	to
+		opexcio : OWL!EquivalentClasses (
+			equivalentClassExpressions <- Sequence {
+				opexci3.class.reftype(opexci3.class),
+				opexcio1
+				}
+			),
+		opexcio1 : OWL!ObjectMaxCardinality (
+			cardinality <- opexci3.upper,
+			classExpression <- opexci3.type.reftype(opexci3.type),
+			objectPropertyExpression <- opexci2
+			)
+}
+
+lazy rule ObjectProperty2ObjectMinCardinality {
+	from
+		opexci3 : UML!Property,
+		opexci2 : OWL!ObjectProperty
+	to
+		opexcio : OWL!EquivalentClasses (
+			equivalentClassExpressions <- Sequence {
+				opexci3.class.reftype(opexci3.class),
+				opexcio1
+				}
+			),
+		opexcio1 : OWL!ObjectMinCardinality (
+			cardinality <- opexci3.lower,
+			classExpression <- opexci3.type.reftype(opexci3.type),
+			objectPropertyExpression <- opexci2
+			)
+}
+
+-- take in account the odd enumerations in the Inspire model
+helper context UML!Property def : classIsNoEnum() : Boolean = if ( self.class.oclIsUndefined())
+	then true
+	else not self.class.isEnumeration()
+	endif;
+
+helper context UML!Property def : assureType() : OWL!Datatype = if ( not self.type.oclIsUndefined() )
+	-- then thisModule.Class2Datatype(self.type)
+	then thisModule.resolveTemp(self.type, 'cdo').debug('AssureType ')
+	else thisModule.PrimitiveDatatype(thisModule.datatypes.get('String'))
+		endif;
+
+lazy rule PrimitiveDatatype {
+	from
+		pdi : String
+	to
+		pdo : OWL!Datatype (
+			entityURI <- thisModule.CreateURI(pdi)
+			)
+}
+
+helper context UML!Property def : ClassNoPrim() : Boolean = if ( self.class.oclIsUndefined() )
+	then true
+	else not self.class.isCimPrimitive()
+	endif;
+
+helper context UML!Property def : ClassAnonymous() : Boolean = if ( self.class.oclIsUndefined() )
+	then true
+	else self.class.anonymous()
+	endif;
+
+rule Attribute2DataProperty {
+	from 
+		a2dpi : UML!Property in IN ( not a2dpi.isObjectProperty() and not a2dpi.ClassAnonymous() and  a2dpi.ClassNoPrim() and a2dpi.association.oclIsUndefined() and a2dpi.datatype.oclIsUndefined() and a2dpi.classIsNoEnum())
+
+	to
+		a2dpo : OWL!DataProperty (
+				--entityURI <- thisModule.ModelURI2URI(a2dpi.debug('Prop').class.name + '.' + a2dpi.name)
+				entityURI <- thisModule.ModelURI2URI(a2dpi.name)
+			),
+		a2dpo2 :	OWL!DataPropertyDomain (
+				domain <- thisModule.resolveTemp(a2dpi.class, 'cco'),
+				dataPropertyExpression <- a2dpo
+			),
+		a2dpo1 : OWL!DataPropertyRange (
+				range <- a2dpi.assureType(),
+				dataPropertyExpression <- a2dpo
+			)
+	do {
+								--aoi.name.debug('');	
+			--aoi.lower.debug('');	
+			--aoi.upper.debug('');
+				if (a2dpi.isCardinality() ) {
+					thisModule.DataProperty2DataExactCardinality(a2dpi, a2dpo);
+				}
+				if (a2dpi.isMinCardinality() ) {
+					thisModule.DataProperty2DataMinCardinality(a2dpi, a2dpo);
+				}
+				if (a2dpi.isMaxCardinality() ) {
+					thisModule.DataProperty2DataMaxCardinality(a2dpi, a2dpo);
+				}
+			}
+}
+
+lazy rule DataProperty2DataExactCardinality {
+	from
+		opexci3 : UML!Property,
+		opexci2 : OWL!ObjectProperty
+
+	to
+		opexcio : OWL!EquivalentClasses (
+			equivalentClassExpressions <- Sequence {
+				opexci3.class.reftype(opexci3.class),
+				opexcio1
+				}
+			),
+		opexcio1 : OWL!DataExactCardinality (
+			cardinality <- opexci3.upper,
+			dataRange <- thisModule.resolveTemp(opexci3.type, 'cdo'),
+			dataPropertyExpression <- opexci2
+			)
+}
+
+lazy rule DataProperty2DataMaxCardinality {
+	from
+		opexci3 : UML!Property,
+		opexci2 : OWL!ObjectProperty
+
+	to
+		opexcio : OWL!EquivalentClasses (
+			equivalentClassExpressions <- Sequence {
+				opexci3.class.reftype(opexci3.class),
+				opexcio1
+				}
+			),
+		opexcio1 : OWL!DataMaxCardinality (
+			cardinality <- opexci3.upper,
+			dataRange <- thisModule.resolveTemp(opexci3.type, 'cdo'),
+			dataPropertyExpression <- opexci2
+			)
+}
+
+lazy rule DataProperty2DataMinCardinality {
+	from
+		opexci3 : UML!Property,
+		opexci2 : OWL!ObjectProperty
+
+	to
+		opexcio : OWL!EquivalentClasses (
+			equivalentClassExpressions <- Sequence {
+				opexci3.class.reftype(opexci3.class),
+				opexcio1
+				}
+			),
+		opexcio1 : OWL!DataMinCardinality (
+			cardinality <- opexci3.lower,
+			dataRange <- thisModule.resolveTemp(opexci3.type, 'cdo'),
+			dataPropertyExpression <- opexci2
+			)
+}
+
+lazy rule General2SubClassOf {
+	from 
+		gsi0 : OWL!Class,
+		gsi1 : OWL!Class
+	to
+		gso : OWL!SubClassOf (
+			superClassExpression <- gsi1,
+			subClassExpression <- gsi0			
+		)
+}
+
+rule Class2DataOneOf {
+	from 
+		cdi : UML!Class(not cdi.isCimPrimitive() and cdi.isEnumeration() and not cdi.anonymous())
+	to
+		cddo : OWL!Class (
+			entityURI <- thisModule.ModelURI2URI(cdi.name)
+			),
+	    cddo1 : OWL!ObjectOneOf (
+	    	individuals <- cdi.ownedAttribute->collect(e | thisModule.property2individual(e) )
+	    	),
+		cddo2 : OWL!EquivalentClasses (
+			equivalentClassExpressions <- Sequence { cddo, cddo1 }
+			)
+}
+
+
+helper context UML!Enumeration def : enumIsSubclassOf( oneof : OWL!ObjectOneOf ) : Sequence(OWL!IntersectionOf) =
+	if ( self.hasClassifierReferenceTaggedValue('U2OSubClassOf', 'U2OSubClassOfClass') )
+		then Sequence { thisModule.enumIntersectionOf(self.getClassifierReferenceTaggedValue('U2OSubClassOf', 'U2OSubClassOfClass'), oneof ) }
+		else Sequence { oneof }
+			endif;
+
+lazy rule enumIntersectionOf {
+	from enioi : UML!Class ,
+	enioi1 : OWL!ObjectOneOf
+	to enioo : OWL!ObjectIntersectionOf ( 
+		classExpressions <- Sequence { 
+			thisModule.resolveTemp(enioi , 'cco'), 
+			enioi1
+		}
+		)
+}
+
+rule Enumeration2DataOneOf {
+	from 
+		eoi : UML!Enumeration in IN
+	to
+		eoo : OWL!Class (
+			entityURI <- thisModule.ModelURI2URI(eoi.name)
+			)	,
+	    eoo1 : OWL!ObjectOneOf (
+	    	--individuals <- eoi.ownedLiteral->collect(e | thisModule.literal2individual(e) )
+			individuals <- eoi.ownedLiteral->collect(e | thisModule.resolveTemp(e , 'lio') )
+	    	),
+		eoo2 : OWL!EquivalentClasses (
+			equivalentClassExpressions <- Sequence { eoo, eoi.enumIsSubclassOf(eoo1) }
+			)
+	do {	
+		if ( eoi.hasTaggedValue('U2OEnumeration', 'AllDifferent') ) {
+			if ( eoi.getTaggedValue('U2OEnumeration', 'AllDifferent') ) {
+				thisModule.AllDifferent(eoi);
+			}
+		}	
+		-- find labels
+		eoi.createLabels(eoo);
+		-- now find foreign axioms and create Annotations for them
+		eoi.foreignEntityAnnotationsHelper()->collect(e|thisModule.AnnotationByConstant2EntityAnnotation(eoo,e));
+	}
+}
+
+lazy rule AllDifferent {
+	from 
+		alldi : UML!Enumeration
+	to
+		alldo : OWL!DifferentIndividuals (
+			differentIndividuals <- alldi.ownedLiteral->collect(e | thisModule.resolveTemp(e , 'lio'))
+			)
+}
+
+lazy rule property2individual {
+	from 
+		plii : UML!Property
+	to
+		plio : OWL!NamedIndividual (
+			entityURI <- thisModule.ModelURI2URI(plii.name)
+		)
+}
+
+rule literal2individual {
+	from 
+		lii : UML!EnumerationLiteral
+	to
+		lio : OWL!NamedIndividual (
+			entityURI <- thisModule.ModelURI2URI(lii.name)
+		)
+		do {
+			thisModule.ClassAssertion(lio, thisModule.resolveTemp(lii.enumeration, 'eoo' ) );
+		}
+}
+
+lazy rule ClassAssertion {
+	from 
+		cai : OWL!NamedIndividual,
+		cai1 : OWL!Class
+	to
+		cao : OWL!ClassAssertion (
+			classExpression <- cai1,
+			individual <- cai
+		)
+}
+
+
+lazy rule CreateURI {
+	from
+		u : String
+	to
+		o : OWL!URI (
+			value <- u
+		)
+}
+
+lazy rule ModelURI2URI {
+	from
+		u : String
+	to
+		o : OWL!URI (
+			value <- thisModule.xmlBase + '#' + u.replaceAll(' ', '_')
+			--value <- '#' + u.replaceAll(' ', '_')
+			)
+}
+
+helper context UML!Association def : hasODMStereoType(Axiom : String) : Boolean = if ( self.getAppliedStereotypes().isEmpty() )
+	then false
+	else true
+	endif;
+
+helper context UML!Association def : betweenAnonymous() : Boolean = ( self.memberEnd.at(1).type.anonymous() and self.memberEnd.at(1).type.anonymous() );
+
+rule Association2ObjectProperty {
+	from
+		asopi : UML!Association in IN ( not asopi.hasODMStereoType() and not asopi.betweenAnonymous() )
+	to
+		asopo : OWL!ObjectProperty (
+				entityURI <- thisModule.ModelURI2URI(asopi.AssocGetName())
+				--entityURI <- thisModule.ModelURI2URI(asopi.DebugAssociation5().debug(''))	
+			),
+		asopo2 :	OWL!ObjectPropertyDomain (
+				domain <- thisModule.resolveTemp(asopi.memberEnd.at(2).type, 'cco'),
+				objectPropertyExpression <- asopo
+			),
+		asopo1 : OWL!ObjectPropertyRange (
+				range <- thisModule.resolveTemp(asopi.memberEnd.at(1).type, 'cco'),
+				objectPropertyExpression <- asopo
+			)
+}
+
+lazy rule transitiveAss {
+	from trassi : UML!Association
+	to trasso : OWL!TransitiveObjectProperty (
+		objectPropertyExpression <- thisModule.resolveTemp(trassi, 'asopo')
+		)
+}
+lazy rule functionalAss {
+	from trassi : UML!Association
+	to trasso : OWL!FunctionalObjectProperty (
+		objectPropertyExpression <- thisModule.resolveTemp(trassi, 'asopo')
+		)
+}
+lazy rule inverseFunctionalAss {
+	from trassi : UML!Association
+	to trasso : OWL!InverseFunctionalObjectProperty (
+		objectPropertyExpression <- thisModule.resolveTemp(trassi, 'asopo')
+		)
+}
+lazy rule symmetricAss {
+	from trassi : UML!Association
+	to trasso : OWL!SymmetricObjectProperty (
+		objectsymmetricAssPropertyExpression <- thisModule.resolveTemp(trassi, 'asopo')
+		)
+}
+lazy rule transitiveProp {
+	from trassi : UML!Property
+	to trasso : OWL!TransitiveObjectProperty (
+		objectPropertyExpression <- thisModule.resolveTemp(trassi, 'a2opo')
+		)
+}
+lazy rule functionalProp {
+	from trassi : UML!Property
+	to trasso : OWL!FunctionalObjectProperty (
+		objectPropertyExpression <- thisModule.resolveTemp(trassi, 'a2opo')
+		)
+}
+lazy rule inverseFunctionalProp {
+	from trassi : UML!Property
+	to trasso : OWL!InverseFunctionalObjectProperty (
+		objectPropertyExpression <- thisModule.resolveTemp(trassi, 'a2opo')
+		)
+}
+lazy rule symmetricProp {
+	from trassi : UML!Property
+	to trasso : OWL!SymmetricObjectProperty (
+		objectPropertyExpression <- thisModule.resolveTemp(trassi, 'a2opo')
+		)
+}
+lazy rule functionalDataProp {
+	from trassi : UML!Property
+	to trasso : OWL!FunctionalDataProperty (
+		dataPropertyExpression <- thisModule.resolveTemp(trassi, 'a2dpo')
+		)
+}
+
+-- AllDisjointClasses
+
+-- 2 tagged values : U2OAllDisjointClass for single class, U2OAllDisjointClassess for multiple class
+helper context UML!Class def : AllDisjointClassReferences (  ) : Sequence(OWL!ClassExpression) = 
+	if ( self.debug('U2OAllDisjointClass ').hasClassifierReferenceTaggedValue('U2ODisjointClass', 'U2ODisjointClass').debug('hasClassifierReferenceTaggedValue(U2ODisjointClass, U2ODisjointClass)') )
+	then Sequence { thisModule.resolveTemp(self.getClassifierReferenceTaggedValue('U2ODisjointClass', 'U2ODisjointClass'), 'cco') } -> union ( self.AllDisjointClassesReferences() )
+	else self.AllDisjointClassesReferences()
+		endif;
+	
+helper context UML!Class def : AllDisjointClassesReferences (  ) : Sequence(OWL!ClassExpression) = 
+	if ( self.debug('U2OAllDisjointClasses ').hasClassifierReferenceTaggedValue('U2ODisjointClass', 'U2ODisjointClasses').debug('hasClassifierReferenceTaggedValue(U2ODisjointClass, U2ODisjointClasses)') )
+		then  self.getClassifierReferenceTaggedValue('U2ODisjointClass', 'U2ODisjointClasses').debug('fff ')->collect(e|  thisModule.resolveTemp(e.debug('eee '), 'cco'))
+		else 	Sequence {}
+		endif; 
+
+rule U2OAllDisjointClasses {
+	from adcli : UML!Class in IN ( adcli.anonymous() and adcli.hasStereoType('U2OAllDisjointClasses') )
+	to adclo : OWL!DisjointClasses (
+		disjointClassExpressions <- Sequence {
+			UML!Association.allInstancesFrom('IN')->select( e|e.isAssociationFor(adcli) and e.hasStereoType('U2OMemberAssociation') and e.theOtherEnd(adcli).hasStereoType('U2ODisjointClass'))->collect( e | e.theOtherEnd(adcli).AllDisjointClassReferences()),
+			-- don't forget myself
+			adcli.AllDisjointClassReferences()
+			--UML!Association.allInstancesFrom('IN')->select( e|e.isAssociationFor(adcli) and e.hasStereoType('U2OMemberAssociation') and e.theOtherEnd(adcli).hasStereoType('U2ODisjointClass'))->collect( e |  thisModule.resolveTemp( e.theOtherEnd(adcli).getClassifierReferenceTaggedValue('U2ODisjointClass','U2ODisjointClass'), 'cco')),
+			--adcli.AllDisjointClassesReferences()
+				}
+		)
+}
+
+
