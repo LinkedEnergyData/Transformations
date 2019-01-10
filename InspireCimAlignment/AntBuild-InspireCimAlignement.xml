@@ -1,6 +1,6 @@
 <project name="QS2OWL" default="transfo">
 	<!-- Change this value if you want to use another base dir in the workspace -->
-	<property name="mybasedir" value="Transformations/InspireCimAlignment"/>
+	<property name="mybasedir" value="InspireCimAlignment"/>
 	<property name="MMdir" value="/"/>
 	<property name="scriptdir" value="${mybasedir}"/>
 	<!-- Change this value if you want to use another input model -->
